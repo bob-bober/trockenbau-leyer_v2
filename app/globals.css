@@ -666,10 +666,3 @@ body {
   max-width: 1920rem;
   margin: 0 auto;
 }
-
-.header,
-.experience,
-.footer {
-  opacity: 0;
-  pointer-events: none;
-}
