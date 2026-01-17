@@ -354,7 +354,7 @@ body {
   content: "";
   position: absolute;
   top: 0;
-  bottom: -1rem;
+  bottom: -2rem;
   width: 1rem;
   background: var(--border);
   transition: clip-path 1.8s cubic-bezier(0.39, 0.52, 0, 1);
