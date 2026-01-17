@@ -128,6 +128,14 @@ export default function Home() {
                 });
               });
 
+              // Activate vertical lines on hero section
+              gsap.delayedCall(1, () => {
+                const heroSection = document.querySelector(".hero");
+                if (heroSection && window.innerWidth > 1100) {
+                  heroSection.classList.add("hero-lines-active");
+                }
+              });
+
               gsap.delayedCall(1, () => {
                 const experienceSection = document.querySelector(".experience");
                 if (experienceSection && window.innerWidth > 1100) {
