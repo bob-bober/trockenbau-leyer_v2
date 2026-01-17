@@ -2,9 +2,12 @@
 
 import { useEffect } from "react";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function Home() {
   useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
     const squares = document.querySelectorAll(".square-loader");
     const loaderNumbers = document.querySelector(".loader-numbers");
     const loaderCount = document.querySelector(".loader-count");
@@ -167,6 +170,59 @@ export default function Home() {
       { x: 0, duration: 1.5, delay: 3.2, ease: "power4.inOut" },
       0,
     );
+
+    const parallaxContainers = document.querySelectorAll(
+      ".parallax-container",
+    );
+
+    if (parallaxContainers.length) {
+      const scroller = window.innerWidth < 1100 ? ".scroll-container" : null;
+
+      const parallaxTween = gsap.fromTo(
+        ".parallax-image",
+        { yPercent: -12, ease: "none" },
+        {
+          yPercent: 12,
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".parallax-container",
+            scrub: true,
+            scroller,
+          },
+        },
+      );
+
+      const handleResize = () => {
+        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+        parallaxTween.kill();
+        const nextScroller = window.innerWidth < 1100 ? ".scroll-container" : null;
+
+        gsap.fromTo(
+          ".parallax-image",
+          { yPercent: -12, ease: "none" },
+          {
+            yPercent: 12,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".parallax-container",
+              scrub: true,
+              scroller: nextScroller,
+            },
+          },
+        );
+
+        ScrollTrigger.refresh();
+      };
+
+      window.addEventListener("resize", handleResize);
+
+      return () => {
+        window.removeEventListener("resize", handleResize);
+        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+        parallaxTween.kill();
+        tl.kill();
+      };
+    }
 
     return () => {
       tl.kill();
