@@ -528,6 +528,16 @@ body {
   backdrop-filter: blur(15px);
 }
 
+.text-block .line {
+  display: block;
+  overflow: hidden;
+}
+
+.text-block .line-inner {
+  display: inline-block;
+  will-change: transform;
+}
+
 @media (max-width: 1100px) {
   .experience__description {
     padding: 20px 30px;
