@@ -705,22 +705,42 @@ body {
 
 .culture-section__square:nth-child(1) {
   top: var(--culture-square-gap);
-  left: max(10px, calc((100% - var(--culture-content-width)) / 2 - var(--culture-square-offset)));
+  left: max(
+    10px,
+    calc(
+      (100% - var(--culture-content-width)) / 2 - var(--culture-square-offset)
+    )
+  );
 }
 
 .culture-section__square:nth-child(2) {
   top: var(--culture-square-gap);
-  right: max(10px, calc((100% - var(--culture-content-width)) / 2 - var(--culture-square-offset)));
+  right: max(
+    10px,
+    calc(
+      (100% - var(--culture-content-width)) / 2 - var(--culture-square-offset)
+    )
+  );
 }
 
 .culture-section__square:nth-child(3) {
   bottom: var(--culture-square-gap);
-  left: max(10px, calc((100% - var(--culture-content-width)) / 2 - var(--culture-square-offset)));
+  left: max(
+    10px,
+    calc(
+      (100% - var(--culture-content-width)) / 2 - var(--culture-square-offset)
+    )
+  );
 }
 
 .culture-section__square:nth-child(4) {
   bottom: var(--culture-square-gap);
-  right: max(10px, calc((100% - var(--culture-content-width)) / 2 - var(--culture-square-offset)));
+  right: max(
+    10px,
+    calc(
+      (100% - var(--culture-content-width)) / 2 - var(--culture-square-offset)
+    )
+  );
 }
 
 .culture-section__content {
