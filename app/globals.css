@@ -794,8 +794,9 @@ body {
 .experience-vision-section {
   width: 100%;
   background: #fff;
-  padding: 0 50px 120px;
-  margin-top: 0;
+  padding: 0 50px 0;
+  margin-top: 250px;
+  margin-bottom: 250px;
 }
 
 .experience-vision-wrapper {
@@ -899,8 +900,9 @@ body {
 
 @media (max-width: 1100px) {
   .experience-vision-section {
-    padding: 0 15px 100px;
-    margin-top: 0;
+    padding: 0 15px 0;
+    margin-top: 150px;
+    margin-bottom: 150px;
   }
   .experience-block {
     grid-template-columns: 1fr;
