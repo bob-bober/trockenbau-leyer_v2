@@ -8,6 +8,7 @@ import Lenis from "lenis";
 import { useTransitionContext } from "../components/TransitionProvider";
 import HeroSection from "../components/home/HeroSection";
 import CultureSection from "../components/home/CultureSection";
+import ExperienceVisionSection from "../components/home/ExperienceVisionSection";
 
 export default function Home() {
   const { playHomeIntro } = useTransitionContext();
@@ -321,6 +322,17 @@ export default function Home() {
           },
         });
 
+        // Check if element is already in viewport on init
+        const rect = el.getBoundingClientRect();
+        const threshold =
+          window.innerWidth > 1100
+            ? window.innerHeight * 0.8
+            : window.innerHeight * 0.75;
+        if (rect.top < threshold) {
+          gsap.set(lines, { yPercent: -100 });
+          tween.restart(true);
+        }
+
         lineTweens.push(tween);
         lineTriggers.push(trigger);
       });
@@ -405,6 +417,8 @@ export default function Home() {
       <HeroSection />
 
       <CultureSection />
+
+      <ExperienceVisionSection />
 
       <footer className="footer" aria-hidden="true" />
     </div>
