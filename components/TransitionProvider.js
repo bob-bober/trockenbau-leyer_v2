@@ -1,39 +1,37 @@
 "use client";
 
-import {
-	createContext,
-	useContext,
-	useEffect,
-	useMemo,
-	useState,
-} from "react";
+import { createContext, useContext, useMemo, useState } from "react";
 
 const TransitionContext = createContext({
-	playHomeIntro: true,
-	setPlayHomeIntro: () => {},
+  playHomeIntro: true,
+  setPlayHomeIntro: () => {},
 });
 
 export function TransitionProvider({ children }) {
-	const [playHomeIntro, setPlayHomeIntro] = useState(true);
+  // Calculate initial value directly, avoiding setState in effect
+  const [playHomeIntro, setPlayHomeIntro] = useState(() => {
+    if (typeof performance === "undefined") return true;
+    const navEntries = performance.getEntriesByType("navigation");
+    const navType =
+      navEntries && navEntries[0] ? navEntries[0].type : "navigate";
+    return navType === "reload";
+  });
 
-	useEffect(() => {
-		if (typeof performance === "undefined") return;
-		const navEntries = performance.getEntriesByType("navigation");
-		const navType = navEntries && navEntries[0] ? navEntries[0].type : "navigate";
-		setPlayHomeIntro(navType === "reload");
-	}, []);
+  const value = useMemo(
+    () => ({
+      playHomeIntro,
+      setPlayHomeIntro,
+    }),
+    [playHomeIntro],
+  );
 
-	const value = useMemo(
-		() => ({
-			playHomeIntro,
-			setPlayHomeIntro,
-		}),
-		[playHomeIntro],
-	);
-
-	return <TransitionContext.Provider value={value}>{children}</TransitionContext.Provider>;
+  return (
+    <TransitionContext.Provider value={value}>
+      {children}
+    </TransitionContext.Provider>
+  );
 }
 
 export function useTransitionContext() {
-	return useContext(TransitionContext);
+  return useContext(TransitionContext);
 }

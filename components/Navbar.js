@@ -82,7 +82,11 @@ export default function Navbar() {
   return (
     <header className="header">
       <div className="header__inner">
-        <TransitionLink className="header__logo" href="/" aria-label="Raine Architects">
+        <TransitionLink
+          className="header__logo"
+          href="/"
+          aria-label="Raine Architects"
+        >
           <img src={logoSrc} alt="Raine Architects" />
         </TransitionLink>
 

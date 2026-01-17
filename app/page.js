@@ -60,6 +60,12 @@ export default function Home() {
     const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
 
     if (hasLoader && playHomeIntro) {
+      // Hide header, experience, footer during intro animation
+      gsap.set(".header, .experience, .footer", {
+        opacity: 0,
+        pointerEvents: "none",
+      });
+
       tl.to(
         squares[0],
         { top: "0rem", left: "0rem", duration: 1, delay: 0.9 },
@@ -229,18 +235,18 @@ export default function Home() {
         pointerEvents: "auto",
       });
       gsap.set(".loader, .loader-count, .square-loader", { display: "none" });
-      
+
       // Activate lines immediately when coming back via SPA navigation
       const heroSection = document.querySelector(".hero");
       if (heroSection && window.innerWidth > 1100) {
         heroSection.classList.add("hero-lines-active");
       }
-      
+
       const gridCells = gsap.utils.toArray(".hero__grid-cell");
       gridCells.forEach((cell) => {
         cell.classList.add("hero__grid-cell-active");
       });
-      
+
       const experienceSection = document.querySelector(".experience");
       if (experienceSection && window.innerWidth > 1100) {
         experienceSection.classList.add("experience-line");
