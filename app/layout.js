@@ -1,6 +1,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar";
+import PageTransitionOverlays from "../components/PageTransition";
+import { TransitionProvider } from "../components/TransitionProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,8 +25,11 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Navbar />
-        <div className="scroll-container">{children}</div>
+        <TransitionProvider>
+          <Navbar />
+          <div className="scroll-container">{children}</div>
+          <PageTransitionOverlays />
+        </TransitionProvider>
       </body>
     </html>
   );

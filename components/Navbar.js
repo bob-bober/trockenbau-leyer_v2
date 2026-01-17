@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
+import TransitionLink from "./TransitionLink";
 
 const logoSrc =
   "http://localhost:3845/assets/a73ec3df9bdd2e3bbcbfcf37ee07a99805ec0fc4.svg";
@@ -81,9 +82,9 @@ export default function Navbar() {
   return (
     <header className="header">
       <div className="header__inner">
-        <Link className="header__logo" href="/" aria-label="Raine Architects">
+        <TransitionLink className="header__logo" href="/" aria-label="Raine Architects">
           <img src={logoSrc} alt="Raine Architects" />
-        </Link>
+        </TransitionLink>
 
         <nav className="header__nav" aria-label="Main">
           <ul className="header__menu">
@@ -94,28 +95,16 @@ export default function Navbar() {
               </Link>
             </li>
             <li>
-              <Link className="header__link" href="#portfolio">
+              <TransitionLink className="header__link" href="/">
                 <span className="header__dot" aria-hidden="true" />
-                <span>Portfolio</span>
-              </Link>
+                <span>Home</span>
+              </TransitionLink>
             </li>
             <li>
-              <Link className="header__link" href="#viz">
-                <span className="header__dot" aria-hidden="true" />
-                <span>3D Viz</span>
-              </Link>
-            </li>
-            <li>
-              <Link className="header__link" href="#about">
-                <span className="header__dot" aria-hidden="true" />
-                <span>About Us</span>
-              </Link>
-            </li>
-            <li>
-              <Link className="header__link" href="#contact">
+              <TransitionLink className="header__link" href="/contact">
                 <span className="header__dot" aria-hidden="true" />
                 <span>Contact</span>
-              </Link>
+              </TransitionLink>
             </li>
           </ul>
         </nav>

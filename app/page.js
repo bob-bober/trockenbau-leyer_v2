@@ -5,8 +5,11 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SplitType from "split-type";
 import Lenis from "lenis";
+import { useTransitionContext } from "../components/TransitionProvider";
 
 export default function Home() {
+  const { playHomeIntro } = useTransitionContext();
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -56,7 +59,7 @@ export default function Home() {
 
     const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
 
-    if (hasLoader) {
+    if (hasLoader && playHomeIntro) {
       tl.to(
         squares[0],
         { top: "0rem", left: "0rem", duration: 1, delay: 0.9 },
@@ -218,6 +221,30 @@ export default function Home() {
         { x: 0, duration: 1.5, delay: 3.2, ease: "power4.inOut" },
         0,
       );
+    }
+
+    if (hasLoader && !playHomeIntro) {
+      gsap.set(".header, .experience, .footer", {
+        opacity: 1,
+        pointerEvents: "auto",
+      });
+      gsap.set(".loader, .loader-count, .square-loader", { display: "none" });
+      
+      // Activate lines immediately when coming back via SPA navigation
+      const heroSection = document.querySelector(".hero");
+      if (heroSection && window.innerWidth > 1100) {
+        heroSection.classList.add("hero-lines-active");
+      }
+      
+      const gridCells = gsap.utils.toArray(".hero__grid-cell");
+      gridCells.forEach((cell) => {
+        cell.classList.add("hero__grid-cell-active");
+      });
+      
+      const experienceSection = document.querySelector(".experience");
+      if (experienceSection && window.innerWidth > 1100) {
+        experienceSection.classList.add("experience-line");
+      }
     }
 
     let splitInstance;
