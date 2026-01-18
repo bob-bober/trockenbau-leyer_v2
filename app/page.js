@@ -440,7 +440,7 @@ export default function Home() {
             ".ceo-top .ceo-left",
             { x: 0 },
             {
-              x: window.innerWidth > 1100 ? "-145%" : "-80%",
+              x: window.innerWidth > 1100 ? "-125%" : "-80%",
               ease: "power3.out",
               scrollTrigger: {
                 trigger: ".ceo-text",
@@ -457,7 +457,7 @@ export default function Home() {
             ".ceo-top .ceo-right",
             { x: 0 },
             {
-              x: window.innerWidth > 1100 ? "195%" : "100%",
+              x: window.innerWidth > 1100 ? "175%" : "100%",
               ease: "power3.out",
               scrollTrigger: {
                 trigger: ".ceo-text",
@@ -508,7 +508,7 @@ export default function Home() {
             ".ceo-anim-top",
             { x: -150 },
             {
-              x: 0,
+              x: 50,
               ease: "power3.out",
               scrollTrigger: {
                 trigger: ".ceo-bottom",
@@ -525,7 +525,7 @@ export default function Home() {
             ".ceo-anim-middle",
             { x: -150 },
             {
-              x: 0,
+              x: 50,
               ease: "power3.out",
               scrollTrigger: {
                 trigger: ".ceo-bottom",
@@ -542,7 +542,7 @@ export default function Home() {
             ".ceo-anim-bottom",
             { x: -150 },
             {
-              x: 0,
+              x: 50,
               ease: "power3.out",
               scrollTrigger: {
                 trigger: ".ceo-bottom",
