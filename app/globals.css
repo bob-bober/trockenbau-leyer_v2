@@ -40,13 +40,13 @@ h5 {
 }
 
 :root {
-  --bg-color: #fff;
-  --bg-light-color: #f1f6ff;
-  --black-text-color: #000;
-  --black-text-color-second: #1c2540;
+  --bg-color: #fbfbfb;
+  --bg-light-color: #f1b38d;
+  --black-text-color: #120802;
+  --black-text-color-second: #120802;
   --gray-text-color: #a1a6af;
-  --black-light-color: #494949;
-  --blue-color: #4f82d4;
+  --black-light-color: #120802;
+  --blue-color: #e66a1e;
   --border: #d9d9d9;
   --text-grey-color: #7c7c7c;
   --vh: 100vh;
@@ -62,7 +62,7 @@ h5 {
 }
 
 body {
-  background: #fff;
+  background: var(--bg-color);
   overflow-x: hidden;
 }
 
@@ -109,7 +109,7 @@ h6 * {
   top: 0;
   left: 0;
   width: 100%;
-  background: #fff;
+  background: var(--bg-color);
   border-bottom: 0.5px solid var(--border);
   z-index: 20;
   transition:
@@ -159,7 +159,7 @@ h6 * {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: "Inter", "Helvetica", Arial, sans-serif;
+  font-family: var(--font-montreal-regular), sans-serif;
   font-weight: 500;
   font-size: var(--navbar-font-size);
   line-height: 1.2;
@@ -239,7 +239,7 @@ h6 * {
     top: 100%;
     left: 0;
     right: 0;
-    background: #fff;
+    background: var(--bg-color);
     border-top: 0.5px solid var(--border);
     flex-direction: column;
     gap: 18px;
@@ -296,7 +296,7 @@ h6 * {
   color: var(--black-text-color-second);
   font-size: 80rem;
   font-weight: 500;
-  font-family: "Helvetica", Arial, sans-serif;
+  font-family: var(--font-montreal-regular), sans-serif;
 }
 
 /* ========== SQUARES ========== */
@@ -358,7 +358,7 @@ h6 * {
 .hero__grid-cell {
   padding: 36rem 50rem;
   color: var(--gray-text-color);
-  font-family: "Helvetica";
+  font-family: var(--font-montreal-regular), sans-serif;
   font-weight: 400;
   font-size: 20rem;
   line-height: 1.2;
@@ -459,7 +459,7 @@ h6 * {
 }
 
 .hero__title h1 span {
-  font-family: "Helvetica", Arial, sans-serif;
+  font-family: var(--font-montreal-regular), sans-serif;
   font-weight: 500;
   font-size: 140rem;
   line-height: 1.2;
@@ -590,7 +590,7 @@ h6 * {
 }
 
 .stats__title h2 {
-  font-family: "Helvetica", Arial, sans-serif;
+  font-family: var(--font-montreal-regular), sans-serif;
   font-weight: 400;
   font-size: 100rem;
   line-height: 1;
@@ -634,7 +634,7 @@ h6 * {
 }
 
 .stats__text p {
-  font-family: "Helvetica", Arial, sans-serif;
+  font-family: var(--font-montreal-book), sans-serif;
   font-size: 30rem;
   line-height: 1.5;
   letter-spacing: -0.01em;
@@ -643,11 +643,11 @@ h6 * {
 }
 
 .counter {
-  font-family: "Helvetica", Arial, sans-serif;
+  font-family: var(--font-montreal-regular), sans-serif;
   font-weight: 400;
   font-size: 110rem;
   letter-spacing: -0.05em;
-  color: var(--black-text-color-second);
+  color: var(--blue-color);
   display: inline-flex;
   gap: 4rem;
 }
@@ -677,13 +677,24 @@ h6 * {
 }
 
 .stats__label {
-  font-family: "Helvetica", Arial, sans-serif;
+  font-family: var(--font-montreal-book), sans-serif;
   font-size: 24rem;
   font-weight: 400;
   letter-spacing: 0.4rem;
   text-transform: uppercase;
   color: var(--black-light-color);
   margin-top: 24rem;
+}
+
+.stats__title span,
+.stats__count span,
+.stats__text span,
+.stats__label span,
+.counter span,
+.counter p,
+.stats-digit,
+.stats-digit span {
+  font-family: var(--font-montreal-regular), sans-serif !important;
 }
 
 .stats__square {
@@ -868,7 +879,7 @@ h6 * {
   display: flex;
   justify-content: center;
   gap: 100rem;
-  color: var(--black-text-color-second);
+  color: var(--blue-color);
 }
 
 .ceo-bottom {
@@ -895,6 +906,18 @@ h6 * {
 .ceo-anim-bottom {
   margin: 0;
   white-space: nowrap;
+}
+
+.ceo-anim-top {
+  font-size: 70px;
+}
+
+.ceo-anim-middle {
+  font-size: 61px;
+}
+
+.ceo-anim-bottom {
+  font-size: 47px;
 }
 
 .ceo-image-wrapper {
@@ -1116,7 +1139,7 @@ h6 * {
 
 .experience__description h3,
 .experience__description p {
-  font-family: "Helvetica", Arial, sans-serif;
+  font-family: var(--font-montreal-regular), sans-serif;
   font-weight: 400;
   font-size: 32rem;
   line-height: 1.2;
@@ -1149,7 +1172,7 @@ h6 * {
 .culture-section {
   position: relative;
   width: 100%;
-  background: #fff;
+  background: var(--bg-color);
   padding: 150rem 20rem;
   padding: 120px 20px;
   margin-top: 200rem;
@@ -1285,7 +1308,7 @@ h6 * {
 /* ========== EXPERIENCE / VISION SECTION ========== */
 .experience-vision-section {
   width: 100%;
-  background: #fff;
+  background: var(--bg-color);
   padding: 0 50px 0;
   margin-top: 250px;
   margin-bottom: 250px;
@@ -1302,12 +1325,27 @@ h6 * {
   display: grid;
   grid-template-columns: 391px 290rem 1fr;
   gap: 17px;
-  background: #f1f6ff;
+  background: var(--bg-color);
   padding: 0;
   position: sticky;
   top: 100px;
   align-items: start;
   border-top: 0.5px solid #d9d9d9;
+  isolation: isolate;
+}
+
+.experience-block::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(230, 106, 30, 0.35);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.experience-block > * {
+  position: relative;
+  z-index: 1;
 }
 
 .experience-block:first-child {
@@ -1327,7 +1365,7 @@ h6 * {
 }
 
 .experience-block__title {
-  font-family: "Inter", "Helvetica", Arial, sans-serif;
+  font-family: var(--font-montreal-regular), sans-serif;
   font-weight: 500;
   font-size: 69px;
   line-height: 1.1;
@@ -1377,7 +1415,7 @@ h6 * {
 }
 
 .experience-block__text {
-  font-family: "Inter", "Helvetica", Arial, sans-serif;
+  font-family: var(--font-montreal-regular), sans-serif;
   font-size: 18.5px;
   line-height: 1.15;
   color: var(--text-grey-color);
@@ -1431,7 +1469,7 @@ h6 * {
 /* ========== SERVICES SECTION ========== */
 .services {
   width: 100%;
-  background: #f5f5f5;
+  background: var(--bg-color);
   padding: 140px 0 180px;
   margin-top: 200px;
 }
@@ -1451,18 +1489,18 @@ h6 * {
 }
 
 .services__title {
-  font-family: "Helvetica", Arial, sans-serif;
+  font-family: var(--font-montreal-regular), sans-serif;
   font-weight: 500;
   font-size: 110px;
   line-height: 0.94;
   letter-spacing: -0.045em;
   text-transform: uppercase;
-  color: #000;
+  color: var(--black-text-color);
 }
 
 .services__descr {
   max-width: 1300px;
-  color: #4f82d4;
+  color: var(--blue-color);
   font-family: var(--font-montreal-regular), sans-serif !important;
   font-size: 51px;
   line-height: 1.2;
@@ -1494,7 +1532,7 @@ h6 * {
   top: 0;
   width: 0;
   height: 0;
-  background: #6b8dd6;
+  background: var(--blue-color);
   transform: translateX(-100%);
   opacity: 0;
   transition: opacity 0.35s ease;
@@ -1517,14 +1555,14 @@ h6 * {
   list-style: none;
   position: relative;
   background: transparent;
-  color: #000;
-  border-top: 1px solid #000;
+  color: var(--black-text-color);
+  border-top: 1px solid var(--black-text-color);
   cursor: pointer;
   transition: color 0.3s ease;
 }
 
 .services-card:last-child {
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid var(--black-text-color);
 }
 
 .services-card__header {
@@ -1537,7 +1575,7 @@ h6 * {
 }
 
 .services-card__index {
-  font-family: "Inter", "Helvetica", Arial, sans-serif;
+  font-family: var(--font-montreal-regular), sans-serif;
   font-weight: 500;
   font-size: 30px;
   letter-spacing: 0.08em;
@@ -1545,7 +1583,7 @@ h6 * {
 }
 
 .services-card__title {
-  font-family: "Helvetica", Arial, sans-serif;
+  font-family: var(--font-montreal-regular), sans-serif;
   font-weight: 600;
   font-size: 31px;
   line-height: 1.25;
@@ -1553,25 +1591,25 @@ h6 * {
 }
 
 .services__description-text {
-  font-family: "Inter", "Helvetica", Arial, sans-serif;
+  font-family: var(--font-montreal-regular), sans-serif;
   font-size: 22px;
   line-height: 1.68;
-  color: #1f2a44;
+  color: var(--black-text-color);
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.8) 0%,
-    #e6edf8 100%
+    rgba(251, 251, 251, 0.8) 0%,
+    rgba(230, 106, 30, 0.12) 100%
   );
   padding: 28px;
   border-radius: 4px;
 }
 
 .services-card.is-active {
-  color: #fff;
+  color: var(--bg-color);
 }
 
 .services-card:focus-visible {
-  outline: 2px solid #6b8dd6;
+  outline: 2px solid var(--blue-color);
   outline-offset: 4px;
 }
 
@@ -1611,7 +1649,7 @@ h6 * {
   height: 100%;
   min-height: 360px;
   overflow: hidden;
-  background: #e2e9f8;
+  background: rgba(230, 106, 30, 0.12);
 }
 
 .services__description-block-img img {
@@ -1622,14 +1660,14 @@ h6 * {
 }
 
 .services__description-text {
-  font-family: "Inter", "Helvetica", Arial, sans-serif;
+  font-family: var(--font-montreal-regular), sans-serif;
   font-size: 16px;
   line-height: 1.6;
-  color: #1f2a44;
+  color: var(--black-text-color);
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.8) 0%,
-    #e6edf8 100%
+    rgba(251, 251, 251, 0.8) 0%,
+    rgba(230, 106, 30, 0.12) 100%
   );
   padding: 28px;
   border-radius: 4px;
@@ -1638,9 +1676,9 @@ h6 * {
 .services-btn {
   margin-top: 18px;
   padding: 12px 22px;
-  border: 1px solid #000;
+  border: 1px solid var(--black-text-color);
   background: transparent;
-  font-family: "Inter", "Helvetica", Arial, sans-serif;
+  font-family: var(--font-montreal-regular), sans-serif;
   font-size: 14px;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -1655,8 +1693,8 @@ h6 * {
 
 .services-btn:hover,
 .services-btn:focus-visible {
-  background: #000;
-  color: #fff;
+  background: var(--black-text-color);
+  color: var(--bg-color);
 }
 
 @media (max-width: 1220px) {
@@ -1749,8 +1787,8 @@ h6 * {
   }
 
   .services-card {
-    border-left: 1px solid #000;
-    border-right: 1px solid #000;
+    border-left: 1px solid var(--black-text-color);
+    border-right: 1px solid var(--black-text-color);
   }
 
   .services-card__header {
@@ -1849,12 +1887,12 @@ h6 * {
 }
 
 .contact-figma__title {
-  font-family: "Helvetica", Arial, sans-serif;
+  font-family: var(--font-montreal-regular), sans-serif;
   font-weight: 400;
   font-size: 80rem;
   line-height: 1.05;
   letter-spacing: -0.02em;
-  color: #0e0e0e;
+  color: var(--black-text-color);
   text-transform: uppercase;
 }
 
@@ -1880,9 +1918,14 @@ h6 * {
   display: flex;
   flex-direction: column;
   gap: 16rem;
-  font-family: "Inter", "Helvetica", Arial, sans-serif;
-  font-size: 21rem;
+  font-family: var(--font-montreal-book), sans-serif;
+  font-size: 20px;
   color: rgba(18, 8, 2, 0.72);
+}
+
+.contact-figma__field span,
+.contact-figma__field label span {
+  font-family: var(--font-montreal-book), sans-serif !important;
 }
 
 .contact-figma__field input,
@@ -1890,9 +1933,9 @@ h6 * {
   border: none;
   border-bottom: 1px solid rgba(18, 8, 2, 0.32);
   padding: 0 0 14rem;
-  font-family: "Inter", "Helvetica", Arial, sans-serif;
-  font-size: 21rem;
-  color: #000;
+  font-family: var(--font-montreal-book), sans-serif;
+  font-size: 20px;
+  color: var(--black-text-color);
   background: transparent;
   outline: none;
   resize: none;
@@ -1911,16 +1954,16 @@ h6 * {
 }
 
 .contact-figma__actions button {
-  min-width: 240rem;
-  height: 72rem;
-  padding: 0 28rem;
+  min-width: 240px;
+  height: 70px;
+  padding: 0 32px;
   border-radius: 10rem;
   border: 1px solid #e66a1e;
   background: #e66a1e;
-  color: #0d0d0d;
-  font-family: "Inter", "Helvetica", Arial, sans-serif;
-  font-size: 18rem;
-  font-weight: 600;
+  color: var(--black-text-color);
+  font-family: var(--font-montreal-regular), sans-serif;
+  font-size: 20px;
+  font-weight: 400;
   cursor: pointer;
   transition:
     transform 0.16s ease,
@@ -1936,9 +1979,9 @@ h6 * {
 
 .contact-figma__status {
   margin-top: 8rem;
-  font-family: "Inter", "Helvetica", Arial, sans-serif;
+  font-family: var(--font-montreal-regular), sans-serif;
   font-size: 16rem;
-  color: #0e0e0e;
+  color: var(--black-text-color);
 }
 
 @media (max-width: 1100px) {
@@ -1962,7 +2005,7 @@ h6 * {
 .figma-form {
   position: relative;
   padding: 140rem 0 160rem;
-  background: #f8f9fc;
+  background: var(--bg-color);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
@@ -1996,19 +2039,19 @@ h6 * {
   display: flex;
   flex-direction: column;
   gap: 10rem;
-  font-family: "Inter", "Helvetica", Arial, sans-serif;
+  font-family: var(--font-montreal-regular), sans-serif;
   justify-self: center;
 }
 
 .site-footer__label {
   font-size: 21rem;
-  color: #000;
+  color: var(--black-text-color);
   line-height: 1.3;
 }
 
 .site-footer__value {
   font-size: 27rem;
-  color: #262626;
+  color: var(--black-text-color);
   line-height: 1.2;
 }
 
@@ -2016,9 +2059,9 @@ h6 * {
   display: flex;
   flex-direction: column;
   gap: 24rem;
-  font-family: "Inter", "Helvetica", Arial, sans-serif;
+  font-family: var(--font-montreal-regular), sans-serif;
   font-size: 16rem;
-  color: #262626;
+  color: var(--black-text-color);
   justify-self: end;
   margin-right: 47px;
 }
@@ -2053,7 +2096,7 @@ h6 * {
 }
 
 .figma-form__eyebrow {
-  font-family: "Inter", "Helvetica", Arial, sans-serif;
+  font-family: var(--font-montreal-regular), sans-serif;
   font-size: 14rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -2073,10 +2116,10 @@ h6 * {
   align-items: center;
   gap: 8rem;
   padding: 10rem 14rem;
-  background: #e8f1ff;
-  color: #1f4fa9;
+  background: rgba(230, 106, 30, 0.15);
+  color: var(--blue-color);
   border-radius: 10rem;
-  font-family: "Inter", "Helvetica", Arial, sans-serif;
+  font-family: var(--font-montreal-regular), sans-serif;
   font-size: 14rem;
   width: fit-content;
 }
@@ -2093,7 +2136,7 @@ h6 * {
   display: flex;
   flex-direction: column;
   gap: 8rem;
-  font-family: "Inter", "Helvetica", Arial, sans-serif;
+  font-family: var(--font-montreal-regular), sans-serif;
   color: var(--black-text-color-second);
   font-size: 15rem;
   letter-spacing: -0.01em;
@@ -2109,8 +2152,8 @@ h6 * {
   padding: 14rem 16rem;
   border-radius: 12rem;
   border: 1px solid var(--border);
-  background: #fff;
-  font-family: "Inter", "Helvetica", Arial, sans-serif;
+  background: var(--bg-color);
+  font-family: var(--font-montreal-regular), sans-serif;
   font-size: 15rem;
   color: var(--black-text-color-second);
   outline: none;
@@ -2123,7 +2166,7 @@ h6 * {
 .figma-form__field select:focus,
 .figma-form__field textarea:focus {
   border-color: var(--blue-color);
-  box-shadow: 0 0 0 3rem rgba(79, 130, 212, 0.15);
+  box-shadow: 0 0 0 3rem rgba(230, 106, 30, 0.15);
 }
 
 .figma-form__field--full {
@@ -2142,10 +2185,10 @@ h6 * {
   padding: 14rem 18rem;
   border-radius: 12rem;
   border: 1px solid var(--border);
-  background: #fff;
-  font-family: "Inter", "Helvetica", Arial, sans-serif;
-  font-size: 15rem;
-  font-weight: 600;
+  background: var(--bg-color);
+  font-family: var(--font-montreal-regular), sans-serif;
+  font-size: 21px;
+  font-weight: 400;
   cursor: pointer;
   transition:
     transform 0.2s ease,
@@ -2155,14 +2198,14 @@ h6 * {
 
 .figma-form__submit {
   background: var(--blue-color);
-  color: #fff;
+  color: var(--bg-color);
   border-color: var(--blue-color);
-  box-shadow: 0 8rem 24rem rgba(79, 130, 212, 0.2);
+  box-shadow: 0 8rem 24rem rgba(230, 106, 30, 0.2);
 }
 
 .figma-form__submit:hover {
   transform: translateY(-2rem);
-  box-shadow: 0 12rem 28rem rgba(79, 130, 212, 0.28);
+  box-shadow: 0 12rem 28rem rgba(230, 106, 30, 0.28);
 }
 
 .figma-form__reset:hover {
