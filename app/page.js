@@ -11,6 +11,7 @@ import StatsSection from "../components/home/StatsSection";
 import CeoSection from "../components/home/CeoSection";
 import CultureSection from "../components/home/CultureSection";
 import ExperienceVisionSection from "../components/home/ExperienceVisionSection";
+import ServicesSection from "../components/home/ServicesSection";
 
 export default function Home() {
   const { playHomeIntro } = useTransitionContext();
@@ -692,6 +693,8 @@ export default function Home() {
       <CultureSection />
 
       <ExperienceVisionSection />
+
+      <ServicesSection />
 
       <StatsSection />
 
