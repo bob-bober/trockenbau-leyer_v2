@@ -7,6 +7,7 @@ import SplitType from "split-type";
 import Lenis from "lenis";
 import { useTransitionContext } from "../components/TransitionProvider";
 import HeroSection from "../components/home/HeroSection";
+import StatsSection from "../components/home/StatsSection";
 import CultureSection from "../components/home/CultureSection";
 import ExperienceVisionSection from "../components/home/ExperienceVisionSection";
 
@@ -260,6 +261,7 @@ export default function Home() {
     let parallaxTween;
     let lineTweens = [];
     let lineTriggers = [];
+    let statsTweens = [];
 
     const updateSplit = () => {
       if (splitInstance) splitInstance.revert();
@@ -360,10 +362,46 @@ export default function Home() {
       );
     };
 
+    const initStatsAnimations = () => {
+      statsTweens.forEach((tween) => tween.kill());
+      statsTweens = [];
+
+      const statsSection = document.querySelector(".stats");
+      if (!statsSection) {
+        return;
+      }
+
+      const scroller = window.innerWidth < 1100 ? ".scroll-container" : null;
+      const titleTrigger = () => ({
+        trigger: ".stats__title",
+        start: "top 40%",
+        scroller,
+      });
+      const captureTween = (tween) => {
+        if (tween) {
+          statsTweens.push(tween);
+        }
+      };
+
+      captureTween(
+        gsap.fromTo(
+          ".and",
+          { y: "-100%" },
+          {
+            y: 0,
+            ease: "power4.inOut",
+            duration: 0.7,
+            scrollTrigger: titleTrigger(),
+          },
+        ),
+      );
+    };
+
     updateSplit();
     requestAnimationFrame(() => {
       applyLineAnimations();
       applyParallax();
+      initStatsAnimations();
       ScrollTrigger.refresh();
     });
 
@@ -381,6 +419,7 @@ export default function Home() {
       requestAnimationFrame(() => {
         applyLineAnimations();
         applyParallax();
+        initStatsAnimations();
         ScrollTrigger.refresh();
       });
     };
@@ -394,6 +433,7 @@ export default function Home() {
       parallaxTween?.kill();
       lineTweens.forEach((tween) => tween.kill());
       lineTriggers.forEach((trigger) => trigger.kill());
+      statsTweens.forEach((tween) => tween.kill());
       splitInstance?.revert();
       destroyLenis();
       tl.kill();
@@ -419,6 +459,8 @@ export default function Home() {
       <CultureSection />
 
       <ExperienceVisionSection />
+
+      <StatsSection />
 
       <footer className="footer" aria-hidden="true" />
     </div>
