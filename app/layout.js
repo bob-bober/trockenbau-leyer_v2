@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "../components/Navbar";
 import PageTransitionOverlays from "../components/PageTransition";
 import { TransitionProvider } from "../components/TransitionProvider";
+import Footer from "../components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,6 +29,7 @@ export default function RootLayout({ children }) {
         <TransitionProvider>
           <Navbar />
           <div className="scroll-container">{children}</div>
+          <Footer />
           <PageTransitionOverlays />
         </TransitionProvider>
       </body>
