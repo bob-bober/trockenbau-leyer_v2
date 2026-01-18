@@ -8,6 +8,7 @@ import Lenis from "lenis";
 import { useTransitionContext } from "../components/TransitionProvider";
 import HeroSection from "../components/home/HeroSection";
 import StatsSection from "../components/home/StatsSection";
+import CeoSection from "../components/home/CeoSection";
 import CultureSection from "../components/home/CultureSection";
 import ExperienceVisionSection from "../components/home/ExperienceVisionSection";
 
@@ -61,9 +62,10 @@ export default function Home() {
     const loaderCount = document.querySelector(".loader-count");
     const hasLoader = squares.length && loaderNumbers && loaderCount;
 
-    const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
+    let tl = null;
 
     if (hasLoader && playHomeIntro) {
+      tl = gsap.timeline({ defaults: { ease: "power2.out" } });
       // Hide header, experience, footer during intro animation
       gsap.set(".header, .experience, .footer", {
         opacity: 0,
@@ -262,6 +264,7 @@ export default function Home() {
     let lineTweens = [];
     let lineTriggers = [];
     let statsTweens = [];
+    let ceoTweens = [];
 
     const updateSplit = () => {
       if (splitInstance) splitInstance.revert();
@@ -397,11 +400,288 @@ export default function Home() {
       );
     };
 
+    const initCeoAnimations = () => {
+      ceoTweens.forEach((tween) => tween.kill());
+      ceoTweens = [];
+
+      const ceoSection = document.querySelector(".ceo");
+      if (!ceoSection) {
+        return;
+      }
+
+      const scroller = window.innerWidth < 1100 ? ".scroll-container" : null;
+      const captureTween = (tween) => {
+        if (tween) {
+          ceoTweens.push(tween);
+        }
+      };
+
+      captureTween(
+        gsap.fromTo(
+          ".ceo-img",
+          { scale: 0.8 },
+          {
+            scale: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: ".ceo-img",
+              start: "top 80%",
+              scrub: 1.2,
+              scroller,
+            },
+          },
+        ),
+      );
+
+      if (window.innerWidth > 768) {
+        // Desktop animations - from center outward
+        captureTween(
+          gsap.fromTo(
+            ".ceo-top .ceo-left",
+            { x: 0 },
+            {
+              x: window.innerWidth > 1100 ? "-145%" : "-80%",
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: ".ceo-text",
+                start: "top 80%",
+                scrub: 1.2,
+                scroller,
+              },
+            },
+          ),
+        );
+
+        captureTween(
+          gsap.fromTo(
+            ".ceo-top .ceo-right",
+            { x: 0 },
+            {
+              x: window.innerWidth > 1100 ? "195%" : "100%",
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: ".ceo-text",
+                start: "top 80%",
+                scrub: 1.2,
+                scroller,
+              },
+            },
+          ),
+        );
+
+        captureTween(
+          gsap.fromTo(
+            ".ceo-middle .ceo-left",
+            { x: 0 },
+            {
+              x: "-35%",
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: ".ceo-text",
+                start: "top 80%",
+                scrub: 1.2,
+                scroller,
+              },
+            },
+          ),
+        );
+
+        captureTween(
+          gsap.fromTo(
+            ".ceo-middle .ceo-right",
+            { x: 0 },
+            {
+              x: "120%",
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: ".ceo-text",
+                start: "top 80%",
+                scrub: 1.2,
+                scroller,
+              },
+            },
+          ),
+        );
+
+        captureTween(
+          gsap.fromTo(
+            ".ceo-anim-top",
+            { x: -150 },
+            {
+              x: 0,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: ".ceo-bottom",
+                start: "top 100%",
+                scrub: 1.2,
+                scroller,
+              },
+            },
+          ),
+        );
+
+        captureTween(
+          gsap.fromTo(
+            ".ceo-anim-middle",
+            { x: -150 },
+            {
+              x: 0,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: ".ceo-bottom",
+                start: "top 120%",
+                scrub: 1.2,
+                scroller,
+              },
+            },
+          ),
+        );
+
+        captureTween(
+          gsap.fromTo(
+            ".ceo-anim-bottom",
+            { x: -150 },
+            {
+              x: 0,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: ".ceo-bottom",
+                start: "top 140%",
+                scrub: 1.2,
+                scroller,
+              },
+            },
+          ),
+        );
+      } else {
+        // Mobile animations
+        captureTween(
+          gsap.fromTo(
+            ".ceo-top .ceo-left",
+            { x: "130%" },
+            {
+              x: "0%",
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: ".ceo-text",
+                start: "top 80%",
+                scrub: 1.2,
+                scroller,
+              },
+            },
+          ),
+        );
+
+        captureTween(
+          gsap.fromTo(
+            ".ceo-top .ceo-right",
+            { x: "150%" },
+            {
+              x: "0%",
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: ".ceo-text",
+                start: "top 80%",
+                scrub: 1.2,
+                scroller,
+              },
+            },
+          ),
+        );
+
+        captureTween(
+          gsap.fromTo(
+            ".ceo-middle .ceo-left",
+            { x: "-130%" },
+            {
+              x: "-40%",
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: ".ceo-text",
+                start: "top 80%",
+                scrub: 1.2,
+                scroller,
+              },
+            },
+          ),
+        );
+
+        captureTween(
+          gsap.fromTo(
+            ".ceo-middle .ceo-right",
+            { x: "-150%" },
+            {
+              x: "0%",
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: ".ceo-text",
+                start: "top 80%",
+                scrub: 1.2,
+                scroller,
+              },
+            },
+          ),
+        );
+
+        captureTween(
+          gsap.fromTo(
+            ".ceo-anim-top",
+            { x: -50 },
+            {
+              x: 0,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: ".ceo-bottom",
+                start: "top 100%",
+                scrub: 1.2,
+                scroller,
+              },
+            },
+          ),
+        );
+
+        captureTween(
+          gsap.fromTo(
+            ".ceo-anim-middle",
+            { x: -50 },
+            {
+              x: 0,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: ".ceo-bottom",
+                start: "top 120%",
+                scrub: 1.2,
+                scroller,
+              },
+            },
+          ),
+        );
+
+        captureTween(
+          gsap.fromTo(
+            ".ceo-anim-bottom",
+            { x: -50 },
+            {
+              x: 0,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: ".ceo-bottom",
+                start: "top 140%",
+                scrub: 1.2,
+                scroller,
+              },
+            },
+          ),
+        );
+      }
+    };
+
     updateSplit();
     requestAnimationFrame(() => {
       applyLineAnimations();
       applyParallax();
       initStatsAnimations();
+      initCeoAnimations();
       ScrollTrigger.refresh();
     });
 
@@ -420,6 +700,7 @@ export default function Home() {
         applyLineAnimations();
         applyParallax();
         initStatsAnimations();
+        initCeoAnimations();
         ScrollTrigger.refresh();
       });
     };
@@ -434,9 +715,10 @@ export default function Home() {
       lineTweens.forEach((tween) => tween.kill());
       lineTriggers.forEach((trigger) => trigger.kill());
       statsTweens.forEach((tween) => tween.kill());
+      ceoTweens.forEach((tween) => tween.kill());
       splitInstance?.revert();
       destroyLenis();
-      tl.kill();
+      tl?.kill();
     };
   }, []);
 
@@ -461,6 +743,8 @@ export default function Home() {
       <ExperienceVisionSection />
 
       <StatsSection />
+
+      <CeoSection />
 
       <footer className="footer" aria-hidden="true" />
     </div>
