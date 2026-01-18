@@ -1,18 +1,24 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import PageTransitionOverlays from "../components/PageTransition";
 import { TransitionProvider } from "../components/TransitionProvider";
 import Footer from "../components/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const montrealBook = localFont({
+  src: "../public/fonts/PPNeueMontreal-Book.woff2",
+  variable: "--font-montreal-book",
+  display: "swap",
+  weight: "400",
+  style: "normal",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const montrealRegular = localFont({
+  src: "../public/fonts/PPNeueMontreal-Regular.woff2",
+  variable: "--font-montreal-regular",
+  display: "swap",
+  weight: "400",
+  style: "normal",
 });
 
 export const metadata = {
@@ -24,7 +30,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${montrealBook.variable} ${montrealRegular.variable} antialiased`}
       >
         <TransitionProvider>
           <Navbar />

@@ -695,11 +695,11 @@ export default function Home() {
 
       <ExperienceVisionSection />
 
+      <CeoSection />
+
       <ServicesSection />
 
       <StatsSection />
-
-      <CeoSection />
 
       <FigmaFormSection />
 
