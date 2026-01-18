@@ -296,50 +296,26 @@ export default function Home() {
           return;
         }
 
-        gsap.set(lines, { yPercent: -100 });
-
-        const tween = gsap.to(lines, {
-          yPercent: 0,
-          stagger: 0.1,
-          duration: 1,
-          ease: "power4.out",
-          paused: true,
-        });
-
-        const trigger = ScrollTrigger.create({
-          trigger: el,
-          start: window.innerWidth > 1100 ? "top 80%" : "top 75%",
-          invalidateOnRefresh: true,
-          scroller: window.innerWidth < 1100 ? ".scroll-container" : null,
-          onEnter: () => {
-            gsap.set(lines, { yPercent: -100 });
-            tween.restart(true);
+        // Animation mit ScrollTrigger direkt in gsap.fromTo
+        gsap.fromTo(
+          lines,
+          {
+            yPercent: -100,
           },
-          onEnterBack: () => {
-            gsap.set(lines, { yPercent: -100 });
-            tween.restart(true);
+          {
+            yPercent: 0,
+            stagger: 0.1,
+            duration: 1,
+            ease: "power4.out",
+            scrollTrigger: {
+              trigger: el,
+              start: window.innerWidth > 1100 ? "top 100%" : "top 70%",
+              toggleActions: "play none none reverse",
+              scrub: true,
+              scroller: window.innerWidth < 1100 ? ".scroll-container" : null,
+            },
           },
-          onLeave: () => {
-            gsap.set(lines, { yPercent: -100 });
-          },
-          onLeaveBack: () => {
-            gsap.set(lines, { yPercent: -100 });
-          },
-        });
-
-        // Check if element is already in viewport on init
-        const rect = el.getBoundingClientRect();
-        const threshold =
-          window.innerWidth > 1100
-            ? window.innerHeight * 0.8
-            : window.innerHeight * 0.75;
-        if (rect.top < threshold) {
-          gsap.set(lines, { yPercent: -100 });
-          tween.restart(true);
-        }
-
-        lineTweens.push(tween);
-        lineTriggers.push(trigger);
+        );
       });
     };
 
@@ -373,31 +349,6 @@ export default function Home() {
       if (!statsSection) {
         return;
       }
-
-      const scroller = window.innerWidth < 1100 ? ".scroll-container" : null;
-      const titleTrigger = () => ({
-        trigger: ".stats__title",
-        start: "top 40%",
-        scroller,
-      });
-      const captureTween = (tween) => {
-        if (tween) {
-          statsTweens.push(tween);
-        }
-      };
-
-      captureTween(
-        gsap.fromTo(
-          ".and",
-          { y: "-100%" },
-          {
-            y: 0,
-            ease: "power4.inOut",
-            duration: 0.7,
-            scrollTrigger: titleTrigger(),
-          },
-        ),
-      );
     };
 
     const initCeoAnimations = () => {
