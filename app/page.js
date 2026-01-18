@@ -12,6 +12,7 @@ import CeoSection from "../components/home/CeoSection";
 import CultureSection from "../components/home/CultureSection";
 import ExperienceVisionSection from "../components/home/ExperienceVisionSection";
 import ServicesSection from "../components/home/ServicesSection";
+import FigmaFormSection from "../components/home/FigmaFormSection";
 
 export default function Home() {
   const { playHomeIntro } = useTransitionContext();
@@ -699,6 +700,8 @@ export default function Home() {
       <StatsSection />
 
       <CeoSection />
+
+      <FigmaFormSection />
 
       <footer className="footer" aria-hidden="true" />
     </div>
