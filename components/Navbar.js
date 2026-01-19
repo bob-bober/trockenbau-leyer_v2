@@ -2,10 +2,10 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import TransitionLink from "./TransitionLink";
 
-const logoSrc =
-  "http://localhost:3845/assets/a73ec3df9bdd2e3bbcbfcf37ee07a99805ec0fc4.svg";
+const logoSrc = "/images/logo.svg";
 
 export default function Navbar() {
   useEffect(() => {
@@ -87,7 +87,14 @@ export default function Navbar() {
           href="/"
           aria-label="Raine Architects"
         >
-          <img src={logoSrc} alt="Raine Architects" />
+          <Image
+            className="header__logo-image"
+            src={logoSrc}
+            alt="Raine Architects"
+            width={174}
+            height={94}
+            priority
+          />
         </TransitionLink>
 
         <nav className="header__nav" aria-label="Main">
@@ -113,15 +120,20 @@ export default function Navbar() {
           </ul>
         </nav>
 
-        <button
-          className="header-burger-menu"
-          type="button"
-          aria-label="Open menu"
-        >
-          <span />
-          <span />
-          <span />
-        </button>
+        <div className="header__actions">
+          <a className="header__phone" href="tel:022535448265">
+            02253 – 544 82 65
+          </a>
+          <button
+            className="header-burger-menu"
+            type="button"
+            aria-label="Open menu"
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
       </div>
     </header>
   );

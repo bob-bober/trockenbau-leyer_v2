@@ -53,102 +53,11 @@ const services = [
     description:
       "Our space planning services optimize the layout and flow of interior environments. We focus on creating functional, efficient spaces that enhance user experience while maximizing the potential of each area.",
   },
-  {
-    title: "Conceptual Design",
-    image:
-      "https://rainearchitects.com/wp-content/themes/arc/assets/images/services-img8.jpg",
-    description:
-      "In the conceptual design phase, we translate ideas into tangible sketches and models, exploring various design themes and aesthetics. This iterative process allows us to refine concepts based on client feedback, ensuring alignment with their vision.",
-  },
-  {
-    title: "Residential Architecture",
-    image:
-      "https://rainearchitects.com/wp-content/themes/arc/assets/images/services-img9.jpg",
-    description:
-      "We specialize in residential architecture, creating personalized homes that reflect our clients' lifestyles and preferences. Our designs focus on comfort, functionality, and aesthetic appeal, resulting in spaces that families cherish for years.",
-  },
-  {
-    title: "Commercial Architecture",
-    image:
-      "https://rainearchitects.com/wp-content/themes/arc/assets/images/services-img10.jpg",
-    description:
-      "Our commercial architecture services cater to businesses seeking innovative and practical solutions. We design spaces that enhance productivity and brand identity, ensuring a functional environment that meets the needs of both clients and employees.",
-  },
-  {
-    title: "Multifamily Architecture",
-    image:
-      "https://rainearchitects.com/wp-content/themes/arc/assets/images/services-img11.jpg",
-    description:
-      "We excel in multifamily architecture, creating harmonious living environments that promote community while maintaining individual privacy. Our designs prioritize efficient use of space and sustainable practices, catering to diverse lifestyles.",
-  },
-  {
-    title: "Storage Facilities",
-    image:
-      "https://rainearchitects.com/wp-content/themes/arc/assets/images/services-img12.jpg",
-    description:
-      "We design storage facilities that maximize efficiency and accessibility while prioritizing security and functionality. Our approach focuses on creating versatile spaces that cater to various storage needs, ensuring that clients receive tailored solutions for their operational requirements.",
-  },
-  {
-    title: "Civic / Municipal",
-    image:
-      "https://rainearchitects.com/wp-content/themes/arc/assets/images/services-img13.jpg",
-    description:
-      "Our civic and municipal architecture focuses on public buildings that serve communities effectively. We prioritize accessibility, sustainability, and aesthetic appeal, ensuring that these structures enhance civic engagement and reflect community values.",
-  },
-  {
-    title: "Project Management",
-    image:
-      "https://rainearchitects.com/wp-content/themes/arc/assets/images/services-img14.jpg",
-    description:
-      "Our project management team oversees every aspect of a project, ensuring that timelines, budgets, and quality standards are met. We serve as the central point of communication, coordinating all stakeholders to deliver successful outcomes.",
-  },
-  {
-    title: "Cost Estimating",
-    image:
-      "https://rainearchitects.com/wp-content/themes/arc/assets/images/services-img15.jpg",
-    description:
-      "We provide precise cost estimating services to help clients understand the financial implications of their projects. Our detailed estimates guide budgeting decisions and ensure that projects remain financially feasible throughout the development process.",
-  },
-  {
-    title: "Interior Design",
-    image:
-      "https://rainearchitects.com/wp-content/themes/arc/assets/images/services-img16.jpg",
-    description:
-      "Our interior design services create cohesive and inviting interiors that reflect our clients' tastes and enhance functionality. We select materials, colors, and furnishings that harmonize with the overall design, creating spaces that inspire and comfort.",
-  },
-  {
-    title: "Furniture, Fixtures, and Equipment",
-    image:
-      "https://rainearchitects.com/wp-content/themes/arc/assets/images/services-img17.jpg",
-    description:
-      "We assist in the selection and specification of furniture, fixtures, and equipment (FF&E) to complement our designs. Our expertise ensures that every element is functional, aesthetically pleasing, and aligned with the overall vision of the project.",
-  },
-  {
-    title: "Archviz Renders and Animations",
-    image:
-      "https://rainearchitects.com/wp-content/themes/arc/assets/images/services-img18.jpg",
-    description:
-      "Our architectural visualization services provide 3D renders and animations that bring designs to life. These visual tools help clients visualize the final outcome, facilitating better decision-making and enhancing presentations.",
-  },
-  {
-    title: "BIM Management",
-    image:
-      "https://rainearchitects.com/wp-content/themes/arc/assets/images/services-img19.jpg",
-    description:
-      "We utilize Building Information Modeling to enhance collaboration and efficiency throughout the design and construction process. Our BIM management services streamline workflows, improve accuracy, and foster communication among all project stakeholders.",
-  },
-  {
-    title: "Architecture Production & Coordination",
-    image:
-      "https://rainearchitects.com/wp-content/themes/arc/assets/images/services-img20.jpg",
-    description:
-      "Our architecture production and coordination services ensure that all drawings and documents are meticulously prepared and aligned. We manage the integration of different disciplines, facilitating a cohesive approach to project delivery and reducing potential conflicts.",
-  },
 ];
 
 export default function ServicesSection() {
   const [activeIndex, setActiveIndex] = useState(null);
-  const [visibleCount, setVisibleCount] = useState(5);
+  const [visibleCount] = useState(7);
   const listRef = useRef(null);
   const bgRef = useRef(null);
   const sectionRef = useRef(null);
@@ -291,10 +200,6 @@ export default function ServicesSection() {
     return undefined;
   }, []);
 
-  const showAllServices = () => {
-    setVisibleCount(services.length);
-  };
-
   return (
     <section
       className="services"
@@ -349,15 +254,6 @@ export default function ServicesSection() {
                 </li>
               ))}
             </ol>
-            {visibleCount < services.length ? (
-              <button
-                type="button"
-                className="services-btn"
-                onClick={showAllServices}
-              >
-                More
-              </button>
-            ) : null}
           </div>
 
           <div className="services__description">

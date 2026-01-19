@@ -5,13 +5,13 @@ export default function CeoSection() {
         <div className="ceo__wrapper">
           <div className="ceo-text">
             <div className="ceo-top">
-              <p className="ceo-left">SINCE</p>
-              <p className="ceo-right">2010</p>
+              <p className="ceo-left">PROJEKTE</p>
+              <p className="ceo-right">REALISIEREN</p>
             </div>
 
             <div className="ceo-middle">
-              <p className="ceo-left">BASED</p>
-              <p className="ceo-right">IN</p>
+              <p className="ceo-left">SEIT</p>
+              <p className="ceo-right">1996</p>
             </div>
 
             <div className="ceo-bottom">

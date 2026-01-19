@@ -9,10 +9,14 @@ export default function HeroSection() {
           <div className="hero__grid-cell" />
           <div className="hero__title" style={{ gridColumn: "span 4" }}>
             <h1>
-              <span className="innovative-word">INNOVATIVE </span>
-              <span className="design-word">DESIGN </span>
-              <span className="timeless-word">TIMELESS </span>
-              <span className="architecture-word">ARCHITECTURE</span>
+              <span className="hero__title-line hero__title-line--top">
+                <span className="hero__word innovative-word">INNOVATIVE</span>
+                <span className="hero__word design-word">LÖSUNGEN</span>
+              </span>
+              <span className="hero__title-line hero__title-line--bottom">
+                <span className="hero__word timeless-word">TRADITIONELLES</span>
+                <span className="hero__word architecture-word">HANDWERK</span>
+              </span>
             </h1>
           </div>
         </div>
