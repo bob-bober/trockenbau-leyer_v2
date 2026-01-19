@@ -370,6 +370,14 @@ h6 * {
   transition: opacity 0.8s cubic-bezier(0.39, 0.52, 0, 1);
 }
 
+.square-loader {
+  background-color: #494949;
+}
+
+.loader-count .square {
+  background-color: #494949;
+}
+
 .loader-count .square:nth-child(1) {
   top: -20px;
   left: -20px;
@@ -924,7 +932,7 @@ h6 * {
   letter-spacing: -0.07em;
   color: var(--black-text-color-second);
   z-index: 3;
-  pointer-events: none;
+  pointer-events: auto;
 }
 
 .ceo-top,
@@ -968,6 +976,7 @@ h6 * {
   line-height: 1.2;
   letter-spacing: -0.02em;
   z-index: 4;
+  pointer-events: auto;
 }
 
 .ceo-left,
@@ -977,10 +986,13 @@ h6 * {
 .ceo-anim-bottom {
   margin: 0;
   white-space: nowrap;
+  pointer-events: auto;
+  cursor: pointer;
+  display: inline-block;
 }
 
 .ceo-anim-top {
-  font-size: 70px;
+  font-size: 61px;
 }
 
 .ceo-anim-middle {

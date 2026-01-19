@@ -1,6 +1,6 @@
 export default function CultureSection() {
   return (
-    <section className="culture-section">
+    <section className="culture-section" id="sectionAbout">
       {/* Decorative squares */}
       <div className="culture-section__square" />
       <div className="culture-section__square" />

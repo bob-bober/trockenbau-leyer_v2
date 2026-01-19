@@ -34,6 +34,8 @@ const sections = [
 
 export default function ExperienceVisionSection() {
   const blockRefs = useRef([]);
+  const scrollDirectionRef = useRef("down");
+  const lastScrollYRef = useRef(0);
 
   useEffect(() => {
     const blocks = blockRefs.current;
@@ -70,11 +72,33 @@ export default function ExperienceVisionSection() {
       return;
     }
 
+    lastScrollYRef.current = window.scrollY;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollYRef.current) {
+        scrollDirectionRef.current = "down";
+      } else if (currentScrollY < lastScrollYRef.current) {
+        scrollDirectionRef.current = "up";
+      }
+
+      lastScrollYRef.current = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            activateBlock(entry.target);
+            if (scrollDirectionRef.current === "up") {
+              entry.target.classList.remove("experience-block-active");
+            } else {
+              activateBlock(entry.target);
+            }
+          } else {
+            entry.target.classList.remove("experience-block-active");
           }
         });
       },
@@ -96,6 +120,7 @@ export default function ExperienceVisionSection() {
     }
 
     return () => {
+      window.removeEventListener("scroll", handleScroll);
       blocks.forEach((block) => {
         if (block) observer.unobserve(block);
       });

@@ -35,16 +35,17 @@ export default function HeroSection() {
               />
             </div>
             <div className="experience__description text-block">
-              <h2>ARCHITECTURE WITH CLARITY</h2>
+              <h2>KOMPLEXE PROJEKTE KLAR STRUKTURIERT</h2>
               <h3>
-                Design-Driven Architecture for Civic & Municipal · Commercial ·
-                Industrial Warehouse · Luxury Residential · Adaptive Reuse
-                Projects
+                Wir verbinden Planung, Koordination und Umsetzung im Innenausbau
+                – für reibungslose Abläufe und saubere Ergebnisse.
               </h3>
               <p>
-                Raine Architects elevates cities and communities through
-                clarity, craft, and long-term performance grounded in context,
-                community, and culture.
+                Trockenbau Leyer steht für durchdachte Raumkonzepte, die
+                Funktion, Akustik und Ästhetik präzise vereinen. Als Fachbetrieb
+                mit jahrzehntelanger Erfahrung übernehmen wir Verantwortung für
+                jedes Detail – von der ersten Abstimmung bis zur finalen
+                Montage.
               </p>
             </div>
           </div>

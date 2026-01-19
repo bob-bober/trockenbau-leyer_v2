@@ -1,3 +1,5 @@
+import TransitionLink from "../TransitionLink";
+
 export default function CeoSection() {
   return (
     <section className="ceo">
@@ -15,9 +17,18 @@ export default function CeoSection() {
             </div>
 
             <div className="ceo-bottom">
-              <p className="ceo-anim-top">LAREDO</p>
-              <p className="ceo-anim-middle">SAN ANTONIO</p>
-              <p className="ceo-anim-bottom">RIO GRANDE VALLEY</p>
+              <TransitionLink className="ceo-anim-top" href="/contact">
+                KONTAKT
+              </TransitionLink>
+              <TransitionLink className="ceo-anim-middle" href="/#sectionAbout">
+                ÜBER UNS
+              </TransitionLink>
+              <TransitionLink
+                className="ceo-anim-bottom"
+                href="/#sectionExpertise"
+              >
+                UNSERE LEISTUNGEN
+              </TransitionLink>
             </div>
           </div>
 
@@ -28,11 +39,6 @@ export default function CeoSection() {
               alt="Edgar Villanueva"
             />
           </p>
-        </div>
-
-        <div className="ceo__wrapper-title">
-          <h2 className="ceo-title">Edgar Villanueva</h2>
-          <h3 className="ceo-subtitle">CEO &amp; Founder</h3>
         </div>
       </div>
     </section>
