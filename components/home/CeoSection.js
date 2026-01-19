@@ -1,3 +1,4 @@
+import Image from "next/image";
 import TransitionLink from "../TransitionLink";
 
 export default function CeoSection() {
@@ -33,10 +34,13 @@ export default function CeoSection() {
           </div>
 
           <p className="ceo-image-wrapper">
-            <img
+            <Image
               className="ceo-img"
-              src="https://rainearchitects.com/wp-content/uploads/2025/06/ceo.jpg"
+              src="/images/home_since_1990.jpg"
               alt="Edgar Villanueva"
+              width={2098}
+              height={1722}
+              sizes="(max-width: 1100px) 100vw, 55vw"
             />
           </p>
         </div>

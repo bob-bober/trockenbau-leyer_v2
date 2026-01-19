@@ -1,11 +1,13 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 
 const sections = [
   {
     title: "EXPERTISE",
-    image: "https://placehold.co/600x800/e66a1e/fef4ec?text=EXPERTISE",
+    image: "/images/home_usp1.jpg",
+    imageAlt: "Expertise",
     paragraphs: [
       "Wir verbinden technische Erfahrung mit einem klaren Verständnis für Akustik, Konstruktion und Gestaltung.",
       "Jede Lösung entsteht auf Basis eines strukturierten Planungsprozesses, der Architektur, Statik, Brandschutz und Ausführung frühzeitig verbindet.",
@@ -14,7 +16,8 @@ const sections = [
   },
   {
     title: "PRÄZISION",
-    image: "https://placehold.co/600x800/d9ac84/120802?text=PRAEZISION",
+    image: "/images/home_usp2.jpg",
+    imageAlt: "Präzision",
     paragraphs: [
       "Unsere Arbeitsweise folgt klar definierten Prozessen: dokumentiert, koordiniert und auf langfristige Stabilität ausgelegt.",
       "Schnittstellen sind abgestimmt, Details durchdacht.",
@@ -23,7 +26,8 @@ const sections = [
   },
   {
     title: "VERTRAUEN",
-    image: "https://placehold.co/600x800/120802/fef4ec?text=VERTRAUEN",
+    image: "/images/home_usp3.jpg",
+    imageAlt: "Vertrauen",
     paragraphs: [
       "Wir begleiten Projekte partnerschaftlich und verbindlich.",
       "Klare Kommunikation, realistische Zeitpläne und konsequent abgestimmte Entscheidungen prägen unseren Umgang mit Auftraggebern und Gewerken.",
@@ -138,10 +142,14 @@ export default function ExperienceVisionSection() {
           >
             <h2 className="experience-block__title">{section.title}</h2>
             <div className="experience-block__image-wrapper">
-              <img
+              <Image
                 src={section.image}
-                alt={section.title}
+                alt={section.imageAlt ?? section.title}
                 className="experience-block__image"
+                width={600}
+                height={800}
+                sizes="(max-width: 1100px) 100vw, 50vw"
+                style={{ width: "100%", height: "auto" }}
               />
             </div>
             <div className="experience-block__text">

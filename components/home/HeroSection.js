@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function HeroSection() {
   return (
     <>
@@ -28,10 +30,15 @@ export default function HeroSection() {
               className="experience__grid-cell parallax-container"
               style={{ gridColumn: "1 / 5", gridRow: "1 / 3" }}
             >
-              <img
+              <Image
                 className="parallax-image"
-                src="https://rainearchitects.com/wp-content/uploads/2025/06/hero-img-1.jpg"
+                src="/images/home_hero.jpg"
                 alt="hero"
+                width={1600}
+                height={900}
+                sizes="100vw"
+                style={{ width: "100%", height: "auto" }}
+                priority
               />
             </div>
             <div className="experience__description text-block">

@@ -269,7 +269,7 @@ export default function Home() {
       captureTween(
         gsap.fromTo(
           ".ceo-img",
-          { scale: 0.8 },
+          { scale: 0.909 },
           {
             scale: 1,
             ease: "power3.out",

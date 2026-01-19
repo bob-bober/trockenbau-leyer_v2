@@ -1038,7 +1038,7 @@ h6 * {
 }
 
 .ceo-img {
-  width: min(900rem, 100%);
+  width: min(55vw, 100%);
   height: auto;
   display: block;
   filter: grayscale(1);
@@ -1613,7 +1613,7 @@ h6 * {
 .services__title {
   font-family: var(--font-montreal-regular), sans-serif;
   font-weight: 500;
-  font-size: 110px;
+  font-size: 99px;
   line-height: 0.94;
   letter-spacing: -0.045em;
   text-transform: uppercase;
@@ -1624,7 +1624,7 @@ h6 * {
   max-width: 1300px;
   color: var(--blue-color);
   font-family: var(--font-montreal-regular), sans-serif !important;
-  font-size: 51px;
+  font-size: 45px;
   line-height: 1.2;
   padding-right: 12px;
   text-transform: uppercase;
@@ -1832,12 +1832,12 @@ h6 * {
   }
 
   .services__title {
-    font-size: 82px;
+    font-size: 73.8px;
     line-height: 0.98;
   }
 
   .services__descr {
-    font-size: 32px;
+    font-size: 28.8px;
     line-height: 1.35;
     padding-right: 12px;
     text-align: right;
@@ -1887,12 +1887,12 @@ h6 * {
   }
 
   .services__title {
-    font-size: 52px;
+    font-size: 46.8px;
   }
 
   .services__descr {
     max-width: 100%;
-    font-size: 22px;
+    font-size: 19.8px;
     line-height: 1.5;
     padding-right: 0;
     text-align: left;
