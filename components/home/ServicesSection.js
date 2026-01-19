@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import TransitionLink from "../TransitionLink";
@@ -7,50 +8,57 @@ import TransitionLink from "../TransitionLink";
 const services = [
   {
     title: "Ganzglastrennwände",
-    image:
-      "https://rainearchitects.com/wp-content/themes/arc/assets/images/services-img1.jpg",
+    image: "/images/home_service2.jpg",
+    imageWidth: 900,
+    imageHeight: 1350,
     description:
       "Klare Strukturen, hohe Schallschutzwerte, dezentes Design. Unsere Glaslösungen verbinden Transparenz mit Funktion – präzise geplant, sauber montiert. Wir stimmen Details wie Profile, Türen und Beschläge exakt auf Nutzung und Architektur ab. Das Ergebnis sind langlebige Systeme mit hochwertiger Optik und zuverlässiger Performance.",
   },
   {
     title: "Deckensysteme",
-    image:
-      "https://rainearchitects.com/wp-content/themes/arc/assets/images/services-img2.jpg",
+    image: "/images/home_service3.jpg",
+    imageWidth: 900,
+    imageHeight: 1350,
     description:
       "Decken, die mehr können: Akustik, Licht, Brandschutz und Technik. Für eine ruhige, funktionale Raumwirkung. Wir koordinieren die Schnittstellen zu Haustechnik und Beleuchtung frühzeitig und sorgen für eine saubere Integration. So entsteht eine durchgängige Deckenlösung, die Gestaltung und Funktion vereint.",
   },
   {
     title: "Trennwandsysteme",
-    image:
-      "https://rainearchitects.com/wp-content/themes/arc/assets/images/services-img3.jpg",
+    image: "/images/home_service7.jpg",
+    imageWidth: 900,
+    imageHeight: 1350,
     description:
       "Flexible Raumaufteilung für Neubau oder Umbau – stabil, modular und auf jede Nutzung abgestimmt. Wir planen Raster, Anschlüsse und Oberflächen so, dass Räume später anpassbar bleiben. Dadurch lassen sich Arbeits- und Nutzungsbereiche effizient organisieren, ohne auf Stabilität zu verzichten.",
   },
   {
     title: "Baulicher Brandschutz",
-    image:
-      "https://rainearchitects.com/wp-content/themes/arc/assets/images/services-img4.jpg",
+    image: "/images/home_service1.jpg",
+    imageWidth: 900,
+    imageHeight: 1200,
     description:
       "Geprüfte Systeme für Wände, Decken und Installationen. Sicherheit beginnt bei der Planung. Wir berücksichtigen Zulassungen, Detailanschlüsse und Durchdringungen von Anfang an. So wird der Brandschutz fachgerecht umgesetzt und zuverlässig dokumentiert.",
   },
   {
     title: "Trockenboden",
-    image:
-      "https://rainearchitects.com/wp-content/themes/arc/assets/images/services-img5.jpg",
+    image: "/images/home_service6.jpg",
+    imageWidth: 900,
+    imageHeight: 1200,
     description:
       "Schnell montiert, langlebig und belastbar – ideal für Sanierungen oder zeitkritische Bauphasen. Trockenböden ermöglichen eine saubere Verlegung ohne lange Trocknungszeiten. Damit bleiben Bauabläufe planbar und Flächen rasch nutzbar.",
   },
   {
     title: "Doppelböden",
-    image:
-      "https://rainearchitects.com/wp-content/themes/arc/assets/images/services-img6.jpg",
+    image: "/images/home_service2.jpg",
+    imageWidth: 900,
+    imageHeight: 1376,
     description:
       "Funktionale Bodensysteme mit Technikzugang – robust, wartungsfreundlich und präzise installiert. Wir planen Raster, Lasten und Belagsaufbau passgenau für die technische Infrastruktur. Das erleichtert Wartung und Anpassungen im laufenden Betrieb.",
   },
   {
     title: "Raumakustik",
-    image:
-      "https://rainearchitects.com/wp-content/themes/arc/assets/images/services-img7.jpg",
+    image: "/images/home_service5.jpg",
+    imageWidth: 900,
+    imageHeight: 1506,
     description:
       "Akustisch wirksame Systeme für bessere Konzentration und Ruhe – technisch fundiert, architektonisch integriert. Wir wählen Materialien und Absorber gezielt nach Nutzungsart und Raumgeometrie. So verbessern wir die Sprachverständlichkeit und schaffen eine spürbar angenehmere Atmosphäre.",
   },
@@ -286,7 +294,14 @@ export default function ServicesSection() {
                 }}
               >
                 <div className="services__description-block-img">
-                  <img src={service.image} alt={service.title} />
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    width={service.imageWidth}
+                    height={service.imageHeight}
+                    sizes="(max-width: 1100px) 100vw, 40vw"
+                    style={{ width: "100%", height: "auto" }}
+                  />
                 </div>
                 <div className="services__description-text">
                   <p>{service.description}</p>

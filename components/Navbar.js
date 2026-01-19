@@ -100,21 +100,27 @@ export default function Navbar() {
         <nav className="header__nav" aria-label="Main">
           <ul className="header__menu">
             <li>
-              <Link className="header__link expertise-link" href="#expertise">
+              <TransitionLink
+                className="header__link"
+                href="/#sectionAbout"
+              >
                 <span className="header__dot" aria-hidden="true" />
-                <span>Expertise</span>
-              </Link>
+                <span>Über Uns</span>
+              </TransitionLink>
             </li>
             <li>
-              <TransitionLink className="header__link" href="/">
+              <TransitionLink
+                className="header__link expertise-link"
+                href="/#sectionExpertise"
+              >
                 <span className="header__dot" aria-hidden="true" />
-                <span>Home</span>
+                <span>Leistungen</span>
               </TransitionLink>
             </li>
             <li>
               <TransitionLink className="header__link" href="/contact">
                 <span className="header__dot" aria-hidden="true" />
-                <span>Contact</span>
+                <span>Kontakt</span>
               </TransitionLink>
             </li>
           </ul>

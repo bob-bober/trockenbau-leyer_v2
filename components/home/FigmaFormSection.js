@@ -1,9 +1,7 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
-
-const formImage =
-  "http://localhost:3845/assets/51f50e083c9fba5aa0e70e765d8c57d5f1d77fdf.png";
 
 const initialForm = {
   name: "",
@@ -29,7 +27,13 @@ export default function FigmaFormSection() {
     <section className="contact-figma" aria-labelledby="contact-figma-heading">
       <div className="container contact-figma__inner">
         <div className="contact-figma__image" aria-hidden="true">
-          <img src={formImage} alt="Büroflur" />
+          <Image
+            src="/images/home_form.jpg"
+            alt="Büroflur"
+            fill
+            sizes="(max-width: 1100px) 100vw, 50vw"
+            style={{ objectFit: "cover" }}
+          />
         </div>
 
         <div className="contact-figma__form-wrap">

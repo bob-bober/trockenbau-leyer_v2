@@ -53,11 +53,18 @@ h5 {
   --navbar-height: 130px;
   --navbar-font-size: clamp(14px, 1.1vw, 20px);
   --navbar-logo-height: clamp(32px, 2.6vw, 52px);
+  --section-gap: clamp(80px, 10vw, 160px);
 }
 
 @supports (height: 100dvh) {
   :root {
     --vh: 100dvh;
+  }
+}
+
+@media (max-width: 1100px) {
+  :root {
+    --section-gap: 80px;
   }
 }
 
@@ -608,7 +615,7 @@ h6 * {
   --stats-cell-width: clamp(365px, 24vw, 460px);
   --stats-cell-height: clamp(270px, 18vw, 360px);
   padding: 210rem 0;
-  margin-top: 220rem;
+  margin-top: var(--section-gap);
   background: var(--bg-color);
   overflow: hidden;
 }
@@ -947,6 +954,10 @@ h6 * {
   font-weight: 400;
 }
 
+.ceo {
+  margin-top: var(--section-gap);
+}
+
 .ceo-text {
   position: absolute;
   inset: 0;
@@ -1283,8 +1294,7 @@ h6 * {
   background: var(--bg-color);
   padding: 150rem 20rem;
   padding: 120px 20px;
-  margin-top: 200rem;
-  margin-top: 150px;
+  margin-top: var(--section-gap);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1297,7 +1307,6 @@ h6 * {
 @media (max-width: 1100px) {
   .culture-section {
     padding: 100px 20px;
-    margin-top: 100px;
     min-height: auto;
     --culture-content-width: calc(100% - 100px);
     --culture-square-offset: clamp(30px, 6vw, 60px);
@@ -1418,8 +1427,8 @@ h6 * {
   width: 100%;
   background: var(--bg-color);
   padding: 0 50px 0;
-  margin-top: 250px;
-  margin-bottom: 250px;
+  margin-top: var(--section-gap);
+  margin-bottom: 0;
 }
 
 .experience-vision-wrapper {
@@ -1549,8 +1558,8 @@ h6 * {
 @media (max-width: 1100px) {
   .experience-vision-section {
     padding: 0 15px 0;
-    margin-top: 150px;
-    margin-bottom: 150px;
+    margin-top: var(--section-gap);
+    margin-bottom: 0;
   }
   .experience-block {
     display: flex;
@@ -1593,7 +1602,7 @@ h6 * {
   width: 100%;
   background: var(--bg-color);
   padding: 140px 0 180px;
-  margin-top: 200px;
+  margin-top: var(--section-gap);
 }
 
 .services .container {
@@ -1822,7 +1831,7 @@ h6 * {
 @media (max-width: 1220px) {
   .services {
     padding: 120px 40px 150px;
-    margin-top: 140px;
+    margin-top: var(--section-gap);
   }
 
   .services__header {
@@ -1878,7 +1887,7 @@ h6 * {
 @media (max-width: 900px) {
   .services {
     padding: 100px 20px 120px;
-    margin-top: 110px;
+    margin-top: var(--section-gap);
   }
 
   .services__header {
@@ -2130,6 +2139,7 @@ h6 * {
   background: var(--bg-color);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
+  margin-top: var(--section-gap);
 }
 
 /* ========== FOOTER ========== */
@@ -2338,6 +2348,7 @@ h6 * {
 @media (max-width: 1100px) {
   .figma-form {
     padding: 100rem 0 120rem;
+    margin-top: var(--section-gap);
   }
 
   .figma-form__container {
