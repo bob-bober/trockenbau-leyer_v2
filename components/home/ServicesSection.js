@@ -2,58 +2,69 @@
 
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
+import TransitionLink from "../TransitionLink";
 
 const services = [
   {
-    title: "Planning",
+    title: "Ganzglastrennwände",
     image:
       "https://rainearchitects.com/wp-content/themes/arc/assets/images/services-img1.jpg",
     description:
-      "Our planning services establish a strategic framework for successful projects, ensuring that every phase from conception to completion aligns with the client's vision and goals. We create comprehensive timelines and development strategies that guide the project efficiently through all stages.",
+      "Klare Strukturen, hohe Schallschutzwerte, dezentes Design. Unsere Glaslösungen verbinden Transparenz mit Funktion – präzise geplant, sauber montiert. Wir stimmen Details wie Profile, Türen und Beschläge exakt auf Nutzung und Architektur ab. Das Ergebnis sind langlebige Systeme mit hochwertiger Optik und zuverlässiger Performance.",
   },
   {
-    title: "Feasibility Study",
+    title: "Deckensysteme",
     image:
       "https://rainearchitects.com/wp-content/themes/arc/assets/images/services-img2.jpg",
     description:
-      "We conduct thorough feasibility studies to assess the viability of proposed projects. This includes evaluating site conditions, market demands, financial implications, and regulatory constraints, providing clients with informed insights to make strategic decisions.",
+      "Decken, die mehr können: Akustik, Licht, Brandschutz und Technik. Für eine ruhige, funktionale Raumwirkung. Wir koordinieren die Schnittstellen zu Haustechnik und Beleuchtung frühzeitig und sorgen für eine saubere Integration. So entsteht eine durchgängige Deckenlösung, die Gestaltung und Funktion vereint.",
   },
   {
-    title: "Site Analysis",
+    title: "Trennwandsysteme",
     image:
       "https://rainearchitects.com/wp-content/themes/arc/assets/images/services-img3.jpg",
     description:
-      "Our site analysis examines the physical, environmental, and contextual factors of a location. By understanding topography, climate, and surrounding infrastructure, we ensure that designs harmonize with their surroundings and maximize potential.",
+      "Flexible Raumaufteilung für Neubau oder Umbau – stabil, modular und auf jede Nutzung abgestimmt. Wir planen Raster, Anschlüsse und Oberflächen so, dass Räume später anpassbar bleiben. Dadurch lassen sich Arbeits- und Nutzungsbereiche effizient organisieren, ohne auf Stabilität zu verzichten.",
   },
   {
-    title: "Masterplans",
+    title: "Baulicher Brandschutz",
     image:
       "https://rainearchitects.com/wp-content/themes/arc/assets/images/services-img4.jpg",
     description:
-      "Our masterplanning services provide a comprehensive vision for large-scale developments. We analyze land use, infrastructure, and community needs to create cohesive, sustainable plans that guide future growth while enhancing the overall quality of life for residents and users.",
+      "Geprüfte Systeme für Wände, Decken und Installationen. Sicherheit beginnt bei der Planung. Wir berücksichtigen Zulassungen, Detailanschlüsse und Durchdringungen von Anfang an. So wird der Brandschutz fachgerecht umgesetzt und zuverlässig dokumentiert.",
   },
   {
-    title: "Code Analysis",
+    title: "Trockenboden",
     image:
       "https://rainearchitects.com/wp-content/themes/arc/assets/images/services-img5.jpg",
     description:
-      "We perform detailed code analysis to ensure compliance with local building regulations and zoning laws. This process mitigates risks and guarantees that our designs meet safety standards and legal requirements, facilitating smoother project approvals.",
+      "Schnell montiert, langlebig und belastbar – ideal für Sanierungen oder zeitkritische Bauphasen. Trockenböden ermöglichen eine saubere Verlegung ohne lange Trocknungszeiten. Damit bleiben Bauabläufe planbar und Flächen rasch nutzbar.",
   },
   {
-    title: "Program of Spaces",
+    title: "Doppelböden",
     image:
       "https://rainearchitects.com/wp-content/themes/arc/assets/images/services-img6.jpg",
     description:
-      "The program of spaces outlines the functional requirements and desired characteristics of each area within a project. We work closely with clients to define their needs, ensuring that the final design aligns seamlessly with their vision and operational goals.",
+      "Funktionale Bodensysteme mit Technikzugang – robust, wartungsfreundlich und präzise installiert. Wir planen Raster, Lasten und Belagsaufbau passgenau für die technische Infrastruktur. Das erleichtert Wartung und Anpassungen im laufenden Betrieb.",
   },
   {
-    title: "Space Planning",
+    title: "Raumakustik",
     image:
       "https://rainearchitects.com/wp-content/themes/arc/assets/images/services-img7.jpg",
     description:
-      "Our space planning services optimize the layout and flow of interior environments. We focus on creating functional, efficient spaces that enhance user experience while maximizing the potential of each area.",
+      "Akustisch wirksame Systeme für bessere Konzentration und Ruhe – technisch fundiert, architektonisch integriert. Wir wählen Materialien und Absorber gezielt nach Nutzungsart und Raumgeometrie. So verbessern wir die Sprachverständlichkeit und schaffen eine spürbar angenehmere Atmosphäre.",
   },
 ];
+
+const slugifyService = (value) =>
+  value
+    .toLowerCase()
+    .replace(/ä/g, "ae")
+    .replace(/ö/g, "oe")
+    .replace(/ü/g, "ue")
+    .replace(/ß/g, "ss")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
 
 export default function ServicesSection() {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -210,13 +221,13 @@ export default function ServicesSection() {
       <div className="container">
         <div className="services__header">
           <h2 className="services__title title" id="services-heading">
-            EXPERTISE
+            LEISTUNGEN
           </h2>
           <div className="services__descr text-block">
             <p>
-              Raine blends the agility of a boutique studio with the depth and
-              confidence of a seasoned firm. We deliver bold, expressive design
-              anchored by decades of expertise.
+              Von der Glastrennwand bis zur Akustikdecke – Lösungen, die
+              Funktion, Ästhetik und Präzision verbinden. Projektspezifisch
+              geplant, mit klaren Prozessen und sauberer Ausführung.
             </p>
           </div>
         </div>
@@ -245,12 +256,19 @@ export default function ServicesSection() {
                     itemRefs.current[index] = el;
                   }}
                 >
-                  <div className="services-card__header">
-                    <span className="services-card__index">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <h3 className="services-card__title">{service.title}</h3>
-                  </div>
+                  <TransitionLink
+                    href={`/leistungen/${slugifyService(service.title)}`}
+                    className="services-card__link"
+                    onFocus={() => handleActivate(index)}
+                    aria-label={service.title}
+                  >
+                    <div className="services-card__header">
+                      <span className="services-card__index">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <h3 className="services-card__title">{service.title}</h3>
+                    </div>
+                  </TransitionLink>
                 </li>
               ))}
             </ol>

@@ -155,6 +155,82 @@ export default function Home() {
       if (!statsSection) {
         return;
       }
+
+      const scroller = window.innerWidth < 1100 ? ".scroll-container" : null;
+      const counters = statsSection.querySelectorAll(".counter-digit");
+
+      if (!counters.length) {
+        return;
+      }
+
+      counters.forEach((counter) => {
+        if (!counter) return;
+
+        const original = counter.dataset.original || counter.textContent || "";
+        counter.dataset.original = original;
+        counter.innerHTML = "";
+
+        const groups = [];
+        let i = 0;
+
+        while (i < original.length) {
+          const char = original[i];
+
+          if (char === "0") {
+            let j = i;
+            while (j < original.length && original[j] === "0") {
+              j += 1;
+            }
+
+            const zeroGroup = original.slice(i, j);
+            if (zeroGroup.length >= 2) {
+              groups.push(zeroGroup);
+              i = j;
+              continue;
+            }
+          }
+
+          groups.push(char);
+          i += 1;
+        }
+
+        const inners = [];
+
+        groups.forEach((group) => {
+          const line = document.createElement("span");
+          line.classList.add("line");
+
+          const inner = document.createElement("span");
+          inner.classList.add("line-inner");
+          inner.textContent = group.replace(/ /g, "\u00A0");
+
+          line.appendChild(inner);
+          counter.appendChild(line);
+          inners.push(inner);
+        });
+
+        if (!inners.length) return;
+
+        const tween = gsap.fromTo(
+          inners,
+          { yPercent: -100 },
+          {
+            yPercent: 0,
+            stagger: 0.04,
+            duration: 1,
+            ease: "power4.out",
+            scrollTrigger: {
+              trigger: counter,
+              start: window.innerWidth > 1100 ? "top 100%" : "top 70%",
+              toggleActions: "play none none reverse",
+              scrub: true,
+              scroller,
+            },
+          },
+        );
+
+        statsTweens.push(tween);
+      });
     };
 
     const initCeoAnimations = () => {

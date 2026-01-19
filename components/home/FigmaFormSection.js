@@ -33,7 +33,7 @@ export default function FigmaFormSection() {
         </div>
 
         <div className="contact-figma__form-wrap">
-          <div className="contact-figma__titles">
+          <div className="contact-figma__titles text-block">
             <p className="contact-figma__title">KONTAKT</p>
             <p className="contact-figma__title contact-figma__title--accent">
               AUFNEHMEN
