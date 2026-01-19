@@ -214,26 +214,26 @@ export default function Home() {
           {
             el: ceoTopLeft,
             dir: -1,
-            factor: 0.45,
-            maxRatio: 0.35,
+            factor: 0.32,
+            maxRatio: 0.22,
           },
           {
             el: ceoTopRight,
             dir: 1,
-            factor: 0.45,
-            maxRatio: 0.35,
+            factor: 0.32,
+            maxRatio: 0.22,
           },
           {
             el: ceoMiddleLeft,
             dir: -1,
-            factor: 0.35,
-            maxRatio: 0.3,
+            factor: 0.25,
+            maxRatio: 0.2,
           },
           {
             el: ceoMiddleRight,
             dir: 1,
-            factor: 0.35,
-            maxRatio: 0.3,
+            factor: 0.25,
+            maxRatio: 0.2,
           },
         ].forEach(({ el, dir, factor, maxRatio }) => {
           if (!el) return;
@@ -618,7 +618,7 @@ export default function Home() {
       // Анимация слов
       tl.fromTo(
         ".innovative-word",
-        { x: window.innerWidth > 1100 ? "-120%" : "0%" },
+        { x: window.innerWidth > 1100 ? "-100%" : "0%" },
         { x: 0, duration: 1.3, delay: 3.8, ease: "power4.inOut" },
         0,
       );
