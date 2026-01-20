@@ -16,7 +16,6 @@ export default function DeckensystemePage() {
     let lineTriggers = [];
 
     const ctx = gsap.context(() => {
-      /* ------Great Horned Owl Sequence------ */
       gsap.set(".circle", { yPercent: -5 });
       gsap.set(".dotsBlue", { yPercent: 10 });
       gsap.set(".owlHorned", { yPercent: -20 });
@@ -25,28 +24,19 @@ export default function DeckensystemePage() {
       gsap.to(".circle", {
         yPercent: 5,
         ease: "none",
-        scrollTrigger: {
-          trigger: ".clusterGreat",
-          scrub: 1,
-        },
+        scrollTrigger: { trigger: ".clusterGreat", scrub: 1 },
       });
 
       gsap.to(".dotsBlue", {
         yPercent: -10,
         ease: "none",
-        scrollTrigger: {
-          trigger: ".clusterGreat",
-          scrub: 1,
-        },
+        scrollTrigger: { trigger: ".clusterGreat", scrub: 1 },
       });
 
       gsap.to(".owlHorned", {
         yPercent: 20,
         ease: "none",
-        scrollTrigger: {
-          trigger: ".clusterGreat",
-          scrub: 1,
-        },
+        scrollTrigger: { trigger: ".clusterGreat", scrub: 1 },
       });
 
       gsap.to(".caption", {
@@ -69,7 +59,6 @@ export default function DeckensystemePage() {
         },
       });
 
-      /* ------Burrowing Owl Sequence------ */
       gsap.set(".triangle", { yPercent: 25, rotation: -90 });
       gsap.set(".dotsWhite", { yPercent: 10 });
       gsap.set(".owlBurrowing", { yPercent: -20 });
@@ -79,28 +68,19 @@ export default function DeckensystemePage() {
         yPercent: -5,
         rotation: 40,
         ease: "none",
-        scrollTrigger: {
-          trigger: ".clusterBurrowing",
-          scrub: 1,
-        },
+        scrollTrigger: { trigger: ".clusterBurrowing", scrub: 1 },
       });
 
       gsap.to(".dotsWhite", {
         yPercent: -10,
         ease: "none",
-        scrollTrigger: {
-          trigger: ".clusterBurrowing",
-          scrub: 1,
-        },
+        scrollTrigger: { trigger: ".clusterBurrowing", scrub: 1 },
       });
 
       gsap.to(".owlBurrowing", {
         yPercent: 20,
         ease: "none",
-        scrollTrigger: {
-          trigger: ".clusterBurrowing",
-          scrub: 1,
-        },
+        scrollTrigger: { trigger: ".clusterBurrowing", scrub: 1 },
       });
 
       gsap.to(".captionBurrowing", {
@@ -125,15 +105,10 @@ export default function DeckensystemePage() {
 
       const updateSplit = () => {
         splitInstance?.revert();
-
         splitInstance = new SplitType(
           ".owl-template .text-block p, .owl-template .text-block h1",
-          {
-            types: "lines",
-            lineClass: "line",
-          },
+          { types: "lines", lineClass: "line" },
         );
-
         document.querySelectorAll(".owl-template .line").forEach((line) => {
           const inner = document.createElement("span");
           inner.classList.add("line-inner");
@@ -148,11 +123,9 @@ export default function DeckensystemePage() {
         lineTweens = [];
         lineTriggers.forEach((trigger) => trigger.kill());
         lineTriggers = [];
-
         gsap.utils.toArray(".owl-template .text-block").forEach((el) => {
           const lines = el.querySelectorAll(".line-inner");
           if (!lines.length) return;
-
           const tween = gsap.fromTo(
             lines,
             { yPercent: -100 },
@@ -169,7 +142,6 @@ export default function DeckensystemePage() {
               },
             },
           );
-
           lineTweens.push(tween);
         });
       };
@@ -193,6 +165,7 @@ export default function DeckensystemePage() {
     };
   }, []);
 
+  /* VARIANTE 3: Nur oben spiegeln, unten bleibt wie Vorlage */
   return (
     <div className="owl-template" ref={rootRef}>
       <section>
@@ -202,17 +175,16 @@ export default function DeckensystemePage() {
         </div>
       </section>
 
+      {/* Oben gespiegelt: circle rechts, dotsBlue rechts, owlHorned links */}
       <section className="cluster clusterGreat">
         <div
           className="circle clusterPieces"
-          style={{
-            backgroundColor: "var(--blue-color)",
-            opacity: 0.12,
-            right: "-80px",
-            top: "20px",
-          }}
+          style={{ left: "auto", right: "214px" }}
         />
-        <div className="owlHorned clusterPieces" style={{ left: "45%" }}>
+        <div
+          className="owlHorned clusterPieces"
+          style={{ right: "auto", left: "0" }}
+        >
           <img
             src="https://www.micelistudios.com/sandbox/scrolltrigger/imgs/great_horned_owl.jpg"
             alt="Service image"
@@ -223,7 +195,7 @@ export default function DeckensystemePage() {
         </div>
         <img
           className="dotsBlue clusterPieces"
-          style={{ left: "-20px", top: "260px" }}
+          style={{ left: "auto", right: "0" }}
           src="https://www.micelistudios.com/sandbox/scrolltrigger/imgs/dots_blue_494x434.svg"
           alt=""
           aria-hidden="true"
@@ -237,23 +209,15 @@ export default function DeckensystemePage() {
         </div>
       </section>
 
+      {/* Unten wie Vorlage: triangle links, dotsWhite links, owlBurrowing rechts */}
       <section className="cluster clusterBurrowing">
-        <div
-          className="clusterPieces triangle"
-          aria-hidden="true"
-          style={{
-            backgroundColor: "transparent",
-            borderColor: "var(--blue-color)",
-            right: "auto",
-            left: "120px",
-          }}
-        >
+        <div className="clusterPieces triangle" aria-hidden="true">
           <span className="window-border window-border--top" />
           <span className="window-border window-border--right" />
           <span className="window-border window-border--bottom" />
           <span className="window-border window-border--left" />
         </div>
-        <div className="clusterPieces owlBurrowing" style={{ left: "18%" }}>
+        <div className="clusterPieces owlBurrowing">
           <img
             src="https://www.micelistudios.com/sandbox/scrolltrigger/imgs/burrrowing_owl_674x700.jpg"
             alt="Service image"
@@ -264,7 +228,6 @@ export default function DeckensystemePage() {
         </div>
         <img
           className="clusterPieces dotsWhite"
-          style={{ right: "-20px", top: "380px" }}
           src="https://www.micelistudios.com/sandbox/scrolltrigger/imgs/dots_white_310x588.svg"
           alt=""
           aria-hidden="true"

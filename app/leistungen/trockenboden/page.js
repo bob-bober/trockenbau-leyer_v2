@@ -16,7 +16,6 @@ export default function TrockenbodenPage() {
     let lineTriggers = [];
 
     const ctx = gsap.context(() => {
-      /* ------Great Horned Owl Sequence------ */
       gsap.set(".circle", { yPercent: -5 });
       gsap.set(".dotsBlue", { yPercent: 10 });
       gsap.set(".owlHorned", { yPercent: -20 });
@@ -25,28 +24,19 @@ export default function TrockenbodenPage() {
       gsap.to(".circle", {
         yPercent: 5,
         ease: "none",
-        scrollTrigger: {
-          trigger: ".clusterGreat",
-          scrub: 1,
-        },
+        scrollTrigger: { trigger: ".clusterGreat", scrub: 1 },
       });
 
       gsap.to(".dotsBlue", {
         yPercent: -10,
         ease: "none",
-        scrollTrigger: {
-          trigger: ".clusterGreat",
-          scrub: 1,
-        },
+        scrollTrigger: { trigger: ".clusterGreat", scrub: 1 },
       });
 
       gsap.to(".owlHorned", {
         yPercent: 20,
         ease: "none",
-        scrollTrigger: {
-          trigger: ".clusterGreat",
-          scrub: 1,
-        },
+        scrollTrigger: { trigger: ".clusterGreat", scrub: 1 },
       });
 
       gsap.to(".caption", {
@@ -69,7 +59,6 @@ export default function TrockenbodenPage() {
         },
       });
 
-      /* ------Burrowing Owl Sequence------ */
       gsap.set(".triangle", { yPercent: 25, rotation: -90 });
       gsap.set(".dotsWhite", { yPercent: 10 });
       gsap.set(".owlBurrowing", { yPercent: -20 });
@@ -79,28 +68,19 @@ export default function TrockenbodenPage() {
         yPercent: -5,
         rotation: 40,
         ease: "none",
-        scrollTrigger: {
-          trigger: ".clusterBurrowing",
-          scrub: 1,
-        },
+        scrollTrigger: { trigger: ".clusterBurrowing", scrub: 1 },
       });
 
       gsap.to(".dotsWhite", {
         yPercent: -10,
         ease: "none",
-        scrollTrigger: {
-          trigger: ".clusterBurrowing",
-          scrub: 1,
-        },
+        scrollTrigger: { trigger: ".clusterBurrowing", scrub: 1 },
       });
 
       gsap.to(".owlBurrowing", {
         yPercent: 20,
         ease: "none",
-        scrollTrigger: {
-          trigger: ".clusterBurrowing",
-          scrub: 1,
-        },
+        scrollTrigger: { trigger: ".clusterBurrowing", scrub: 1 },
       });
 
       gsap.to(".captionBurrowing", {
@@ -125,15 +105,10 @@ export default function TrockenbodenPage() {
 
       const updateSplit = () => {
         splitInstance?.revert();
-
         splitInstance = new SplitType(
           ".owl-template .text-block p, .owl-template .text-block h1",
-          {
-            types: "lines",
-            lineClass: "line",
-          },
+          { types: "lines", lineClass: "line" },
         );
-
         document.querySelectorAll(".owl-template .line").forEach((line) => {
           const inner = document.createElement("span");
           inner.classList.add("line-inner");
@@ -148,11 +123,9 @@ export default function TrockenbodenPage() {
         lineTweens = [];
         lineTriggers.forEach((trigger) => trigger.kill());
         lineTriggers = [];
-
         gsap.utils.toArray(".owl-template .text-block").forEach((el) => {
           const lines = el.querySelectorAll(".line-inner");
           if (!lines.length) return;
-
           const tween = gsap.fromTo(
             lines,
             { yPercent: -100 },
@@ -169,7 +142,6 @@ export default function TrockenbodenPage() {
               },
             },
           );
-
           lineTweens.push(tween);
         });
       };
@@ -193,6 +165,7 @@ export default function TrockenbodenPage() {
     };
   }, []);
 
+  /* VARIANTE 6: Oben spiegeln + Kreis Border/Viereck gefüllt */
   return (
     <div className="owl-template" ref={rootRef}>
       <section>
@@ -202,17 +175,21 @@ export default function TrockenbodenPage() {
         </div>
       </section>
 
+      {/* Oben gespiegelt + circle transparent mit Border */}
       <section className="cluster clusterGreat">
         <div
           className="circle clusterPieces"
           style={{
+            left: "auto",
+            right: "214px",
             backgroundColor: "transparent",
             border: "8px solid var(--blue-color)",
-            right: "auto",
-            left: "-40px",
           }}
         />
-        <div className="owlHorned clusterPieces" style={{ left: "30%" }}>
+        <div
+          className="owlHorned clusterPieces"
+          style={{ right: "auto", left: "0" }}
+        >
           <img
             src="https://www.micelistudios.com/sandbox/scrolltrigger/imgs/great_horned_owl.jpg"
             alt="Service image"
@@ -223,7 +200,7 @@ export default function TrockenbodenPage() {
         </div>
         <img
           className="dotsBlue clusterPieces"
-          style={{ right: "-60px", top: "300px" }}
+          style={{ left: "auto", right: "0" }}
           src="https://www.micelistudios.com/sandbox/scrolltrigger/imgs/dots_blue_494x434.svg"
           alt=""
           aria-hidden="true"
@@ -237,26 +214,15 @@ export default function TrockenbodenPage() {
         </div>
       </section>
 
+      {/* Unten wie Vorlage */}
       <section className="cluster clusterBurrowing">
-        <div
-          className="clusterPieces triangle"
-          aria-hidden="true"
-          style={{
-            backgroundColor: "transparent",
-            borderColor: "var(--blue-color)",
-            left: "auto",
-            right: "-20px",
-          }}
-        >
+        <div className="clusterPieces triangle" aria-hidden="true">
           <span className="window-border window-border--top" />
           <span className="window-border window-border--right" />
           <span className="window-border window-border--bottom" />
           <span className="window-border window-border--left" />
         </div>
-        <div
-          className="clusterPieces owlBurrowing"
-          style={{ left: "52%", right: "auto" }}
-        >
+        <div className="clusterPieces owlBurrowing">
           <img
             src="https://www.micelistudios.com/sandbox/scrolltrigger/imgs/burrrowing_owl_674x700.jpg"
             alt="Service image"
@@ -267,7 +233,6 @@ export default function TrockenbodenPage() {
         </div>
         <img
           className="clusterPieces dotsWhite"
-          style={{ left: "80px", top: "340px" }}
           src="https://www.micelistudios.com/sandbox/scrolltrigger/imgs/dots_white_310x588.svg"
           alt=""
           aria-hidden="true"

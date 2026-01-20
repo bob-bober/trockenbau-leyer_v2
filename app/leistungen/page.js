@@ -189,12 +189,12 @@ export default function LeistungenPage() {
         const image = card.querySelector(".bento-card__image");
         if (!image) return;
 
-        gsap.set(image, { yPercent: -15 });
+        gsap.set(image, { yPercent: -5 });
         const tween = gsap.fromTo(
           image,
-          { yPercent: -15 },
+          { yPercent: -5 },
           {
-            yPercent: 15,
+            yPercent: 5,
             ease: "none",
             scrollTrigger: {
               trigger: card,
@@ -320,60 +320,6 @@ export default function LeistungenPage() {
   }, []);
 
   useEffect(() => {
-    if (window.innerWidth < 768) return;
-
-    const grid = document.querySelector(".leistungen-bento__grid");
-    if (!grid) return;
-
-    const cards = Array.from(grid.querySelectorAll(".bento-card"));
-    if (!cards.length) return;
-
-    const layouts = [
-      {
-        "slot-1": "1 / 1 / 3 / 3",
-        "slot-2": "4 / 2 / 5 / 4",
-        "slot-3": "3 / 1 / 5 / 2",
-        "slot-4": "1 / 3 / 2 / 4",
-        "slot-5": "2 / 3 / 3 / 4",
-        "slot-6": "3 / 3 / 4 / 4",
-        "slot-7": "3 / 2 / 4 / 3",
-      },
-      {
-        "slot-1": "1 / 2 / 3 / 4",
-        "slot-2": "4 / 1 / 5 / 3",
-        "slot-3": "3 / 3 / 5 / 4",
-        "slot-4": "1 / 1 / 2 / 2",
-        "slot-5": "2 / 1 / 3 / 2",
-        "slot-6": "3 / 1 / 4 / 2",
-        "slot-7": "3 / 2 / 4 / 3",
-      },
-      {
-        "slot-1": "2 / 1 / 4 / 3",
-        "slot-2": "4 / 1 / 5 / 3",
-        "slot-3": "1 / 3 / 3 / 4",
-        "slot-4": "1 / 1 / 2 / 2",
-        "slot-5": "1 / 2 / 2 / 3",
-        "slot-6": "3 / 3 / 4 / 4",
-        "slot-7": "4 / 3 / 5 / 4",
-      },
-    ];
-
-    const layout = layouts[Math.floor(Math.random() * layouts.length)];
-
-    cards.forEach((card) => {
-      const slotId = card.dataset.slot;
-      if (!slotId || !layout[slotId]) return;
-      card.style.gridArea = layout[slotId];
-    });
-
-    return () => {
-      cards.forEach((card) => {
-        card.style.removeProperty("grid-area");
-      });
-    };
-  }, []);
-
-  useEffect(() => {
     const button = ctaButtonRef.current;
     if (!button) return undefined;
 
@@ -484,8 +430,7 @@ export default function LeistungenPage() {
                 href={`/leistungen/${service.slug}`}
                 className="bento-card"
                 aria-label={service.title}
-                data-service={service.slug}
-                data-slot={service.slotId}
+                data-slug={service.slug}
               >
                 <div className="bento-card__media parallax-container">
                   <div

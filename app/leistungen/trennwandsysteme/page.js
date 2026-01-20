@@ -16,37 +16,29 @@ export default function TrennwandsystemePage() {
     let lineTriggers = [];
 
     const ctx = gsap.context(() => {
-      /* ------Great Horned Owl Sequence------ */
-      gsap.set(".circle", { yPercent: -5 });
-      gsap.set(".dotsBlue", { yPercent: 10 });
-      gsap.set(".owlHorned", { yPercent: -20 });
+      /* Oben: jetzt triangle/dotsWhite/owlBurrowing */
+      gsap.set(".triangle", { yPercent: 25, rotation: -90 });
+      gsap.set(".dotsWhite", { yPercent: 10 });
+      gsap.set(".owlBurrowing", { yPercent: -20 });
       gsap.set(".clusterGreat", { yPercent: 5 });
 
-      gsap.to(".circle", {
-        yPercent: 5,
+      gsap.to(".triangle", {
+        yPercent: -5,
+        rotation: 40,
         ease: "none",
-        scrollTrigger: {
-          trigger: ".clusterGreat",
-          scrub: 1,
-        },
+        scrollTrigger: { trigger: ".clusterGreat", scrub: 1 },
       });
 
-      gsap.to(".dotsBlue", {
+      gsap.to(".dotsWhite", {
         yPercent: -10,
         ease: "none",
-        scrollTrigger: {
-          trigger: ".clusterGreat",
-          scrub: 1,
-        },
+        scrollTrigger: { trigger: ".clusterGreat", scrub: 1 },
       });
 
-      gsap.to(".owlHorned", {
+      gsap.to(".owlBurrowing", {
         yPercent: 20,
         ease: "none",
-        scrollTrigger: {
-          trigger: ".clusterGreat",
-          scrub: 1,
-        },
+        scrollTrigger: { trigger: ".clusterGreat", scrub: 1 },
       });
 
       gsap.to(".caption", {
@@ -69,38 +61,29 @@ export default function TrennwandsystemePage() {
         },
       });
 
-      /* ------Burrowing Owl Sequence------ */
-      gsap.set(".triangle", { yPercent: 25, rotation: -90 });
-      gsap.set(".dotsWhite", { yPercent: 10 });
-      gsap.set(".owlBurrowing", { yPercent: -20 });
+      /* Unten: jetzt circle/dotsBlue/owlHorned */
+      gsap.set(".circle", { yPercent: 25, rotation: -90 });
+      gsap.set(".dotsBlue", { yPercent: 10 });
+      gsap.set(".owlHorned", { yPercent: -20 });
       gsap.set(".clusterBurrowing", { yPercent: 5 });
 
-      gsap.to(".triangle", {
+      gsap.to(".circle", {
         yPercent: -5,
         rotation: 40,
         ease: "none",
-        scrollTrigger: {
-          trigger: ".clusterBurrowing",
-          scrub: 1,
-        },
+        scrollTrigger: { trigger: ".clusterBurrowing", scrub: 1 },
       });
 
-      gsap.to(".dotsWhite", {
+      gsap.to(".dotsBlue", {
         yPercent: -10,
         ease: "none",
-        scrollTrigger: {
-          trigger: ".clusterBurrowing",
-          scrub: 1,
-        },
+        scrollTrigger: { trigger: ".clusterBurrowing", scrub: 1 },
       });
 
-      gsap.to(".owlBurrowing", {
+      gsap.to(".owlHorned", {
         yPercent: 20,
         ease: "none",
-        scrollTrigger: {
-          trigger: ".clusterBurrowing",
-          scrub: 1,
-        },
+        scrollTrigger: { trigger: ".clusterBurrowing", scrub: 1 },
       });
 
       gsap.to(".captionBurrowing", {
@@ -125,15 +108,10 @@ export default function TrennwandsystemePage() {
 
       const updateSplit = () => {
         splitInstance?.revert();
-
         splitInstance = new SplitType(
           ".owl-template .text-block p, .owl-template .text-block h1",
-          {
-            types: "lines",
-            lineClass: "line",
-          },
+          { types: "lines", lineClass: "line" },
         );
-
         document.querySelectorAll(".owl-template .line").forEach((line) => {
           const inner = document.createElement("span");
           inner.classList.add("line-inner");
@@ -148,11 +126,9 @@ export default function TrennwandsystemePage() {
         lineTweens = [];
         lineTriggers.forEach((trigger) => trigger.kill());
         lineTriggers = [];
-
         gsap.utils.toArray(".owl-template .text-block").forEach((el) => {
           const lines = el.querySelectorAll(".line-inner");
           if (!lines.length) return;
-
           const tween = gsap.fromTo(
             lines,
             { yPercent: -100 },
@@ -169,7 +145,6 @@ export default function TrennwandsystemePage() {
               },
             },
           );
-
           lineTweens.push(tween);
         });
       };
@@ -193,6 +168,7 @@ export default function TrennwandsystemePage() {
     };
   }, []);
 
+  /* VARIANTE 2: Oben/unten tauschen */
   return (
     <div className="owl-template" ref={rootRef}>
       <section>
@@ -202,22 +178,24 @@ export default function TrennwandsystemePage() {
         </div>
       </section>
 
+      {/* Oben: triangle, dotsWhite, owlBurrowing (ursprünglich unten) */}
       <section className="cluster clusterGreat">
         <div
-          className="circle clusterPieces circle-outline"
-          style={{
-            backgroundColor: "transparent",
-            border: "8px solid var(--blue-color)",
-            left: "120px",
-            bottom: "40px",
-          }}
-        />
+          className="clusterPieces triangle"
+          aria-hidden="true"
+          style={{ left: "-28px", top: "0" }}
+        >
+          <span className="window-border window-border--top" />
+          <span className="window-border window-border--right" />
+          <span className="window-border window-border--bottom" />
+          <span className="window-border window-border--left" />
+        </div>
         <div
-          className="owlHorned clusterPieces"
-          style={{ left: "10%", right: "auto" }}
+          className="clusterPieces owlBurrowing"
+          style={{ right: "0", left: "auto", top: "0" }}
         >
           <img
-            src="https://www.micelistudios.com/sandbox/scrolltrigger/imgs/great_horned_owl.jpg"
+            src="https://www.micelistudios.com/sandbox/scrolltrigger/imgs/burrrowing_owl_674x700.jpg"
             alt="Service image"
           />
           <div className="caption">
@@ -225,9 +203,9 @@ export default function TrennwandsystemePage() {
           </div>
         </div>
         <img
-          className="dotsBlue clusterPieces"
-          style={{ left: "auto", right: "-40px", top: "80px" }}
-          src="https://www.micelistudios.com/sandbox/scrolltrigger/imgs/dots_blue_494x434.svg"
+          className="clusterPieces dotsWhite"
+          style={{ left: "0", top: "80px" }}
+          src="https://www.micelistudios.com/sandbox/scrolltrigger/imgs/dots_white_310x588.svg"
           alt=""
           aria-hidden="true"
         />
@@ -240,28 +218,18 @@ export default function TrennwandsystemePage() {
         </div>
       </section>
 
+      {/* Unten: circle, dotsBlue, owlHorned (ursprünglich oben) */}
       <section className="cluster clusterBurrowing">
         <div
-          className="clusterPieces triangle"
-          aria-hidden="true"
-          style={{
-            backgroundColor: "var(--blue-color)",
-            opacity: 0.12,
-            left: "auto",
-            right: "40px",
-          }}
-        >
-          <span className="window-border window-border--top" />
-          <span className="window-border window-border--right" />
-          <span className="window-border window-border--bottom" />
-          <span className="window-border window-border--left" />
-        </div>
+          className="circle clusterPieces"
+          style={{ left: "214px", bottom: "0" }}
+        />
         <div
-          className="clusterPieces owlBurrowing"
-          style={{ left: "46%", right: "auto" }}
+          className="owlHorned clusterPieces"
+          style={{ right: "0", left: "auto", top: "162px" }}
         >
           <img
-            src="https://www.micelistudios.com/sandbox/scrolltrigger/imgs/burrrowing_owl_674x700.jpg"
+            src="https://www.micelistudios.com/sandbox/scrolltrigger/imgs/great_horned_owl.jpg"
             alt="Service image"
           />
           <div className="caption captionBurrowing">
@@ -269,9 +237,9 @@ export default function TrennwandsystemePage() {
           </div>
         </div>
         <img
-          className="clusterPieces dotsWhite"
-          style={{ left: "0", top: "360px" }}
-          src="https://www.micelistudios.com/sandbox/scrolltrigger/imgs/dots_white_310x588.svg"
+          className="dotsBlue clusterPieces"
+          style={{ left: "0", top: "400px" }}
+          src="https://www.micelistudios.com/sandbox/scrolltrigger/imgs/dots_blue_494x434.svg"
           alt=""
           aria-hidden="true"
         />
