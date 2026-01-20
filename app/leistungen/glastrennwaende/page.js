@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SplitType from "split-type";
+import Image from "next/image";
 import TransitionLink from "../../../components/TransitionLink";
 
 export default function GlastrennwaendePage() {
@@ -207,14 +208,8 @@ export default function GlastrennwaendePage() {
 
       <section className="cluster clusterGreat">
         <div className="circle clusterPieces" />
-        <div className="owlHorned clusterPieces">
-          <img
-            src="https://www.micelistudios.com/sandbox/scrolltrigger/imgs/great_horned_owl.jpg"
-            alt="Great horned owl"
-          />
-          <div className="caption">
-            <span>/01</span> GREAT HORNED OWL
-          </div>
+        <div className="clusterPieces">
+          <Image className="owlHorned" src="/images/random14.jpg" alt="Great horned owl" fill sizes="450px" />
         </div>
         <img
           className="dotsBlue clusterPieces"
@@ -252,14 +247,8 @@ export default function GlastrennwaendePage() {
           <span className="window-border window-border--bottom" />
           <span className="window-border window-border--left" />
         </div>
-        <div className="clusterPieces owlBurrowing">
-          <img
-            src="https://www.micelistudios.com/sandbox/scrolltrigger/imgs/burrrowing_owl_674x700.jpg"
-            alt="Burrowing owl"
-          />
-          <div className="caption captionBurrowing">
-            <span>/02</span> BURROWING OWL
-          </div>
+        <div className="clusterPieces">
+          <Image className="owlBurrowing" src="/images/random16.jpg" alt="Burrowing owl" fill sizes="674px" />
         </div>
         <img
           className="clusterPieces dotsWhite"

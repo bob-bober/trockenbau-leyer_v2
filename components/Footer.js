@@ -20,7 +20,16 @@ export default function Footer() {
           <p className="site-footer__value">kontakt@trockenbau-leyer.de</p>
         </div>
 
-        <nav className="site-footer__links" aria-label="Rechtliches">
+        <nav className="site-footer__links" aria-label="Footer Navigation">
+          <a className="site-footer__link" href="/ueber-uns">
+            Über Uns
+          </a>
+          <a className="site-footer__link" href="/leistungen">
+            Leistungen
+          </a>
+          <a className="site-footer__link" href="/kontakt">
+            Kontakt
+          </a>
           <a className="site-footer__link" href="/impressum">
             Impressum
           </a>

@@ -82,7 +82,11 @@ export default function FigmaFormSection() {
             </label>
 
             <div className="contact-figma__actions">
-              <button type="submit">Nachricht senden</button>
+              <span className="leistungen-cta__button-wrap">
+                <button type="submit" className="leistungen-cta__button">
+                  Nachricht senden
+                </button>
+              </span>
             </div>
 
             {status ? <p className="contact-figma__status">{status}</p> : null}

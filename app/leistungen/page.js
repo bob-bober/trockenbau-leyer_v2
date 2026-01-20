@@ -14,7 +14,9 @@ const services = [
     slotId: "slot-1",
     gridSize: "6x2",
     tagline: "Transparenz, die funktioniert.",
-    image: "/images/leistungen1.jpg",
+    description:
+      "Ganzglastrennwände schaffen Offenheit und verbinden Leichtigkeit mit akustischer Leistung.",
+    image: "/images/random1.jpg",
     imageAlt: "Glastrennwände im Innenausbau",
     paragraphs: [
       "Ganzglastrennwände schaffen Offenheit, ohne auf Schallschutz oder Privatsphäre zu verzichten.",
@@ -29,7 +31,9 @@ const services = [
     slotId: "slot-2",
     gridSize: "4x2",
     tagline: "Raumwirkung beginnt oben.",
-    image: "/images/leistungen2.jpg",
+    description:
+      "Decken prägen Akustik, Licht und Atmosphäre eines Raums durch abgestimmte Systemlösungen.",
+    image: "/images/random2.jpg",
     imageAlt: "Moderne Deckensysteme",
     paragraphs: [
       "Decken prägen Akustik, Licht und Atmosphäre eines Raums.",
@@ -44,7 +48,9 @@ const services = [
     slotId: "slot-3",
     gridSize: "4x1",
     tagline: "Flexibilität für neue Raumkonzepte.",
-    image: "/images/leistungen3.jpg",
+    description:
+      "Modulare Systeme strukturieren Flächen und ermöglichen flexible Anpassungen.",
+    image: "/images/random3.jpg",
     imageAlt: "Trennwandsysteme für flexible Raumkonzepte",
     paragraphs: [
       "Trennwände strukturieren Flächen, schaffen Zonen und ermöglichen Wandel.",
@@ -59,7 +65,9 @@ const services = [
     slotId: "slot-4",
     gridSize: "4x1",
     tagline: "Sicherheit durch Systemdenken.",
-    image: "/images/leistungen4.jpg",
+    description:
+      "Zertifizierte Systeme gewährleisten normgerechte Sicherheit bei maximaler Gestaltungsfreiheit.",
+    image: "/images/random4.jpg",
     imageAlt: "Baulicher Brandschutz mit zertifizierten Systemen",
     paragraphs: [
       "Effektiver Brandschutz schützt Menschen, Substanz und Planung.",
@@ -74,7 +82,9 @@ const services = [
     slotId: "slot-5",
     gridSize: "6x2",
     tagline: "Schnelle Bauweise. Dauerhafte Stabilität.",
-    image: "/images/leistungen5.jpg",
+    description:
+      "Trockenbodensysteme reduzieren Bauzeiten und schaffen sofort belastbare Flächen.",
+    image: "/images/random5.jpg",
     imageAlt: "Trockenboden für schnelle Bauabläufe",
     paragraphs: [
       "Trockenbodensysteme reduzieren Bauzeiten und schaffen sofort belastbare Flächen – ohne Trocknungszeiten oder Feuchtigkeitseintrag.",
@@ -89,7 +99,9 @@ const services = [
     slotId: "slot-6",
     gridSize: "4x1",
     tagline: "Technik unsichtbar integriert.",
-    image: "/images/leistungen6.jpg",
+    description:
+      "Doppelböden schaffen Raum für Elektrotechnik, wartungsfreundlich und flexibel.",
+    image: "/images/random6.jpg",
     imageAlt: "Doppelböden mit integriertem Technikraum",
     paragraphs: [
       "Doppelböden schaffen Raum für Elektrotechnik, Klima und Kommunikation – funktional, wartungsfreundlich und flexibel.",
@@ -104,7 +116,9 @@ const services = [
     slotId: "slot-7",
     gridSize: "4x1",
     tagline: "Klarheit, die man hört.",
-    image: "/images/leistungen7.jpg",
+    description:
+      "Gute Raumakustik schafft Konzentration, Ruhe und Wohlbefinden durch akustische Balance.",
+    image: "/images/random7.jpg",
     imageAlt: "Raumakustik für Konzentration und Ruhe",
     paragraphs: [
       "Gute Raumakustik schafft Konzentration, Ruhe und Wohlbefinden.",
@@ -115,8 +129,6 @@ const services = [
 ];
 
 export default function LeistungenPage() {
-  const ctaButtonRef = useRef(null);
-
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -238,7 +250,7 @@ export default function LeistungenPage() {
     const applyCtaHighlight = () => {
       ctaBgTween?.kill();
       ctaBgTween = gsap.to(".leistungen-cta", {
-        backgroundColor: "#f5f5f5",
+        backgroundColor: "#fbfbfb",
         scrollTrigger: {
           trigger: ".leistungen-cta",
           start: "top 80%",
@@ -286,7 +298,6 @@ export default function LeistungenPage() {
       applyLineAnimations();
       applyParallax();
       applyServiceEntrances();
-      applyProgressBar();
       applyCtaHighlight();
       ScrollTrigger.refresh();
     });
@@ -299,7 +310,6 @@ export default function LeistungenPage() {
         applyLineAnimations();
         applyParallax();
         applyServiceEntrances();
-        applyProgressBar();
         applyCtaHighlight();
         ScrollTrigger.refresh();
       });
@@ -319,41 +329,6 @@ export default function LeistungenPage() {
     };
   }, []);
 
-  useEffect(() => {
-    const button = ctaButtonRef.current;
-    if (!button) return undefined;
-
-    const handleMove = (event) => {
-      const rect = button.getBoundingClientRect();
-      const relX = (event.clientX - rect.left) / rect.width - 0.5;
-      const relY = (event.clientY - rect.top) / rect.height - 0.5;
-
-      gsap.to(button, {
-        x: relX * 12,
-        y: relY * 12,
-        duration: 0.4,
-        ease: "power3.out",
-      });
-    };
-
-    const handleLeave = () => {
-      gsap.to(button, {
-        x: 0,
-        y: 0,
-        duration: 0.5,
-        ease: "power3.out",
-      });
-    };
-
-    button.addEventListener("mousemove", handleMove);
-    button.addEventListener("mouseleave", handleLeave);
-
-    return () => {
-      button.removeEventListener("mousemove", handleMove);
-      button.removeEventListener("mouseleave", handleLeave);
-    };
-  }, []);
-
   return (
     <div className="leistungen-page">
       <section className="hero leistungen-hero">
@@ -369,18 +344,16 @@ export default function LeistungenPage() {
             </h1>
             <div className="leistungen-hero__intro">
               <p>
-                Wir entwickeln, planen und realisieren Innenräume, die Funktion,
-                Akustik und Ästhetik präzise verbinden.
+                Wir entwickeln Innenräume, die Funktion, Akustik und Ästhetik
+                präzise verbinden.
               </p>
               <p>
-                Trockenbau Leyer bietet ganzheitliche Lösungen im hochwertigen
-                Innenausbau – von Glastrennwänden bis zu komplexen
-                Deckensystemen.
+                Von Glastrennwänden bis zu komplexen Deckensystemen – Trockenbau
+                Leyer bietet ganzheitliche Lösungen im hochwertigen Innenausbau.
               </p>
               <p>
-                Unser Anspruch: technisch saubere Planung, strukturierte Abläufe
-                und verlässliche Ausführung – für Ergebnisse, die langfristig
-                Bestand haben.
+                Unser Anspruch: saubere Planung, strukturierte Abläufe und
+                verlässliche Ausführung.
               </p>
             </div>
           </div>
@@ -443,14 +416,17 @@ export default function LeistungenPage() {
 
                 <span className="bento-card__overlay" aria-hidden="true" />
 
-                <span className="bento-card__number">{service.number}</span>
-                <h3 className="bento-card__title">{service.title}</h3>
+                <div className="bento-card__front">
+                  <h3 className="bento-card__title">{service.title}</h3>
+                  <p className="bento-card__tagline">{service.description}</p>
+                </div>
 
                 <div className="bento-card__content">
-                  <p className="bento-card__tagline">{service.tagline}</p>
-                  <p className="bento-card__text">
-                    {service.paragraphs.slice(0, 2).join(" ")}
-                  </p>
+                  {service.paragraphs.map((paragraph, index) => (
+                    <p key={index} className="bento-card__paragraph">
+                      {paragraph}
+                    </p>
+                  ))}
                   <span className="bento-card__link">
                     Mehr erfahren
                     <span className="bento-card__link-arrow">→</span>
@@ -482,9 +458,9 @@ export default function LeistungenPage() {
             </p>
           </div>
 
-          <span className="leistungen-cta__button-wrap" ref={ctaButtonRef}>
+          <span className="leistungen-cta__button-wrap">
             <TransitionLink href="/kontakt" className="leistungen-cta__button">
-              → Projekt anfragen
+              Projekt anfragen
             </TransitionLink>
           </span>
         </div>

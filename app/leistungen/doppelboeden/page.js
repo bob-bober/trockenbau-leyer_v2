@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SplitType from "split-type";
+import Image from "next/image";
 import TransitionLink from "../../../components/TransitionLink";
 
 export default function DoppelboedenPage() {
@@ -171,7 +172,16 @@ export default function DoppelboedenPage() {
       <section>
         <div className="title titleGreathorned text-block">
           <h1 className="owl-title-heading">Doppelböden</h1>
-          <p>Platzhalter Text – wird später ersetzt.</p>
+          <p>
+            Doppelbodensysteme schaffen Raum für Gebäudetechnik, ohne das
+            architektonische Bild zu stören.
+          </p>
+          <p>
+            Sie bieten flexible Lösungen für moderne Arbeits- und Technikräume,
+            in denen Funktion und Wartbarkeit an erster Stelle stehen. Ein
+            Doppelboden besteht aus einer aufgeständerten Unterkonstruktion und
+            darauf aufgelegten Platten – meist im Raster von 600 × 600 mm.
+          </p>
         </div>
       </section>
 
@@ -184,14 +194,8 @@ export default function DoppelboedenPage() {
             border: "8px solid var(--blue-color)",
           }}
         />
-        <div className="owlHorned clusterPieces">
-          <img
-            src="https://www.micelistudios.com/sandbox/scrolltrigger/imgs/great_horned_owl.jpg"
-            alt="Service image"
-          />
-          <div className="caption">
-            <span>/01</span> DOPPELBÖDEN
-          </div>
+        <div className="clusterPieces">
+          <Image className="owlHorned" src="/images/random11.jpg" alt="Service image" fill sizes="450px" />
         </div>
         <img
           className="dotsBlue clusterPieces"
@@ -203,8 +207,32 @@ export default function DoppelboedenPage() {
 
       <section>
         <div className="title titleBurrowing text-block">
-          <p>Platzhalter Text Absatz 1 – wird später ersetzt.</p>
-          <p>Platzhalter Text Absatz 2 – wird später ersetzt.</p>
+          <p>
+            Die Stützenfüße werden mit dem Untergrund verklebt oder verschraubt,
+            ein Gewindebolzen gleicht Unebenheiten im Rohboden aus. Zwischen
+            Rohdecke und Bodenplatte entsteht so ein Installationshohlraum, der
+            für EDV-, Elektro-, Klima- oder Sanitärtechnik genutzt werden kann.
+            Die Bauhöhe richtet sich nach den technischen Anforderungen und
+            bleibt individuell anpassbar.
+          </p>
+          <p>
+            Die Auswahl des Plattenmaterials erfolgt nach Belastung, Brandschutz
+            und Trittschallwerten. Als Beläge stehen PVC, Linoleum oder textile
+            Oberflächen zur Verfügung – je nach Nutzung, Beanspruchung und
+            Gestaltungskonzept. Neben der strukturierten Unterbringung
+            technischer Leitungen liegt der größte Vorteil in der einfachen
+            Zugänglichkeit: Durch das Abnehmen einzelner Platten lassen sich
+            Nachinstallationen oder Wartungen ohne Eingriff in die Bausubstanz
+            durchführen.
+          </p>
+          <p>
+            <strong>Schaltwarten-Doppelböden:</strong> Für den industriellen und
+            energietechnischen Bereich werden spezielle Schaltwartenböden
+            eingesetzt. Sie sind auf hohe Punktlasten ausgelegt und halten
+            selbst Trafotransporten stand. Rahmenprofile, bündig mit der
+            fertigen Bodenoberfläche, ermöglichen die sichere Aufstellung und
+            Fixierung von Schaltfeldern.
+          </p>
         </div>
       </section>
 
@@ -216,14 +244,8 @@ export default function DoppelboedenPage() {
           <span className="window-border window-border--bottom" />
           <span className="window-border window-border--left" />
         </div>
-        <div className="clusterPieces owlBurrowing">
-          <img
-            src="https://www.micelistudios.com/sandbox/scrolltrigger/imgs/burrrowing_owl_674x700.jpg"
-            alt="Service image"
-          />
-          <div className="caption captionBurrowing">
-            <span>/02</span> DETAIL
-          </div>
+        <div className="clusterPieces">
+          <Image className="owlBurrowing" src="/images/random13.jpg" alt="Service image" fill sizes="674px" />
         </div>
         <img
           className="clusterPieces dotsWhite"
@@ -235,7 +257,23 @@ export default function DoppelboedenPage() {
 
       <section>
         <div className="title titleAfter text-block">
-          <p>Platzhalter Text Abschluss – wird später ersetzt.</p>
+          <p>
+            Kabelzuführungen erfolgen sauber und geschützt von unten. In
+            Mittelspannungsschalträumen werden die Platten verschraubt, um bei
+            einem Störlichtbogen ein Abheben der Elemente zu verhindern –
+            Sicherheit, die konstruktiv verankert ist.
+          </p>
+          <p>
+            <strong>Hohlraumböden:</strong> Hohlraumböden bilden eine Variante
+            des Systembodens mit flächiger Tragschicht. Die Bodenplatten werden
+            vollflächig verklebt und auf Stützenkonstruktionen gelagert, wodurch
+            ein geschlossener Hohlraum entsteht. Dieser ermöglicht eine flexible
+            Leitungsführung, bleibt aber gleichzeitig stabil und akustisch
+            wirksam. Die Platten aus Calciumsulfat sind nicht brennbar, hoch
+            belastbar und bereits nach kurzer Zeit begehbar. Als fertiges System
+            ist der Boden rauchdicht, leicht, komfortabel und in nahezu jedem
+            Ausbaukonzept einsetzbar.
+          </p>
         </div>
         <div className="owl-cta-wrap">
           <TransitionLink className="owl-cta-button" href="/kontakt">

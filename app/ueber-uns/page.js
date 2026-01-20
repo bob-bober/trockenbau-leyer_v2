@@ -128,7 +128,9 @@ const services = [
   },
 ];
 
-export default function LeistungenPage() {
+export default function UeberUnsPage() {
+  const rootRef = useRef(null);
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -337,24 +339,11 @@ export default function LeistungenPage() {
           <div className="hero__grid-cell" />
           <div className="hero__grid-cell" />
           <div className="hero__grid-cell" />
-          <div className="hero__title" style={{ gridColumn: "span 4" }}>
-            <h1>
-              Kontakt
-            </h1>
-            <div className="leistungen-hero__intro">
-              <p>
-                Wir entwickeln Innenräume, die Funktion, Akustik und Ästhetik
-                präzise verbinden.
-              </p>
-              <p>
-                Von Glastrennwänden bis zu komplexen Deckensystemen – Trockenbau
-                Leyer bietet ganzheitliche Lösungen im hochwertigen Innenausbau.
-              </p>
-              <p>
-                Unser Anspruch: saubere Planung, strukturierte Abläufe und
-                verlässliche Ausführung.
-              </p>
-            </div>
+          <div
+            className="hero__title hero__title--centered"
+            style={{ gridColumn: "span 4" }}
+          >
+            <h1>ÜBER UNS</h1>
           </div>
         </div>
       </section>
@@ -365,15 +354,15 @@ export default function LeistungenPage() {
         <div className="container">
           <div className="leistungen-links__grid">
             <TransitionLink
-              href="/#sectionAbout"
+              href="/leistungen"
               className="leistungen-links__card leistungen-links__card--navy"
-              id="link-card-about"
+              id="link-card-leistungen"
             >
               <div className="leistungen-links__label">
-                <span>Über uns</span>
+                <span>Unsere Leistungen</span>
               </div>
               <p className="leistungen-links__text">
-                Erfahren Sie mehr über unser Team und unsere Werte.
+                Entdecken Sie unser Leistungsspektrum im Innenausbau.
               </p>
             </TransitionLink>
 
@@ -393,48 +382,201 @@ export default function LeistungenPage() {
         </div>
       </section>
 
-      <section className="leistungen-bento" aria-label="Leistungen Übersicht">
-        <div className="container">
-          <div className="leistungen-bento__grid">
-            {services.map((service) => (
-              <TransitionLink
-                key={service.slug}
-                href={`/leistungen/${service.slug}`}
-                className="bento-card"
-                aria-label={service.title}
-                data-slug={service.slug}
-              >
-                <div className="bento-card__media parallax-container">
-                  <div
-                    className="bento-card__image parallax-image"
-                    style={{ backgroundImage: `url(${service.image})` }}
-                    role="img"
-                    aria-label={service.imageAlt}
-                  />
-                </div>
-
-                <span className="bento-card__overlay" aria-hidden="true" />
-
-                <div className="bento-card__front">
-                  <h3 className="bento-card__title">{service.title}</h3>
-                  <p className="bento-card__tagline">{service.description}</p>
-                </div>
-
-                <div className="bento-card__content">
-                  {service.paragraphs.map((paragraph, index) => (
-                    <p key={index} className="bento-card__paragraph">
-                      {paragraph}
-                    </p>
-                  ))}
-                  <span className="bento-card__link">
-                    Mehr erfahren
-                    <span className="bento-card__link-arrow">→</span>
-                  </span>
-                </div>
-              </TransitionLink>
-            ))}
+      <section className="ueber-uns-owl-content owl-template" ref={rootRef}>
+        <section>
+          <div className="title titleGreathorned text-block">
+            <h1 className="owl-title-heading">Innenausbau mit Verantwortung.</h1>
+            <p>
+              Seit 1990 steht Trockenbau Leyer in <em>Köln und Umgebung</em> für
+              hochwertigen Innenausbau, technische Präzision und zuverlässige
+              Ausführung.
+            </p>
+            <p>
+              Als Fachbetrieb für Trockenbau, Glas- und Deckensysteme begleiten
+              wir Bauprojekte von der Planung bis zur Fertigstellung –
+              strukturiert, termintreu und mit handwerklicher Klarheit.
+            </p>
+            <p>
+              Über die Jahre hat sich Trockenbau Leyer als verlässlicher Partner
+              für Architekten, Unternehmen und öffentliche Auftraggeber
+              etabliert.
+            </p>
           </div>
-        </div>
+        </section>
+
+        <section className="cluster clusterGreat">
+          <div
+            className="circle clusterPieces"
+            style={{ left: "auto", right: "214px" }}
+          />
+          <div
+            className="owlHorned clusterPieces"
+            style={{ right: "auto", left: "0" }}
+          >
+            <img src="/images/random3.jpg" alt="Trockenbau Leyer Projekte" />
+          </div>
+          <svg
+            className="dotsBlue clusterPieces"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 494 434"
+            fill="none"
+            style={{ left: "auto", right: "0" }}
+          >
+            <circle cx="14" cy="14" r="14" fill="currentColor" />
+            <circle cx="14" cy="84" r="14" fill="currentColor" />
+            <circle cx="14" cy="154" r="14" fill="currentColor" />
+            <circle cx="14" cy="224" r="14" fill="currentColor" />
+            <circle cx="14" cy="294" r="14" fill="currentColor" />
+            <circle cx="14" cy="364" r="14" fill="currentColor" />
+            <circle cx="84" cy="14" r="14" fill="currentColor" />
+            <circle cx="84" cy="84" r="14" fill="currentColor" />
+            <circle cx="84" cy="154" r="14" fill="currentColor" />
+            <circle cx="84" cy="224" r="14" fill="currentColor" />
+            <circle cx="84" cy="294" r="14" fill="currentColor" />
+            <circle cx="84" cy="364" r="14" fill="currentColor" />
+            <circle cx="154" cy="14" r="14" fill="currentColor" />
+            <circle cx="154" cy="84" r="14" fill="currentColor" />
+            <circle cx="154" cy="154" r="14" fill="currentColor" />
+            <circle cx="154" cy="224" r="14" fill="currentColor" />
+            <circle cx="154" cy="294" r="14" fill="currentColor" />
+            <circle cx="154" cy="364" r="14" fill="currentColor" />
+            <circle cx="224" cy="14" r="14" fill="currentColor" />
+            <circle cx="224" cy="84" r="14" fill="currentColor" />
+            <circle cx="224" cy="154" r="14" fill="currentColor" />
+            <circle cx="224" cy="224" r="14" fill="currentColor" />
+            <circle cx="224" cy="294" r="14" fill="currentColor" />
+            <circle cx="224" cy="364" r="14" fill="currentColor" />
+            <circle cx="294" cy="14" r="14" fill="currentColor" />
+            <circle cx="294" cy="84" r="14" fill="currentColor" />
+            <circle cx="294" cy="154" r="14" fill="currentColor" />
+            <circle cx="294" cy="224" r="14" fill="currentColor" />
+            <circle cx="294" cy="294" r="14" fill="currentColor" />
+            <circle cx="294" cy="364" r="14" fill="currentColor" />
+            <circle cx="364" cy="14" r="14" fill="currentColor" />
+            <circle cx="364" cy="84" r="14" fill="currentColor" />
+            <circle cx="364" cy="154" r="14" fill="currentColor" />
+            <circle cx="364" cy="224" r="14" fill="currentColor" />
+            <circle cx="364" cy="294" r="14" fill="currentColor" />
+            <circle cx="364" cy="364" r="14" fill="currentColor" />
+          </svg>
+        </section>
+
+        <section>
+          <div className="title titleBurrowing text-block">
+            <p>
+              Unsere Projekte reichen von Büro- und Verwaltungsgebäuden über
+              Praxis- und Bildungsbauten bis hin zu individuellen Ausbauten im
+              privaten Bereich.
+            </p>
+            <p>
+              Die Grundlage jeder Zusammenarbeit ist ein systematischer Ansatz:
+              saubere Planung, klare Abläufe und nachvollziehbare Kommunikation.
+            </p>
+            <p>
+              Viele unserer Kunden arbeiten seit Jahren, teils Jahrzehnten, mit
+              uns zusammen – weil sie wissen, dass Qualität bei uns kein Zufall
+              ist, sondern Ergebnis konsequenter Arbeit.
+            </p>
+          </div>
+        </section>
+
+        <section className="cluster clusterBurrowing">
+          <div
+            className="clusterPieces triangle"
+            aria-hidden="true"
+            style={{ left: "auto", right: "-28px" }}
+          >
+            <span className="window-border window-border--top" />
+            <span className="window-border window-border--right" />
+            <span className="window-border window-border--bottom" />
+            <span className="window-border window-border--left" />
+          </div>
+          <div
+            className="clusterPieces owlBurrowing"
+            style={{ right: "auto", left: "0" }}
+          >
+            <img src="/images/random12.jpg" alt="Handwerkliche Qualität" />
+          </div>
+          <svg
+            className="clusterPieces dotsWhite"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 310 588"
+            fill="none"
+            style={{ left: "auto", right: "0" }}
+          >
+            <circle cx="14" cy="14" r="14" fill="currentColor" />
+            <circle cx="14" cy="84" r="14" fill="currentColor" />
+            <circle cx="14" cy="154" r="14" fill="currentColor" />
+            <circle cx="14" cy="224" r="14" fill="currentColor" />
+            <circle cx="14" cy="294" r="14" fill="currentColor" />
+            <circle cx="14" cy="364" r="14" fill="currentColor" />
+            <circle cx="14" cy="434" r="14" fill="currentColor" />
+            <circle cx="14" cy="504" r="14" fill="currentColor" />
+            <circle cx="14" cy="574" r="14" fill="currentColor" />
+            <circle cx="84" cy="14" r="14" fill="currentColor" />
+            <circle cx="84" cy="84" r="14" fill="currentColor" />
+            <circle cx="84" cy="154" r="14" fill="currentColor" />
+            <circle cx="84" cy="224" r="14" fill="currentColor" />
+            <circle cx="84" cy="294" r="14" fill="currentColor" />
+            <circle cx="84" cy="364" r="14" fill="currentColor" />
+            <circle cx="84" cy="434" r="14" fill="currentColor" />
+            <circle cx="84" cy="504" r="14" fill="currentColor" />
+            <circle cx="84" cy="574" r="14" fill="currentColor" />
+            <circle cx="154" cy="14" r="14" fill="currentColor" />
+            <circle cx="154" cy="84" r="14" fill="currentColor" />
+            <circle cx="154" cy="154" r="14" fill="currentColor" />
+            <circle cx="154" cy="224" r="14" fill="currentColor" />
+            <circle cx="154" cy="294" r="14" fill="currentColor" />
+            <circle cx="154" cy="364" r="14" fill="currentColor" />
+            <circle cx="154" cy="434" r="14" fill="currentColor" />
+            <circle cx="154" cy="504" r="14" fill="currentColor" />
+            <circle cx="154" cy="574" r="14" fill="currentColor" />
+            <circle cx="224" cy="14" r="14" fill="currentColor" />
+            <circle cx="224" cy="84" r="14" fill="currentColor" />
+            <circle cx="224" cy="154" r="14" fill="currentColor" />
+            <circle cx="224" cy="224" r="14" fill="currentColor" />
+            <circle cx="224" cy="294" r="14" fill="currentColor" />
+            <circle cx="224" cy="364" r="14" fill="currentColor" />
+            <circle cx="224" cy="434" r="14" fill="currentColor" />
+            <circle cx="224" cy="504" r="14" fill="currentColor" />
+            <circle cx="224" cy="574" r="14" fill="currentColor" />
+            <circle cx="294" cy="14" r="14" fill="currentColor" />
+            <circle cx="294" cy="84" r="14" fill="currentColor" />
+            <circle cx="294" cy="154" r="14" fill="currentColor" />
+            <circle cx="294" cy="224" r="14" fill="currentColor" />
+            <circle cx="294" cy="294" r="14" fill="currentColor" />
+            <circle cx="294" cy="364" r="14" fill="currentColor" />
+            <circle cx="294" cy="434" r="14" fill="currentColor" />
+            <circle cx="294" cy="504" r="14" fill="currentColor" />
+            <circle cx="294" cy="574" r="14" fill="currentColor" />
+          </svg>
+        </section>
+
+        <section>
+          <div className="title titleAfter text-block">
+            <h1 className="owl-title-heading">Arbeiten mit Anspruch.</h1>
+            <p>
+              Jedes Projekt beginnt mit einer genauen Vorstellung davon, was
+              entstehen soll – und endet erst, wenn jedes Detail stimmt. Zwischen
+              diesen Punkten liegt ein klarer Ablauf: Planung, Abstimmung,
+              Ausführung. Diese Struktur ist Grundlage unserer Arbeit und Garant
+              für Beständigkeit.
+            </p>
+            <p>
+              Sorgfalt im Prozess bedeutet Sicherheit im Ergebnis. Für Planer,
+              Bauherren und Nutzer entsteht so Verlässlichkeit – in Funktion,
+              Ausführung und Wirkung.
+            </p>
+            <p>Darauf bauen viele unserer Kunden seit Jahren.</p>
+          </div>
+          <div className="owl-cta-wrap">
+            <TransitionLink className="owl-cta-button" href="/kontakt">
+              Kontakt aufnehmen
+            </TransitionLink>
+          </div>
+        </section>
+
+        <section className="spcr300" />
       </section>
 
       <section

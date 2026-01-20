@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SplitType from "split-type";
+import Image from "next/image";
 import TransitionLink from "../../../components/TransitionLink";
 
 export default function DeckensystemePage() {
@@ -171,7 +172,14 @@ export default function DeckensystemePage() {
       <section>
         <div className="title titleGreathorned text-block">
           <h1 className="owl-title-heading">Deckensysteme</h1>
-          <p>Platzhalter Text – wird später ersetzt.</p>
+          <p>
+            Deckensysteme prägen Akustik, Licht und Atmosphäre eines Raumes.
+          </p>
+          <p>
+            Eine Decke ist weit mehr als ein Raumabschluss. Sie steuert Akustik,
+            verdeckt Gebäudetechnik und beeinflusst entscheidend das
+            Erscheinungsbild eines Innenraums.
+          </p>
         </div>
       </section>
 
@@ -182,16 +190,10 @@ export default function DeckensystemePage() {
           style={{ left: "auto", right: "214px" }}
         />
         <div
-          className="owlHorned clusterPieces"
+          className="clusterPieces"
           style={{ right: "auto", left: "0" }}
         >
-          <img
-            src="https://www.micelistudios.com/sandbox/scrolltrigger/imgs/great_horned_owl.jpg"
-            alt="Service image"
-          />
-          <div className="caption">
-            <span>/01</span> DECKENSYSTEME
-          </div>
+          <Image className="owlHorned" src="/images/random8.jpg" alt="Service image" fill sizes="450px" />
         </div>
         <img
           className="dotsBlue clusterPieces"
@@ -204,8 +206,19 @@ export default function DeckensystemePage() {
 
       <section>
         <div className="title titleBurrowing text-block">
-          <p>Platzhalter Text Absatz 1 – wird später ersetzt.</p>
-          <p>Platzhalter Text Absatz 2 – wird später ersetzt.</p>
+          <p>
+            Moderne Deckensysteme vereinen diese Anforderungen zu einer
+            funktionalen Einheit: Sie verbessern die Sprachverständlichkeit,
+            integrieren Lüftung, Beleuchtung oder Sprinkleranlagen und schaffen
+            gleichzeitig eine visuelle Ruhe im Raum.
+          </p>
+          <p>
+            Ob Mineralfaser-, Metall- oder Spanndecke – jedes System wird auf
+            die räumlichen und technischen Anforderungen abgestimmt. Der
+            Deckenhohlraum bietet Platz für Haustechnik und Installationen,
+            während die sichtbare Fläche bewusst gestaltet wird – glatt,
+            strukturiert oder akustisch wirksam.
+          </p>
         </div>
       </section>
 
@@ -218,13 +231,7 @@ export default function DeckensystemePage() {
           <span className="window-border window-border--left" />
         </div>
         <div className="clusterPieces owlBurrowing">
-          <img
-            src="https://www.micelistudios.com/sandbox/scrolltrigger/imgs/burrrowing_owl_674x700.jpg"
-            alt="Service image"
-          />
-          <div className="caption captionBurrowing">
-            <span>/02</span> DETAIL
-          </div>
+          <img src="/images/random10.jpg" alt="Service image" />
         </div>
         <img
           className="clusterPieces dotsWhite"
@@ -236,7 +243,16 @@ export default function DeckensystemePage() {
 
       <section>
         <div className="title titleAfter text-block">
-          <p>Platzhalter Text Abschluss – wird später ersetzt.</p>
+          <p>
+            So entstehen Räume, die technisch leistungsfähig und gestalterisch
+            zurückhaltend sind.
+          </p>
+          <p>
+            Sonderkonstruktionen und geprüfte Brandschutz- oder
+            Schallschutzdecken ergänzen das Portfolio. Sie kommen überall dort
+            zum Einsatz, wo Funktion und Sicherheit im Vordergrund stehen – in
+            Büros, Bildungseinrichtungen, Kliniken oder hochwertigen Wohnbauten.
+          </p>
         </div>
         <div className="owl-cta-wrap">
           <TransitionLink className="owl-cta-button" href="/kontakt">

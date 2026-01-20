@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SplitType from "split-type";
+import Image from "next/image";
 import TransitionLink from "../../../components/TransitionLink";
 
 export default function RaumakustikPage() {
@@ -174,7 +175,15 @@ export default function RaumakustikPage() {
       <section>
         <div className="title titleGreathorned text-block">
           <h1 className="owl-title-heading">Raumakustik</h1>
-          <p>Platzhalter Text – wird später ersetzt.</p>
+          <p>
+            Akustik ist mehr als Schallschutz – sie prägt, wie Räume wirken und
+            genutzt werden.
+          </p>
+          <p>
+            Eine ausgewogene Raumakustik entsteht durch präzise Planung: Sie
+            steuert Nachhall, Sprachverständlichkeit und Atmosphäre – messbar,
+            aber vor allem spürbar.
+          </p>
         </div>
       </section>
 
@@ -191,16 +200,10 @@ export default function RaumakustikPage() {
           <span className="window-border window-border--left" />
         </div>
         <div
-          className="clusterPieces owlBurrowing"
-          style={{ right: "auto", left: "0", top: "0" }}
+          className="clusterPieces"
+          style={{ right: "auto", left: "0" }}
         >
-          <img
-            src="https://www.micelistudios.com/sandbox/scrolltrigger/imgs/burrrowing_owl_674x700.jpg"
-            alt="Service image"
-          />
-          <div className="caption">
-            <span>/01</span> RAUMAKUSTIK
-          </div>
+          <Image className="owlBurrowing" src="/images/random3.jpg" alt="Service image" fill sizes="674px" />
         </div>
         <img
           className="clusterPieces dotsWhite"
@@ -213,8 +216,24 @@ export default function RaumakustikPage() {
 
       <section>
         <div className="title titleBurrowing text-block">
-          <p>Platzhalter Text Absatz 1 – wird später ersetzt.</p>
-          <p>Platzhalter Text Absatz 2 – wird später ersetzt.</p>
+          <p>
+            Lärm und störender Schall beeinträchtigen Konzentration,
+            Kommunikation und Wohlbefinden. In Büros, Konferenzräumen oder
+            Bildungseinrichtungen führen ungünstige Raumakustiken schnell zu
+            Ermüdung und Leistungsabfall. Durch gezielte Planung lässt sich die
+            akustische Qualität eines Raumes jedoch deutlich verbessern – ohne
+            seine Architektur zu verändern.
+          </p>
+          <p>
+            Die Grundlage bildet die präzise Abstimmung von Absorptions- und
+            Reflexionsflächen. Decken- und Wandflächen werden dabei so
+            gestaltet, dass Sprache klar verständlich bleibt und störende
+            Nachhallzeiten reduziert werden. Mineralfaser-, Gips- oder
+            Stoffelemente können schallabsorbierend wirken, während
+            reflektierende Flächen die Klangbalance im Raum erhalten. Das
+            Ergebnis ist ein harmonisches Schallfeld, das Ruhe schafft, ohne die
+            Lebendigkeit des Raums zu mindern.
+          </p>
         </div>
       </section>
 
@@ -225,16 +244,10 @@ export default function RaumakustikPage() {
           style={{ left: "auto", right: "214px" }}
         />
         <div
-          className="owlHorned clusterPieces"
-          style={{ right: "auto", left: "0", top: "162px" }}
+          className="clusterPieces"
+          style={{ right: "auto", left: "0" }}
         >
-          <img
-            src="https://www.micelistudios.com/sandbox/scrolltrigger/imgs/great_horned_owl.jpg"
-            alt="Service image"
-          />
-          <div className="caption captionBurrowing">
-            <span>/02</span> DETAIL
-          </div>
+          <Image className="owlHorned" src="/images/random2.jpg" alt="Service image" fill sizes="450px" />
         </div>
         <img
           className="dotsBlue clusterPieces"
@@ -247,7 +260,20 @@ export default function RaumakustikPage() {
 
       <section>
         <div className="title titleAfter text-block">
-          <p>Platzhalter Text Abschluss – wird später ersetzt.</p>
+          <p>
+            Jedes Projekt beginnt mit einer Analyse der vorhandenen Raumstruktur
+            und Nutzung. Darauf basierend werden Materialien, Formen und Systeme
+            ausgewählt, die sich funktional und ästhetisch einfügen – von
+            Akustikdecken über Wandpaneele bis zu freihängenden Baffeln. So
+            entstehen Räume, die sowohl technisch präzise als auch atmosphärisch
+            ausgewogen sind.
+          </p>
+          <p>
+            Gute Akustik zeigt sich nicht durch Sichtbarkeit, sondern durch
+            Wirkung. Sie steigert Produktivität, unterstützt Kommunikation und
+            sorgt für eine gleichmäßige Raumwahrnehmung – im Büro ebenso wie im
+            privaten Wohnbereich.
+          </p>
         </div>
         <div className="owl-cta-wrap">
           <TransitionLink className="owl-cta-button" href="/kontakt">

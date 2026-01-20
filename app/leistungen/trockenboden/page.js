@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SplitType from "split-type";
+import Image from "next/image";
 import TransitionLink from "../../../components/TransitionLink";
 
 export default function TrockenbodenPage() {
@@ -171,7 +172,16 @@ export default function TrockenbodenPage() {
       <section>
         <div className="title titleGreathorned text-block">
           <h1 className="owl-title-heading">Trockenboden</h1>
-          <p>Platzhalter Text – wird später ersetzt.</p>
+          <p>
+            Trockenbodensysteme bieten Effizienz und Präzision im Innenausbau.
+          </p>
+          <p>
+            Sie ermöglichen kurze Bauzeiten, reduzieren Feuchtigkeit im
+            Bauprozess und schaffen sofort nutzbare Flächen – ideal für
+            Neubauten, Umbauten und Sanierungen mit definierten Zeitfenstern.
+            Ein Trockenboden überzeugt dort, wo Zeit, Gewicht und Präzision
+            entscheidend sind.
+          </p>
         </div>
       </section>
 
@@ -187,16 +197,10 @@ export default function TrockenbodenPage() {
           }}
         />
         <div
-          className="owlHorned clusterPieces"
+          className="clusterPieces"
           style={{ right: "auto", left: "0" }}
         >
-          <img
-            src="https://www.micelistudios.com/sandbox/scrolltrigger/imgs/great_horned_owl.jpg"
-            alt="Service image"
-          />
-          <div className="caption">
-            <span>/01</span> TROCKENBODEN
-          </div>
+          <Image className="owlHorned" src="/images/random10.jpg" alt="Service image" fill sizes="450px" />
         </div>
         <img
           className="dotsBlue clusterPieces"
@@ -209,8 +213,23 @@ export default function TrockenbodenPage() {
 
       <section>
         <div className="title titleBurrowing text-block">
-          <p>Platzhalter Text Absatz 1 – wird später ersetzt.</p>
-          <p>Platzhalter Text Absatz 2 – wird später ersetzt.</p>
+          <p>
+            Die Elemente werden trocken verlegt, sind sofort begehbar und
+            erfordern keine Austrocknungszeiten – ein wesentlicher Vorteil
+            gegenüber konventionellen Estrichen. Trotz ihres geringen
+            Eigengewichts bieten sie hohe Belastbarkeit und eine dauerhaft ebene
+            Oberfläche. Je nach Anforderung kommen unterschiedliche
+            Systemaufbauten zum Einsatz.
+          </p>
+          <p>
+            Sie dienen als Höhenausgleich, tragen Fußbodenheizungen oder
+            verbessern den Trittschallschutz bei Massiv- und Holzbalkendecken.
+            Hochschalldämmende Systeme mit Estrich-Waben ermöglichen zudem eine
+            brandschutz- und schallschutztechnische Aufrüstung bestehender
+            Geschossdecken. Auch Hohlraumböden zur verdeckten
+            Installationsführung lassen sich in Trockenbauweise präzise
+            umsetzen.
+          </p>
         </div>
       </section>
 
@@ -223,13 +242,7 @@ export default function TrockenbodenPage() {
           <span className="window-border window-border--left" />
         </div>
         <div className="clusterPieces owlBurrowing">
-          <img
-            src="https://www.micelistudios.com/sandbox/scrolltrigger/imgs/burrrowing_owl_674x700.jpg"
-            alt="Service image"
-          />
-          <div className="caption captionBurrowing">
-            <span>/02</span> DETAIL
-          </div>
+          <img src="/images/random11.jpg" alt="Service image" />
         </div>
         <img
           className="clusterPieces dotsWhite"
@@ -241,7 +254,16 @@ export default function TrockenbodenPage() {
 
       <section>
         <div className="title titleAfter text-block">
-          <p>Platzhalter Text Abschluss – wird später ersetzt.</p>
+          <p>
+            Alle Komponenten werden projektbezogen ausgewählt und abgestimmt –
+            von der Unterkonstruktion bis zur sichtbaren Oberfläche. So entsteht
+            ein Boden, der schnell eingebaut, technisch durchdacht und auf Dauer
+            belastbar ist.
+          </p>
+          <p>
+            Ein System, das Funktion, Wirtschaftlichkeit und Präzision
+            miteinander verbindet.
+          </p>
         </div>
         <div className="owl-cta-wrap">
           <TransitionLink className="owl-cta-button" href="/kontakt">

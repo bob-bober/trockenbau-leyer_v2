@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SplitType from "split-type";
+import Image from "next/image";
 import TransitionLink from "../../../components/TransitionLink";
 
 export default function BrandschutzPage() {
@@ -171,7 +172,16 @@ export default function BrandschutzPage() {
       <section>
         <div className="title titleGreathorned text-block">
           <h1 className="owl-title-heading">Brandschutz</h1>
-          <p>Platzhalter Text – wird später ersetzt.</p>
+          <p>
+            Baulicher Brandschutz ist integraler Bestandteil moderner
+            Architektur.
+          </p>
+          <p>
+            Er schützt Menschen, Substanz und Planung und entscheidet über die
+            Funktionalität eines Gebäudes im Ernstfall. Der bauliche Brandschutz
+            umfasst alle Maßnahmen, die der Entstehung und Ausbreitung von Feuer
+            und Rauch entgegenwirken.
+          </p>
         </div>
       </section>
 
@@ -181,16 +191,10 @@ export default function BrandschutzPage() {
           style={{ left: "auto", right: "214px" }}
         />
         <div
-          className="owlHorned clusterPieces"
+          className="clusterPieces"
           style={{ right: "auto", left: "0" }}
         >
-          <img
-            src="https://www.micelistudios.com/sandbox/scrolltrigger/imgs/great_horned_owl.jpg"
-            alt="Service image"
-          />
-          <div className="caption">
-            <span>/01</span> BRANDSCHUTZ
-          </div>
+          <Image className="owlHorned" src="/images/random2.jpg" alt="Service image" fill sizes="450px" />
         </div>
         <img
           className="dotsBlue clusterPieces"
@@ -203,8 +207,20 @@ export default function BrandschutzPage() {
 
       <section>
         <div className="title titleBurrowing text-block">
-          <p>Platzhalter Text Absatz 1 – wird später ersetzt.</p>
-          <p>Platzhalter Text Absatz 2 – wird später ersetzt.</p>
+          <p>
+            Bereits in der Planungsphase werden Materialien, Konstruktionen und
+            Schnittstellen so gewählt, dass gesetzliche und objektspezifische
+            Anforderungen sicher eingehalten werden. Im Neubau ebenso wie bei
+            Sanierungen entstehen Lösungen, die Schutz, Wirtschaftlichkeit und
+            Gestaltungsfreiheit miteinander verbinden.
+          </p>
+          <p>
+            Das Leistungsspektrum reicht von Beschichtungen und Bekleidungen für
+            Stahl- und Holztragwerke bis hin zu Aufrüstungen bestehender Decken-
+            und Wandsysteme. Brandschutzverglasungen und Feuerschutztüren – in
+            Stahl oder Holz, mit Oberflächen nach Vorgabe – werden präzise in
+            das jeweilige Raumkonzept integriert.
+          </p>
         </div>
       </section>
 
@@ -220,16 +236,10 @@ export default function BrandschutzPage() {
           <span className="window-border window-border--left" />
         </div>
         <div
-          className="clusterPieces owlBurrowing"
+          className="clusterPieces"
           style={{ right: "auto", left: "0" }}
         >
-          <img
-            src="https://www.micelistudios.com/sandbox/scrolltrigger/imgs/burrrowing_owl_674x700.jpg"
-            alt="Service image"
-          />
-          <div className="caption captionBurrowing">
-            <span>/02</span> DETAIL
-          </div>
+          <Image className="owlBurrowing" src="/images/random9.jpg" alt="Service image" fill sizes="674px" />
         </div>
         <img
           className="clusterPieces dotsWhite"
@@ -242,7 +252,15 @@ export default function BrandschutzPage() {
 
       <section>
         <div className="title titleAfter text-block">
-          <p>Platzhalter Text Abschluss – wird später ersetzt.</p>
+          <p>
+            Auch Kabel-, Kanal- und Rohrabschottungen gehören dazu: fachgerecht
+            montiert, geprüft und dokumentiert. Jede Ausführung wird
+            projektspezifisch geplant, abgestimmt und kontrolliert.
+          </p>
+          <p>
+            So entsteht ein Brandschutz, der nicht auffällt, sondern
+            funktioniert – dauerhaft, normgerecht und ästhetisch ruhig.
+          </p>
         </div>
         <div className="owl-cta-wrap">
           <TransitionLink className="owl-cta-button" href="/kontakt">

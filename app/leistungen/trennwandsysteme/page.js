@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SplitType from "split-type";
+import Image from "next/image";
 import TransitionLink from "../../../components/TransitionLink";
 
 export default function TrennwandsystemePage() {
@@ -174,7 +175,13 @@ export default function TrennwandsystemePage() {
       <section>
         <div className="title titleGreathorned text-block">
           <h1 className="owl-title-heading">Trennwandsysteme</h1>
-          <p>Platzhalter Text – wird später ersetzt.</p>
+          <p>
+            Trennwandsysteme geben Gebäuden Struktur und Nutzungsflexibilität.
+          </p>
+          <p>
+            Sie schaffen neue Räume, gliedern Flächen und ermöglichen
+            Veränderungen, ohne in die Bausubstanz einzugreifen.
+          </p>
         </div>
       </section>
 
@@ -191,16 +198,10 @@ export default function TrennwandsystemePage() {
           <span className="window-border window-border--left" />
         </div>
         <div
-          className="clusterPieces owlBurrowing"
-          style={{ right: "0", left: "auto", top: "0" }}
+          className="clusterPieces"
+          style={{ right: "auto", left: "0" }}
         >
-          <img
-            src="https://www.micelistudios.com/sandbox/scrolltrigger/imgs/burrrowing_owl_674x700.jpg"
-            alt="Service image"
-          />
-          <div className="caption">
-            <span>/01</span> TRENNWANDSYSTEME
-          </div>
+          <Image className="owlHorned" src="/images/random18.jpg" alt="Service image" fill sizes="450px" />
         </div>
         <img
           className="clusterPieces dotsWhite"
@@ -213,8 +214,21 @@ export default function TrennwandsystemePage() {
 
       <section>
         <div className="title titleBurrowing text-block">
-          <p>Platzhalter Text Absatz 1 – wird später ersetzt.</p>
-          <p>Platzhalter Text Absatz 2 – wird später ersetzt.</p>
+          <p>
+            Moderne Trennwände sind funktionale Bauelemente, die Räume formen
+            und Nutzung ermöglichen. Sie lassen sich schnell montieren und bei
+            Bedarf ebenso einfach an neue Anforderungen anpassen – ideal für
+            Verwaltungsgebäude, Großraumbüros oder Sanierungen im Bestand.
+          </p>
+          <p>
+            So entsteht eine Gebäudestruktur, die offen bleibt für Veränderung,
+            aber die nötige Ruhe und Stabilität bietet. Je nach Aufgabe kommen
+            unterschiedliche Systeme zum Einsatz: nichttragende Trennwände als
+            wirtschaftliche Lösung für variable Grundrisse, Schallschutz- und
+            Brandschutzwände für sicherheitsrelevante Bereiche,
+            Installationswände zur Integration von Technik und Leitungen oder
+            Sicherheitswände mit einbruch- und durchschusshemmender Funktion.
+          </p>
         </div>
       </section>
 
@@ -228,13 +242,7 @@ export default function TrennwandsystemePage() {
           className="owlHorned clusterPieces"
           style={{ right: "0", left: "auto", top: "162px" }}
         >
-          <img
-            src="https://www.micelistudios.com/sandbox/scrolltrigger/imgs/great_horned_owl.jpg"
-            alt="Service image"
-          />
-          <div className="caption captionBurrowing">
-            <span>/02</span> DETAIL
-          </div>
+          <img src="/images/random8.jpg" alt="Service image" />
         </div>
         <img
           className="dotsBlue clusterPieces"
@@ -247,7 +255,18 @@ export default function TrennwandsystemePage() {
 
       <section>
         <div className="title titleAfter text-block">
-          <p>Platzhalter Text Abschluss – wird später ersetzt.</p>
+          <p>
+            Auch Strahlenschutzwände sowie selbsttragende, frei aufstellbare
+            Raum-in-Raum-Systeme gehören zum Leistungsspektrum – ebenso
+            Sonderkonstruktionen für hohe mechanische Belastungen.
+          </p>
+          <p>
+            Alle Systeme werden exakt auf Nutzung, Statik und Oberflächenkonzept
+            abgestimmt. So entstehen Wände, die sich unauffällig in das
+            architektonische Gesamtbild einfügen und gleichzeitig alle
+            technischen Anforderungen erfüllen – funktional durchdacht, präzise
+            umgesetzt und jederzeit anpassbar.
+          </p>
         </div>
         <div className="owl-cta-wrap">
           <TransitionLink className="owl-cta-button" href="/kontakt">
