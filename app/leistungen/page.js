@@ -417,7 +417,10 @@ export default function LeistungenPage() {
           <div className="hero__grid-cell" />
           <div className="hero__grid-cell" />
           <div className="hero__title" style={{ gridColumn: "span 4" }}>
-            <h1>Innenausbau mit System.</h1>
+            <h1>
+              Innenausbau mit{" "}
+              <span className="leistungen-hero__accent">System.</span>
+            </h1>
             <div className="leistungen-hero__intro">
               <p>
                 Wir entwickeln, planen und realisieren Innenräume, die Funktion,
@@ -437,6 +440,8 @@ export default function LeistungenPage() {
           </div>
         </div>
       </section>
+
+      <div className="leistungen-divider" aria-hidden="true" />
 
       <section className="leistungen-links" aria-label="Leistungen Links">
         <div className="container">
