@@ -1,9 +1,16 @@
+import Image from "next/image";
+
 export default function Footer() {
   return (
     <footer className="site-footer" aria-label="Footer">
       <div className="container site-footer__inner">
         <div className="site-footer__brand" aria-hidden="true">
-          <img src="/images/logo.svg" alt="Trockenbau Dirk Leyer" />
+          <Image
+            src="/images/logo.svg"
+            alt="Trockenbau Dirk Leyer"
+            width={430}
+            height={120}
+          />
         </div>
 
         <div className="site-footer__contact">
@@ -14,13 +21,13 @@ export default function Footer() {
         </div>
 
         <nav className="site-footer__links" aria-label="Rechtliches">
-          <a className="site-footer__link" href="#">
+          <a className="site-footer__link" href="/impressum">
             Impressum
           </a>
-          <a className="site-footer__link" href="#">
+          <a className="site-footer__link" href="/agb">
             AGB
           </a>
-          <a className="site-footer__link" href="#">
+          <a className="site-footer__link" href="/datenschutz">
             Datenschutzerklärung
           </a>
         </nav>

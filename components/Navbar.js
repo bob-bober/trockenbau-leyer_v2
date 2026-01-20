@@ -100,10 +100,7 @@ export default function Navbar() {
         <nav className="header__nav" aria-label="Main">
           <ul className="header__menu">
             <li>
-              <TransitionLink
-                className="header__link"
-                href="/#sectionAbout"
-              >
+              <TransitionLink className="header__link" href="/#sectionAbout">
                 <span className="header__dot" aria-hidden="true" />
                 <span>Über Uns</span>
               </TransitionLink>
@@ -111,14 +108,14 @@ export default function Navbar() {
             <li>
               <TransitionLink
                 className="header__link expertise-link"
-                href="/#sectionExpertise"
+                href="/leistungen"
               >
                 <span className="header__dot" aria-hidden="true" />
                 <span>Leistungen</span>
               </TransitionLink>
             </li>
             <li>
-              <TransitionLink className="header__link" href="/contact">
+              <TransitionLink className="header__link" href="/kontakt">
                 <span className="header__dot" aria-hidden="true" />
                 <span>Kontakt</span>
               </TransitionLink>
