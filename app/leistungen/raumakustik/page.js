@@ -200,10 +200,15 @@ export default function RaumakustikPage() {
           <span className="window-border window-border--left" />
         </div>
         <div
-          className="clusterPieces"
+          className="owlBurrowing clusterPieces"
           style={{ right: "auto", left: "0" }}
         >
-          <Image className="owlBurrowing" src="/images/random3.jpg" alt="Service image" fill sizes="674px" />
+          <Image
+            src="/images/random3.jpg"
+            alt="Service image"
+            width={674}
+            height={700}
+          />
         </div>
         <img
           className="clusterPieces dotsWhite"
@@ -244,10 +249,15 @@ export default function RaumakustikPage() {
           style={{ left: "auto", right: "214px" }}
         />
         <div
-          className="clusterPieces"
+          className="owlHorned clusterPieces"
           style={{ right: "auto", left: "0" }}
         >
-          <Image className="owlHorned" src="/images/random2.jpg" alt="Service image" fill sizes="450px" />
+          <Image
+            src="/images/random2.jpg"
+            alt="Service image"
+            width={450}
+            height={700}
+          />
         </div>
         <img
           className="dotsBlue clusterPieces"

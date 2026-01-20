@@ -198,10 +198,15 @@ export default function TrennwandsystemePage() {
           <span className="window-border window-border--left" />
         </div>
         <div
-          className="clusterPieces"
+          className="owlHorned clusterPieces"
           style={{ right: "auto", left: "0" }}
         >
-          <Image className="owlHorned" src="/images/random18.jpg" alt="Service image" fill sizes="450px" />
+          <Image
+            src="/images/random18.jpg"
+            alt="Service image"
+            width={450}
+            height={700}
+          />
         </div>
         <img
           className="clusterPieces dotsWhite"
@@ -242,7 +247,12 @@ export default function TrennwandsystemePage() {
           className="owlHorned clusterPieces"
           style={{ right: "0", left: "auto", top: "162px" }}
         >
-          <img src="/images/random8.jpg" alt="Service image" />
+          <Image
+            src="/images/random8.jpg"
+            alt="Service image"
+            width={450}
+            height={700}
+          />
         </div>
         <img
           className="dotsBlue clusterPieces"

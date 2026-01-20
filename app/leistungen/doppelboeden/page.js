@@ -194,8 +194,13 @@ export default function DoppelboedenPage() {
             border: "8px solid var(--blue-color)",
           }}
         />
-        <div className="clusterPieces">
-          <Image className="owlHorned" src="/images/random11.jpg" alt="Service image" fill sizes="450px" />
+        <div className="owlHorned clusterPieces">
+          <Image
+            src="/images/random11.jpg"
+            alt="Service image"
+            width={450}
+            height={700}
+          />
         </div>
         <img
           className="dotsBlue clusterPieces"
@@ -244,8 +249,13 @@ export default function DoppelboedenPage() {
           <span className="window-border window-border--bottom" />
           <span className="window-border window-border--left" />
         </div>
-        <div className="clusterPieces">
-          <Image className="owlBurrowing" src="/images/random13.jpg" alt="Service image" fill sizes="674px" />
+        <div className="owlBurrowing clusterPieces">
+          <Image
+            src="/images/random13.jpg"
+            alt="Service image"
+            width={674}
+            height={700}
+          />
         </div>
         <img
           className="clusterPieces dotsWhite"

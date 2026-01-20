@@ -1,59 +1,27 @@
 "use client";
+
 import Image from "next/image";
 import { useState } from "react";
 
 const initialForm = {
   name: "",
   email: "",
+  phone: "",
   message: "",
 };
 
-export default function FigmaFormSection() {
+export default function FormSection() {
   const [formState, setFormState] = useState(initialForm);
-  const [status, setStatus] = useState({ type: "", message: "" });
-  const [isLoading, setIsLoading] = useState(false);
+  const [status, setStatus] = useState("");
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormState((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    setIsLoading(true);
-    setStatus({ type: "", message: "" });
-
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formState),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        setStatus({
-          type: "success",
-          message: "Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet.",
-        });
-        setFormState(initialForm); // Form zurücksetzen
-      } else {
-        setStatus({
-          type: "error",
-          message: data.error || "Fehler beim Senden. Bitte versuchen Sie es erneut.",
-        });
-      }
-    } catch (error) {
-      setStatus({
-        type: "error",
-        message: "Verbindungsfehler. Bitte versuchen Sie es später erneut.",
-      });
-    } finally {
-      setIsLoading(false);
-    }
+    setStatus("Nachricht bereit zum Senden (mcp_figma_get_design_context)");
   };
 
   return (
@@ -68,6 +36,7 @@ export default function FigmaFormSection() {
             style={{ objectFit: "cover" }}
           />
         </div>
+
         <div className="contact-figma__form-wrap">
           <div className="contact-figma__titles text-block">
             <p className="contact-figma__title">KONTAKT</p>
@@ -75,6 +44,7 @@ export default function FigmaFormSection() {
               AUFNEHMEN
             </p>
           </div>
+
           <form className="contact-figma__form" onSubmit={handleSubmit}>
             <label className="contact-figma__field">
               <span>Name:</span>
@@ -85,9 +55,9 @@ export default function FigmaFormSection() {
                 onChange={handleChange}
                 placeholder=""
                 required
-                disabled={isLoading}
               />
             </label>
+
             <label className="contact-figma__field">
               <span>E-Mail:</span>
               <input
@@ -97,9 +67,20 @@ export default function FigmaFormSection() {
                 onChange={handleChange}
                 placeholder=""
                 required
-                disabled={isLoading}
               />
             </label>
+
+            <label className="contact-figma__field">
+              <span>Telefon:</span>
+              <input
+                type="tel"
+                name="phone"
+                value={formState.phone}
+                onChange={handleChange}
+                placeholder=""
+              />
+            </label>
+
             <label className="contact-figma__field">
               <span>Nachricht:</span>
               <textarea
@@ -109,25 +90,18 @@ export default function FigmaFormSection() {
                 rows={3}
                 placeholder=""
                 required
-                disabled={isLoading}
               />
             </label>
+
             <div className="contact-figma__actions">
               <span className="leistungen-cta__button-wrap">
-                <button 
-                  type="submit" 
-                  className="leistungen-cta__button"
-                  disabled={isLoading}
-                >
-                  {isLoading ? "Wird gesendet..." : "Nachricht senden"}
+                <button type="submit" className="leistungen-cta__button">
+                  Nachricht senden
                 </button>
               </span>
             </div>
-            {status.message && (
-              <p className={`contact-figma__status contact-figma__status--${status.type}`}>
-                {status.message}
-              </p>
-            )}
+
+            {status ? <p className="contact-figma__status">{status}</p> : null}
           </form>
         </div>
       </div>

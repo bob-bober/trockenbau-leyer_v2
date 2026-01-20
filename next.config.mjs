@@ -7,5 +7,3 @@ const nextConfig = {
     pagesBufferLength: 2,
   },
 };
-
-export default nextConfig;

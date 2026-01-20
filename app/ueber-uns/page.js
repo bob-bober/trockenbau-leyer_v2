@@ -6,128 +6,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SplitType from "split-type";
 import TransitionLink from "../../components/TransitionLink";
 
-const services = [
-  {
-    number: "01",
-    title: "Glastrennwände",
-    slug: "glastrennwaende",
-    slotId: "slot-1",
-    gridSize: "6x2",
-    tagline: "Transparenz, die funktioniert.",
-    description:
-      "Ganzglastrennwände schaffen Offenheit und verbinden Leichtigkeit mit akustischer Leistung.",
-    image: "/images/random1.jpg",
-    imageAlt: "Glastrennwände im Innenausbau",
-    paragraphs: [
-      "Ganzglastrennwände schaffen Offenheit, ohne auf Schallschutz oder Privatsphäre zu verzichten.",
-      "Die Systeme verbinden Leichtigkeit mit akustischer Leistung und erfüllen höchste Anforderungen an Stabilität und Brandschutz.",
-      "Klare Linien, präzise Fugen und flächenbündige Anschlüsse sorgen für eine ruhige, hochwertige Raumwirkung – ideal für moderne Büro- und Arbeitswelten.",
-    ],
-  },
-  {
-    number: "02",
-    title: "Deckensysteme",
-    slug: "deckensysteme",
-    slotId: "slot-2",
-    gridSize: "4x2",
-    tagline: "Raumwirkung beginnt oben.",
-    description:
-      "Decken prägen Akustik, Licht und Atmosphäre eines Raums durch abgestimmte Systemlösungen.",
-    image: "/images/random2.jpg",
-    imageAlt: "Moderne Deckensysteme",
-    paragraphs: [
-      "Decken prägen Akustik, Licht und Atmosphäre eines Raums.",
-      "Abgestimmte Systemlösungen verbessern die Sprachverständlichkeit, integrieren Gebäudetechnik und tragen zur gestalterischen Einheit bei.",
-      "Mineralfaser-, Metall- oder Akustikdecken sorgen für messbare Akustikwerte und eine klare, reduzierte Raumästhetik – funktional und wirtschaftlich zugleich.",
-    ],
-  },
-  {
-    number: "03",
-    title: "Trennwandsysteme",
-    slug: "trennwandsysteme",
-    slotId: "slot-3",
-    gridSize: "4x1",
-    tagline: "Flexibilität für neue Raumkonzepte.",
-    description:
-      "Modulare Systeme strukturieren Flächen und ermöglichen flexible Anpassungen.",
-    image: "/images/random3.jpg",
-    imageAlt: "Trennwandsysteme für flexible Raumkonzepte",
-    paragraphs: [
-      "Trennwände strukturieren Flächen, schaffen Zonen und ermöglichen Wandel.",
-      "Modulare Systeme lassen sich an Nutzung, Schallschutz oder Brandschutzanforderungen anpassen – dauerhaft stabil und jederzeit veränderbar.",
-      "So entsteht räumliche Klarheit, die Planungssicherheit und Anpassungsfähigkeit verbindet.",
-    ],
-  },
-  {
-    number: "04",
-    title: "Baulicher Brandschutz",
-    slug: "brandschutz",
-    slotId: "slot-4",
-    gridSize: "4x1",
-    tagline: "Sicherheit durch Systemdenken.",
-    description:
-      "Zertifizierte Systeme gewährleisten normgerechte Sicherheit bei maximaler Gestaltungsfreiheit.",
-    image: "/images/random4.jpg",
-    imageAlt: "Baulicher Brandschutz mit zertifizierten Systemen",
-    paragraphs: [
-      "Effektiver Brandschutz schützt Menschen, Substanz und Planung.",
-      "Zertifizierte Systeme für Wände, Decken und Installationen gewährleisten normgerechte Sicherheit bei maximaler Gestaltungsfreiheit.",
-      "Feuerschutztüren, Brandschutzverglasungen und geprüfte Abschottungen lassen sich präzise in bestehende Baukonzepte integrieren – sichtbar unauffällig, technisch verlässlich.",
-    ],
-  },
-  {
-    number: "05",
-    title: "Trockenboden",
-    slug: "trockenboden",
-    slotId: "slot-5",
-    gridSize: "6x2",
-    tagline: "Schnelle Bauweise. Dauerhafte Stabilität.",
-    description:
-      "Trockenbodensysteme reduzieren Bauzeiten und schaffen sofort belastbare Flächen.",
-    image: "/images/random5.jpg",
-    imageAlt: "Trockenboden für schnelle Bauabläufe",
-    paragraphs: [
-      "Trockenbodensysteme reduzieren Bauzeiten und schaffen sofort belastbare Flächen – ohne Trocknungszeiten oder Feuchtigkeitseintrag.",
-      "Sie eignen sich für Sanierungen, Büroflächen oder Aufrüstungen mit Brandschutz- und Akustikanforderungen.",
-      "Leichte Konstruktionen, hohe Tragfähigkeit und planbare Abläufe bieten messbare Vorteile im Projektzeitplan.",
-    ],
-  },
-  {
-    number: "06",
-    title: "Doppelböden",
-    slug: "doppelboeden",
-    slotId: "slot-6",
-    gridSize: "4x1",
-    tagline: "Technik unsichtbar integriert.",
-    description:
-      "Doppelböden schaffen Raum für Elektrotechnik, wartungsfreundlich und flexibel.",
-    image: "/images/random6.jpg",
-    imageAlt: "Doppelböden mit integriertem Technikraum",
-    paragraphs: [
-      "Doppelböden schaffen Raum für Elektrotechnik, Klima und Kommunikation – funktional, wartungsfreundlich und flexibel.",
-      "Der Installationshohlraum ermöglicht Nachrüstungen ohne Eingriff in die Bausubstanz.",
-      "Statische Sicherheit, geprüfte Belastbarkeit und saubere Ausführung sorgen für langlebige Systeme mit klarer Logik.",
-    ],
-  },
-  {
-    number: "07",
-    title: "Raumakustik",
-    slug: "raumakustik",
-    slotId: "slot-7",
-    gridSize: "4x1",
-    tagline: "Klarheit, die man hört.",
-    description:
-      "Gute Raumakustik schafft Konzentration, Ruhe und Wohlbefinden durch akustische Balance.",
-    image: "/images/random7.jpg",
-    imageAlt: "Raumakustik für Konzentration und Ruhe",
-    paragraphs: [
-      "Gute Raumakustik schafft Konzentration, Ruhe und Wohlbefinden.",
-      "Durch gezielte Kombination von Absorptions- und Reflexionsflächen entsteht eine akustische Balance, die Kommunikation und Produktivität fördert.",
-      "Ob Büro, Konferenzraum oder Bildungseinrichtung – akustisch wirksame Systeme erhöhen Komfort und Effizienz zugleich.",
-    ],
-  },
-];
-
 export default function UeberUnsPage() {
   const rootRef = useRef(null);
 
@@ -263,6 +141,53 @@ export default function UeberUnsPage() {
       });
     };
 
+    const animateFrom = (elem, direction = 1) => {
+      let x = 0;
+      let y = direction * 100;
+
+      if (elem.classList.contains("gs_reveal_fromLeft")) {
+        x = -100;
+        y = 0;
+      } else if (elem.classList.contains("gs_reveal_fromRight")) {
+        x = 100;
+        y = 0;
+      }
+
+      // Ensure the element starts offset like the demo page
+      elem.style.transform = `translate(${x}px, ${y}px)`;
+      elem.style.opacity = "0";
+
+      gsap.fromTo(
+        elem,
+        { x, y, autoAlpha: 0 },
+        {
+          duration: 1.25,
+          x: 0,
+          y: 0,
+          autoAlpha: 1,
+          ease: "expo",
+          overwrite: "auto",
+        },
+      );
+    };
+
+    const hide = (elem) => {
+      gsap.set(elem, { autoAlpha: 0 });
+    };
+
+    const applyRevealAnimations = () => {
+      gsap.utils.toArray(".gs_reveal").forEach((elem) => {
+        hide(elem);
+
+        ScrollTrigger.create({
+          trigger: elem,
+          onEnter: () => animateFrom(elem),
+          onEnterBack: () => animateFrom(elem, -1),
+          onLeave: () => hide(elem),
+        });
+      });
+    };
+
     const applyHeroIntro = () => {
       // Trigger line animation
       gsap.delayedCall(0.1, () => {
@@ -301,6 +226,7 @@ export default function UeberUnsPage() {
       applyParallax();
       applyServiceEntrances();
       applyCtaHighlight();
+      applyRevealAnimations();
       ScrollTrigger.refresh();
     });
 
@@ -313,6 +239,7 @@ export default function UeberUnsPage() {
         applyParallax();
         applyServiceEntrances();
         applyCtaHighlight();
+        applyRevealAnimations();
         ScrollTrigger.refresh();
       });
     };
@@ -340,8 +267,8 @@ export default function UeberUnsPage() {
           <div className="hero__grid-cell" />
           <div className="hero__grid-cell" />
           <div
-            className="hero__title hero__title--centered"
-            style={{ gridColumn: "span 4" }}
+            className="hero__title"
+            style={{ gridColumn: "span 4", minHeight: "240px" }}
           >
             <h1>ÜBER UNS</h1>
           </div>
@@ -349,6 +276,264 @@ export default function UeberUnsPage() {
       </section>
 
       <div className="leistungen-divider" aria-hidden="true" />
+
+      {/* New Über Uns Content Section */}
+      <section
+        className="ueber-uns-content"
+        style={{
+          backgroundColor: "#fbfbfb",
+          paddingTop: "120px",
+          paddingBottom: "40px",
+        }}
+      >
+        {/* Section 1: Über Uns - Text left, Image right */}
+        <div
+          className="content-row gs_reveal gs_reveal_fromLeft"
+          style={{
+            width: "100%",
+            maxWidth: "1600px",
+            margin: "0 auto 48px",
+            padding: "48px",
+            display: "flex",
+            justifyContent: "space-between",
+            gap: "32px",
+            alignItems: "center",
+            borderBottom: "solid 2px #e66a1f",
+            minHeight: "100vh",
+          }}
+        >
+          <div
+            className="content-text"
+            style={{
+              flex: 1,
+              display: "flex",
+              flexDirection: "column",
+              gap: "24px",
+            }}
+          >
+            <h2
+              className="gs_reveal"
+              style={{
+                fontFamily: '"PP Neue Montreal", sans-serif',
+                fontWeight: 400,
+                fontSize: "40px",
+                lineHeight: "1.2",
+                color: "#262626",
+                margin: 0,
+              }}
+            >
+              Über Uns
+            </h2>
+            <div
+              className="gs_reveal"
+              style={{
+                fontFamily: '"PP Neue Montreal Book", sans-serif',
+                fontWeight: 300,
+                fontSize: "18px",
+                lineHeight: "1.2",
+                color: "#262626",
+              }}
+            >
+              <p style={{ margin: "0 0 1em 0" }}>
+                Angefangen hat alles 1989 – mit einer kleinen Werkstatt in Köln
+                und dem Anspruch, Räume zu gestalten, die funktionieren und gut
+                aussehen.
+              </p>
+              <p style={{ margin: "0 0 1em 0" }}>
+                Damals arbeiteten wir vor allem für Unternehmen und Läden. Heute
+                entstehen unsere Möbel vor allem für Wohnungen, für Menschen,
+                für Zuhause.
+              </p>
+              <p style={{ margin: "0 0 1em 0" }}>
+                Wir sind ein kleines, eingespieltes Team. Wir arbeiten eng
+                zusammen, sprechen viel, entscheiden gemeinsam. Und auch wenn
+                sich vieles verändert hat – diese Nähe ist geblieben.
+              </p>
+            </div>
+          </div>
+          <div
+            className="content-image gs_reveal gs_reveal_fromRight"
+            style={{
+              width: "50%",
+              height: "auto",
+              position: "relative",
+              overflow: "hidden",
+              aspectRatio: "450/320",
+            }}
+          >
+            <img
+              src="/images/random3.jpg"
+              alt="Werkstatt"
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                filter: "brightness(0.8)",
+              }}
+            />
+          </div>
+        </div>
+
+        {/* Section 2: Unsere Philosophie - Image left, Text right */}
+        <div
+          className="content-row gs_reveal gs_reveal_fromRight"
+          style={{
+            width: "100%",
+            maxWidth: "1600px",
+            margin: "0 auto 48px",
+            padding: "48px",
+            display: "flex",
+            justifyContent: "space-between",
+            gap: "32px",
+            alignItems: "center",
+            borderBottom: "solid 2px #e66a1f",
+            minHeight: "100vh",
+          }}
+        >
+          <div
+            className="content-image gs_reveal gs_reveal_fromLeft"
+            style={{
+              width: "50%",
+              height: "auto",
+              position: "relative",
+              overflow: "hidden",
+              aspectRatio: "1/1",
+            }}
+          >
+            <img
+              src="/images/random12.jpg"
+              alt="Skizze"
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+              }}
+            />
+          </div>
+          <div
+            className="content-text"
+            style={{
+              flex: "1",
+              display: "flex",
+              flexDirection: "column",
+              gap: "24px",
+            }}
+          >
+            <h2
+              className="gs_reveal"
+              style={{
+                fontFamily: '"PP Neue Montreal", sans-serif',
+                fontWeight: 400,
+                fontSize: "40px",
+                lineHeight: "1.2",
+                color: "#262626",
+                margin: 0,
+              }}
+            >
+              Unsere Philosophie
+            </h2>
+            <div
+              className="gs_reveal"
+              style={{
+                fontFamily: '"PP Neue Montreal Book", sans-serif',
+                fontWeight: 300,
+                fontSize: "18px",
+                lineHeight: "1.2",
+                color: "#262626",
+              }}
+            >
+              <p style={{ margin: 0 }}>
+                Unsere Entwürfe entstehen aus der Überzeugung, dass gutes Design
+                nicht viel braucht. Keine Effekte, keine Trends – nur gute
+                Proportionen, sorgfältige Details und ein Material, das für sich
+                spricht. So entstehen Möbel, die sich zurücknehmen – und gerade
+                dadurch über Jahre hinweg Bestand haben.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Section 3: Unser Handwerk - Text left, Image right */}
+        <div
+          className="content-row gs_reveal gs_reveal_fromLeft"
+          style={{
+            width: "100%",
+            maxWidth: "1600px",
+            margin: "0 auto",
+            padding: "48px",
+            display: "flex",
+            justifyContent: "space-between",
+            gap: "32px",
+            alignItems: "center",
+            borderBottom: "solid 2px #e66a1f",
+            minHeight: "100vh",
+          }}
+        >
+          <div
+            className="content-text"
+            style={{
+              flex: 1,
+              display: "flex",
+              flexDirection: "column",
+              gap: "24px",
+            }}
+          >
+            <h2
+              className="gs_reveal"
+              style={{
+                fontFamily: '"PP Neue Montreal", sans-serif',
+                fontWeight: 400,
+                fontSize: "40px",
+                lineHeight: "1.2",
+                color: "#262626",
+                margin: 0,
+              }}
+            >
+              Unser Handwerk
+            </h2>
+            <div
+              className="gs_reveal"
+              style={{
+                fontFamily: '"PP Neue Montreal Book", sans-serif',
+                fontWeight: 300,
+                fontSize: "18px",
+                lineHeight: "1.2",
+                color: "#262626",
+              }}
+            >
+              <p style={{ margin: "0 0 1em 0" }}>
+                Handwerk bedeutet für uns: Verantwortung für jeden Schritt.
+              </p>
+              <p style={{ margin: 0 }}>
+                Von der ersten Holzbohle bis zum fertigen Möbelstück begleiten
+                wir alles in unserer Werkstatt. Wir arbeiten präzise, nehmen uns
+                Zeit und bauen Möbel nicht nach Zahlen, sondern nach Anspruch.
+              </p>
+            </div>
+          </div>
+          <div
+            className="content-image gs_reveal gs_reveal_fromRight"
+            style={{
+              width: "50%",
+              height: "auto",
+              position: "relative",
+              overflow: "hidden",
+              aspectRatio: "450/320",
+            }}
+          >
+            <img
+              src="/images/random3.jpg"
+              alt="Werkstatt Maschinen"
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                filter: "brightness(0.8)",
+              }}
+            />
+          </div>
+        </div>
+      </section>
 
       <section className="leistungen-links" aria-label="Leistungen Links">
         <div className="container">
@@ -379,231 +564,6 @@ export default function UeberUnsPage() {
               </p>
             </TransitionLink>
           </div>
-        </div>
-      </section>
-
-      <section className="ueber-uns-owl-content owl-template" ref={rootRef}>
-        <section>
-          <div className="title titleGreathorned text-block">
-            <h1 className="owl-title-heading">Innenausbau mit Verantwortung.</h1>
-            <p>
-              Seit 1990 steht Trockenbau Leyer in <em>Köln und Umgebung</em> für
-              hochwertigen Innenausbau, technische Präzision und zuverlässige
-              Ausführung.
-            </p>
-            <p>
-              Als Fachbetrieb für Trockenbau, Glas- und Deckensysteme begleiten
-              wir Bauprojekte von der Planung bis zur Fertigstellung –
-              strukturiert, termintreu und mit handwerklicher Klarheit.
-            </p>
-            <p>
-              Über die Jahre hat sich Trockenbau Leyer als verlässlicher Partner
-              für Architekten, Unternehmen und öffentliche Auftraggeber
-              etabliert.
-            </p>
-          </div>
-        </section>
-
-        <section className="cluster clusterGreat">
-          <div
-            className="circle clusterPieces"
-            style={{ left: "auto", right: "214px" }}
-          />
-          <div
-            className="owlHorned clusterPieces"
-            style={{ right: "auto", left: "0" }}
-          >
-            <img src="/images/random3.jpg" alt="Trockenbau Leyer Projekte" />
-          </div>
-          <svg
-            className="dotsBlue clusterPieces"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 494 434"
-            fill="none"
-            style={{ left: "auto", right: "0" }}
-          >
-            <circle cx="14" cy="14" r="14" fill="currentColor" />
-            <circle cx="14" cy="84" r="14" fill="currentColor" />
-            <circle cx="14" cy="154" r="14" fill="currentColor" />
-            <circle cx="14" cy="224" r="14" fill="currentColor" />
-            <circle cx="14" cy="294" r="14" fill="currentColor" />
-            <circle cx="14" cy="364" r="14" fill="currentColor" />
-            <circle cx="84" cy="14" r="14" fill="currentColor" />
-            <circle cx="84" cy="84" r="14" fill="currentColor" />
-            <circle cx="84" cy="154" r="14" fill="currentColor" />
-            <circle cx="84" cy="224" r="14" fill="currentColor" />
-            <circle cx="84" cy="294" r="14" fill="currentColor" />
-            <circle cx="84" cy="364" r="14" fill="currentColor" />
-            <circle cx="154" cy="14" r="14" fill="currentColor" />
-            <circle cx="154" cy="84" r="14" fill="currentColor" />
-            <circle cx="154" cy="154" r="14" fill="currentColor" />
-            <circle cx="154" cy="224" r="14" fill="currentColor" />
-            <circle cx="154" cy="294" r="14" fill="currentColor" />
-            <circle cx="154" cy="364" r="14" fill="currentColor" />
-            <circle cx="224" cy="14" r="14" fill="currentColor" />
-            <circle cx="224" cy="84" r="14" fill="currentColor" />
-            <circle cx="224" cy="154" r="14" fill="currentColor" />
-            <circle cx="224" cy="224" r="14" fill="currentColor" />
-            <circle cx="224" cy="294" r="14" fill="currentColor" />
-            <circle cx="224" cy="364" r="14" fill="currentColor" />
-            <circle cx="294" cy="14" r="14" fill="currentColor" />
-            <circle cx="294" cy="84" r="14" fill="currentColor" />
-            <circle cx="294" cy="154" r="14" fill="currentColor" />
-            <circle cx="294" cy="224" r="14" fill="currentColor" />
-            <circle cx="294" cy="294" r="14" fill="currentColor" />
-            <circle cx="294" cy="364" r="14" fill="currentColor" />
-            <circle cx="364" cy="14" r="14" fill="currentColor" />
-            <circle cx="364" cy="84" r="14" fill="currentColor" />
-            <circle cx="364" cy="154" r="14" fill="currentColor" />
-            <circle cx="364" cy="224" r="14" fill="currentColor" />
-            <circle cx="364" cy="294" r="14" fill="currentColor" />
-            <circle cx="364" cy="364" r="14" fill="currentColor" />
-          </svg>
-        </section>
-
-        <section>
-          <div className="title titleBurrowing text-block">
-            <p>
-              Unsere Projekte reichen von Büro- und Verwaltungsgebäuden über
-              Praxis- und Bildungsbauten bis hin zu individuellen Ausbauten im
-              privaten Bereich.
-            </p>
-            <p>
-              Die Grundlage jeder Zusammenarbeit ist ein systematischer Ansatz:
-              saubere Planung, klare Abläufe und nachvollziehbare Kommunikation.
-            </p>
-            <p>
-              Viele unserer Kunden arbeiten seit Jahren, teils Jahrzehnten, mit
-              uns zusammen – weil sie wissen, dass Qualität bei uns kein Zufall
-              ist, sondern Ergebnis konsequenter Arbeit.
-            </p>
-          </div>
-        </section>
-
-        <section className="cluster clusterBurrowing">
-          <div
-            className="clusterPieces triangle"
-            aria-hidden="true"
-            style={{ left: "auto", right: "-28px" }}
-          >
-            <span className="window-border window-border--top" />
-            <span className="window-border window-border--right" />
-            <span className="window-border window-border--bottom" />
-            <span className="window-border window-border--left" />
-          </div>
-          <div
-            className="clusterPieces owlBurrowing"
-            style={{ right: "auto", left: "0" }}
-          >
-            <img src="/images/random12.jpg" alt="Handwerkliche Qualität" />
-          </div>
-          <svg
-            className="clusterPieces dotsWhite"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 310 588"
-            fill="none"
-            style={{ left: "auto", right: "0" }}
-          >
-            <circle cx="14" cy="14" r="14" fill="currentColor" />
-            <circle cx="14" cy="84" r="14" fill="currentColor" />
-            <circle cx="14" cy="154" r="14" fill="currentColor" />
-            <circle cx="14" cy="224" r="14" fill="currentColor" />
-            <circle cx="14" cy="294" r="14" fill="currentColor" />
-            <circle cx="14" cy="364" r="14" fill="currentColor" />
-            <circle cx="14" cy="434" r="14" fill="currentColor" />
-            <circle cx="14" cy="504" r="14" fill="currentColor" />
-            <circle cx="14" cy="574" r="14" fill="currentColor" />
-            <circle cx="84" cy="14" r="14" fill="currentColor" />
-            <circle cx="84" cy="84" r="14" fill="currentColor" />
-            <circle cx="84" cy="154" r="14" fill="currentColor" />
-            <circle cx="84" cy="224" r="14" fill="currentColor" />
-            <circle cx="84" cy="294" r="14" fill="currentColor" />
-            <circle cx="84" cy="364" r="14" fill="currentColor" />
-            <circle cx="84" cy="434" r="14" fill="currentColor" />
-            <circle cx="84" cy="504" r="14" fill="currentColor" />
-            <circle cx="84" cy="574" r="14" fill="currentColor" />
-            <circle cx="154" cy="14" r="14" fill="currentColor" />
-            <circle cx="154" cy="84" r="14" fill="currentColor" />
-            <circle cx="154" cy="154" r="14" fill="currentColor" />
-            <circle cx="154" cy="224" r="14" fill="currentColor" />
-            <circle cx="154" cy="294" r="14" fill="currentColor" />
-            <circle cx="154" cy="364" r="14" fill="currentColor" />
-            <circle cx="154" cy="434" r="14" fill="currentColor" />
-            <circle cx="154" cy="504" r="14" fill="currentColor" />
-            <circle cx="154" cy="574" r="14" fill="currentColor" />
-            <circle cx="224" cy="14" r="14" fill="currentColor" />
-            <circle cx="224" cy="84" r="14" fill="currentColor" />
-            <circle cx="224" cy="154" r="14" fill="currentColor" />
-            <circle cx="224" cy="224" r="14" fill="currentColor" />
-            <circle cx="224" cy="294" r="14" fill="currentColor" />
-            <circle cx="224" cy="364" r="14" fill="currentColor" />
-            <circle cx="224" cy="434" r="14" fill="currentColor" />
-            <circle cx="224" cy="504" r="14" fill="currentColor" />
-            <circle cx="224" cy="574" r="14" fill="currentColor" />
-            <circle cx="294" cy="14" r="14" fill="currentColor" />
-            <circle cx="294" cy="84" r="14" fill="currentColor" />
-            <circle cx="294" cy="154" r="14" fill="currentColor" />
-            <circle cx="294" cy="224" r="14" fill="currentColor" />
-            <circle cx="294" cy="294" r="14" fill="currentColor" />
-            <circle cx="294" cy="364" r="14" fill="currentColor" />
-            <circle cx="294" cy="434" r="14" fill="currentColor" />
-            <circle cx="294" cy="504" r="14" fill="currentColor" />
-            <circle cx="294" cy="574" r="14" fill="currentColor" />
-          </svg>
-        </section>
-
-        <section>
-          <div className="title titleAfter text-block">
-            <h1 className="owl-title-heading">Arbeiten mit Anspruch.</h1>
-            <p>
-              Jedes Projekt beginnt mit einer genauen Vorstellung davon, was
-              entstehen soll – und endet erst, wenn jedes Detail stimmt. Zwischen
-              diesen Punkten liegt ein klarer Ablauf: Planung, Abstimmung,
-              Ausführung. Diese Struktur ist Grundlage unserer Arbeit und Garant
-              für Beständigkeit.
-            </p>
-            <p>
-              Sorgfalt im Prozess bedeutet Sicherheit im Ergebnis. Für Planer,
-              Bauherren und Nutzer entsteht so Verlässlichkeit – in Funktion,
-              Ausführung und Wirkung.
-            </p>
-            <p>Darauf bauen viele unserer Kunden seit Jahren.</p>
-          </div>
-          <div className="owl-cta-wrap">
-            <TransitionLink className="owl-cta-button" href="/kontakt">
-              Kontakt aufnehmen
-            </TransitionLink>
-          </div>
-        </section>
-
-        <section className="spcr300" />
-      </section>
-
-      <section
-        className="leistungen-cta"
-        aria-labelledby="leistungen-cta-heading"
-      >
-        <div className="container leistungen-cta__inner">
-          <div className="leistungen-cta__text text-block">
-            <h2 id="leistungen-cta-heading">
-              Verlässliche Abläufe für jedes Projekt.
-            </h2>
-            <p>
-              Ob Büroausbau, Praxis oder privater Wohnraum – jedes Projekt
-              braucht Klarheit in Planung und Ausführung.
-            </p>
-            <p>
-              Wir begleiten Unternehmen, Architekten und Privatkunden von der
-              ersten Idee bis zum fertigen Raum – zuverlässig, sauber und
-              termintreu.
-            </p>
-          </div>
-
-          <span className="leistungen-cta__button-wrap">
-            <TransitionLink href="/kontakt" className="leistungen-cta__button">
-              Projekt anfragen
-            </TransitionLink>
-          </span>
         </div>
       </section>
     </div>

@@ -197,10 +197,15 @@ export default function TrockenbodenPage() {
           }}
         />
         <div
-          className="clusterPieces"
+          className="owlHorned clusterPieces"
           style={{ right: "auto", left: "0" }}
         >
-          <Image className="owlHorned" src="/images/random10.jpg" alt="Service image" fill sizes="450px" />
+          <Image
+            src="/images/random10.jpg"
+            alt="Service image"
+            width={450}
+            height={700}
+          />
         </div>
         <img
           className="dotsBlue clusterPieces"
@@ -242,7 +247,12 @@ export default function TrockenbodenPage() {
           <span className="window-border window-border--left" />
         </div>
         <div className="clusterPieces owlBurrowing">
-          <img src="/images/random11.jpg" alt="Service image" />
+          <Image
+            src="/images/random11.jpg"
+            alt="Service image"
+            width={674}
+            height={700}
+          />
         </div>
         <img
           className="clusterPieces dotsWhite"

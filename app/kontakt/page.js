@@ -5,128 +5,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SplitType from "split-type";
 import TransitionLink from "../../components/TransitionLink";
-
-const services = [
-  {
-    number: "01",
-    title: "Glastrennwände",
-    slug: "glastrennwaende",
-    slotId: "slot-1",
-    gridSize: "6x2",
-    tagline: "Transparenz, die funktioniert.",
-    description:
-      "Ganzglastrennwände schaffen Offenheit und verbinden Leichtigkeit mit akustischer Leistung.",
-    image: "/images/random1.jpg",
-    imageAlt: "Glastrennwände im Innenausbau",
-    paragraphs: [
-      "Ganzglastrennwände schaffen Offenheit, ohne auf Schallschutz oder Privatsphäre zu verzichten.",
-      "Die Systeme verbinden Leichtigkeit mit akustischer Leistung und erfüllen höchste Anforderungen an Stabilität und Brandschutz.",
-      "Klare Linien, präzise Fugen und flächenbündige Anschlüsse sorgen für eine ruhige, hochwertige Raumwirkung – ideal für moderne Büro- und Arbeitswelten.",
-    ],
-  },
-  {
-    number: "02",
-    title: "Deckensysteme",
-    slug: "deckensysteme",
-    slotId: "slot-2",
-    gridSize: "4x2",
-    tagline: "Raumwirkung beginnt oben.",
-    description:
-      "Decken prägen Akustik, Licht und Atmosphäre eines Raums durch abgestimmte Systemlösungen.",
-    image: "/images/random2.jpg",
-    imageAlt: "Moderne Deckensysteme",
-    paragraphs: [
-      "Decken prägen Akustik, Licht und Atmosphäre eines Raums.",
-      "Abgestimmte Systemlösungen verbessern die Sprachverständlichkeit, integrieren Gebäudetechnik und tragen zur gestalterischen Einheit bei.",
-      "Mineralfaser-, Metall- oder Akustikdecken sorgen für messbare Akustikwerte und eine klare, reduzierte Raumästhetik – funktional und wirtschaftlich zugleich.",
-    ],
-  },
-  {
-    number: "03",
-    title: "Trennwandsysteme",
-    slug: "trennwandsysteme",
-    slotId: "slot-3",
-    gridSize: "4x1",
-    tagline: "Flexibilität für neue Raumkonzepte.",
-    description:
-      "Modulare Systeme strukturieren Flächen und ermöglichen flexible Anpassungen.",
-    image: "/images/random3.jpg",
-    imageAlt: "Trennwandsysteme für flexible Raumkonzepte",
-    paragraphs: [
-      "Trennwände strukturieren Flächen, schaffen Zonen und ermöglichen Wandel.",
-      "Modulare Systeme lassen sich an Nutzung, Schallschutz oder Brandschutzanforderungen anpassen – dauerhaft stabil und jederzeit veränderbar.",
-      "So entsteht räumliche Klarheit, die Planungssicherheit und Anpassungsfähigkeit verbindet.",
-    ],
-  },
-  {
-    number: "04",
-    title: "Baulicher Brandschutz",
-    slug: "brandschutz",
-    slotId: "slot-4",
-    gridSize: "4x1",
-    tagline: "Sicherheit durch Systemdenken.",
-    description:
-      "Zertifizierte Systeme gewährleisten normgerechte Sicherheit bei maximaler Gestaltungsfreiheit.",
-    image: "/images/random4.jpg",
-    imageAlt: "Baulicher Brandschutz mit zertifizierten Systemen",
-    paragraphs: [
-      "Effektiver Brandschutz schützt Menschen, Substanz und Planung.",
-      "Zertifizierte Systeme für Wände, Decken und Installationen gewährleisten normgerechte Sicherheit bei maximaler Gestaltungsfreiheit.",
-      "Feuerschutztüren, Brandschutzverglasungen und geprüfte Abschottungen lassen sich präzise in bestehende Baukonzepte integrieren – sichtbar unauffällig, technisch verlässlich.",
-    ],
-  },
-  {
-    number: "05",
-    title: "Trockenboden",
-    slug: "trockenboden",
-    slotId: "slot-5",
-    gridSize: "6x2",
-    tagline: "Schnelle Bauweise. Dauerhafte Stabilität.",
-    description:
-      "Trockenbodensysteme reduzieren Bauzeiten und schaffen sofort belastbare Flächen.",
-    image: "/images/random5.jpg",
-    imageAlt: "Trockenboden für schnelle Bauabläufe",
-    paragraphs: [
-      "Trockenbodensysteme reduzieren Bauzeiten und schaffen sofort belastbare Flächen – ohne Trocknungszeiten oder Feuchtigkeitseintrag.",
-      "Sie eignen sich für Sanierungen, Büroflächen oder Aufrüstungen mit Brandschutz- und Akustikanforderungen.",
-      "Leichte Konstruktionen, hohe Tragfähigkeit und planbare Abläufe bieten messbare Vorteile im Projektzeitplan.",
-    ],
-  },
-  {
-    number: "06",
-    title: "Doppelböden",
-    slug: "doppelboeden",
-    slotId: "slot-6",
-    gridSize: "4x1",
-    tagline: "Technik unsichtbar integriert.",
-    description:
-      "Doppelböden schaffen Raum für Elektrotechnik, wartungsfreundlich und flexibel.",
-    image: "/images/random6.jpg",
-    imageAlt: "Doppelböden mit integriertem Technikraum",
-    paragraphs: [
-      "Doppelböden schaffen Raum für Elektrotechnik, Klima und Kommunikation – funktional, wartungsfreundlich und flexibel.",
-      "Der Installationshohlraum ermöglicht Nachrüstungen ohne Eingriff in die Bausubstanz.",
-      "Statische Sicherheit, geprüfte Belastbarkeit und saubere Ausführung sorgen für langlebige Systeme mit klarer Logik.",
-    ],
-  },
-  {
-    number: "07",
-    title: "Raumakustik",
-    slug: "raumakustik",
-    slotId: "slot-7",
-    gridSize: "4x1",
-    tagline: "Klarheit, die man hört.",
-    description:
-      "Gute Raumakustik schafft Konzentration, Ruhe und Wohlbefinden durch akustische Balance.",
-    image: "/images/random7.jpg",
-    imageAlt: "Raumakustik für Konzentration und Ruhe",
-    paragraphs: [
-      "Gute Raumakustik schafft Konzentration, Ruhe und Wohlbefinden.",
-      "Durch gezielte Kombination von Absorptions- und Reflexionsflächen entsteht eine akustische Balance, die Kommunikation und Produktivität fördert.",
-      "Ob Büro, Konferenzraum oder Bildungseinrichtung – akustisch wirksame Systeme erhöhen Komfort und Effizienz zugleich.",
-    ],
-  },
-];
+import FormSection from "../../components/FormSection";
 
 export default function LeistungenPage() {
   useEffect(() => {
@@ -338,9 +217,7 @@ export default function LeistungenPage() {
           <div className="hero__grid-cell" />
           <div className="hero__grid-cell" />
           <div className="hero__title" style={{ gridColumn: "span 4" }}>
-            <h1>
-              Kontakt
-            </h1>
+            <h1>KONTAKT</h1>
             <div className="leistungen-hero__intro">
               <p>
                 Wir entwickeln Innenräume, die Funktion, Akustik und Ästhetik
@@ -361,6 +238,10 @@ export default function LeistungenPage() {
 
       <div className="leistungen-divider" aria-hidden="true" />
 
+      <FormSection />
+
+      <div className="leistungen-divider" aria-hidden="true" />
+
       <section className="leistungen-links" aria-label="Leistungen Links">
         <div className="container">
           <div className="leistungen-links__grid">
@@ -378,90 +259,18 @@ export default function LeistungenPage() {
             </TransitionLink>
 
             <TransitionLink
-              href="/kontakt"
+              href="/leistungen"
               className="leistungen-links__card leistungen-links__card--orange"
-              id="link-card-contact"
+              id="link-card-leistungen-orange"
             >
               <div className="leistungen-links__label">
-                <span>Kontakt aufnehmen</span>
+                <span>Unsere Leistungen</span>
               </div>
               <p className="leistungen-links__text">
-                Sprechen Sie mit uns über Ihr Projekt und Ihre Ziele.
+                Entdecken Sie unser Leistungsspektrum im Innenausbau.
               </p>
             </TransitionLink>
           </div>
-        </div>
-      </section>
-
-      <section className="leistungen-bento" aria-label="Leistungen Übersicht">
-        <div className="container">
-          <div className="leistungen-bento__grid">
-            {services.map((service) => (
-              <TransitionLink
-                key={service.slug}
-                href={`/leistungen/${service.slug}`}
-                className="bento-card"
-                aria-label={service.title}
-                data-slug={service.slug}
-              >
-                <div className="bento-card__media parallax-container">
-                  <div
-                    className="bento-card__image parallax-image"
-                    style={{ backgroundImage: `url(${service.image})` }}
-                    role="img"
-                    aria-label={service.imageAlt}
-                  />
-                </div>
-
-                <span className="bento-card__overlay" aria-hidden="true" />
-
-                <div className="bento-card__front">
-                  <h3 className="bento-card__title">{service.title}</h3>
-                  <p className="bento-card__tagline">{service.description}</p>
-                </div>
-
-                <div className="bento-card__content">
-                  {service.paragraphs.map((paragraph, index) => (
-                    <p key={index} className="bento-card__paragraph">
-                      {paragraph}
-                    </p>
-                  ))}
-                  <span className="bento-card__link">
-                    Mehr erfahren
-                    <span className="bento-card__link-arrow">→</span>
-                  </span>
-                </div>
-              </TransitionLink>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section
-        className="leistungen-cta"
-        aria-labelledby="leistungen-cta-heading"
-      >
-        <div className="container leistungen-cta__inner">
-          <div className="leistungen-cta__text text-block">
-            <h2 id="leistungen-cta-heading">
-              Verlässliche Abläufe für jedes Projekt.
-            </h2>
-            <p>
-              Ob Büroausbau, Praxis oder privater Wohnraum – jedes Projekt
-              braucht Klarheit in Planung und Ausführung.
-            </p>
-            <p>
-              Wir begleiten Unternehmen, Architekten und Privatkunden von der
-              ersten Idee bis zum fertigen Raum – zuverlässig, sauber und
-              termintreu.
-            </p>
-          </div>
-
-          <span className="leistungen-cta__button-wrap">
-            <TransitionLink href="/kontakt" className="leistungen-cta__button">
-              Projekt anfragen
-            </TransitionLink>
-          </span>
         </div>
       </section>
     </div>

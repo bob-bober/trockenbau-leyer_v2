@@ -208,8 +208,13 @@ export default function GlastrennwaendePage() {
 
       <section className="cluster clusterGreat">
         <div className="circle clusterPieces" />
-        <div className="clusterPieces">
-          <Image className="owlHorned" src="/images/random14.jpg" alt="Great horned owl" fill sizes="450px" />
+        <div className="owlHorned clusterPieces">
+          <Image
+            src="/images/random14.jpg"
+            alt="Great horned owl"
+            width={450}
+            height={700}
+          />
         </div>
         <img
           className="dotsBlue clusterPieces"
@@ -247,8 +252,13 @@ export default function GlastrennwaendePage() {
           <span className="window-border window-border--bottom" />
           <span className="window-border window-border--left" />
         </div>
-        <div className="clusterPieces">
-          <Image className="owlBurrowing" src="/images/random16.jpg" alt="Burrowing owl" fill sizes="674px" />
+        <div className="owlBurrowing clusterPieces">
+          <Image
+            src="/images/random16.jpg"
+            alt="Burrowing owl"
+            width={674}
+            height={700}
+          />
         </div>
         <img
           className="clusterPieces dotsWhite"
