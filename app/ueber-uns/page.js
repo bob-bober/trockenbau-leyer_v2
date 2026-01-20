@@ -282,7 +282,7 @@ export default function UeberUnsPage() {
         className="ueber-uns-content"
         style={{
           backgroundColor: "#fbfbfb",
-          paddingTop: "120px",
+          paddingTop: "48px",
           paddingBottom: "40px",
         }}
       >
@@ -299,31 +299,18 @@ export default function UeberUnsPage() {
             gap: "32px",
             alignItems: "center",
             borderBottom: "solid 2px #e66a1f",
-            minHeight: "100vh",
           }}
         >
           <div
             className="content-text"
             style={{
-              flex: 1,
+              width: "45%",
+              flex: "0 0 45%",
               display: "flex",
               flexDirection: "column",
               gap: "24px",
             }}
           >
-            <h2
-              className="gs_reveal"
-              style={{
-                fontFamily: '"PP Neue Montreal", sans-serif',
-                fontWeight: 400,
-                fontSize: "40px",
-                lineHeight: "1.2",
-                color: "#262626",
-                margin: 0,
-              }}
-            >
-              Über Uns
-            </h2>
             <div
               className="gs_reveal"
               style={{
@@ -354,7 +341,8 @@ export default function UeberUnsPage() {
           <div
             className="content-image gs_reveal gs_reveal_fromRight"
             style={{
-              width: "50%",
+              width: "45%",
+              flex: "0 0 45%",
               height: "auto",
               position: "relative",
               overflow: "hidden",
@@ -387,13 +375,13 @@ export default function UeberUnsPage() {
             gap: "32px",
             alignItems: "center",
             borderBottom: "solid 2px #e66a1f",
-            minHeight: "100vh",
           }}
         >
           <div
             className="content-image gs_reveal gs_reveal_fromLeft"
             style={{
-              width: "50%",
+              width: "45%",
+              flex: "0 0 45%",
               height: "auto",
               position: "relative",
               overflow: "hidden",
@@ -413,7 +401,8 @@ export default function UeberUnsPage() {
           <div
             className="content-text"
             style={{
-              flex: "1",
+              width: "45%",
+              flex: "0 0 45%",
               display: "flex",
               flexDirection: "column",
               gap: "24px",
@@ -466,13 +455,13 @@ export default function UeberUnsPage() {
             gap: "32px",
             alignItems: "center",
             borderBottom: "solid 2px #e66a1f",
-            minHeight: "100vh",
           }}
         >
           <div
             className="content-text"
             style={{
-              flex: 1,
+              width: "45%",
+              flex: "0 0 45%",
               display: "flex",
               flexDirection: "column",
               gap: "24px",
@@ -514,7 +503,8 @@ export default function UeberUnsPage() {
           <div
             className="content-image gs_reveal gs_reveal_fromRight"
             style={{
-              width: "50%",
+              width: "45%",
+              flex: "0 0 45%",
               height: "auto",
               position: "relative",
               overflow: "hidden",
