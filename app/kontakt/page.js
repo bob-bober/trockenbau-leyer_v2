@@ -66,6 +66,12 @@ export default function KontaktPage() {
         aria-labelledby="contact-heading"
       >
         <div className="container contact-figma__inner">
+          <div className="contact-figma__titles text-block">
+            <h1 className="contact-figma__title">KONTAKT</h1>
+            <h1 className="contact-figma__title contact-figma__title--accent">
+              AUFNEHMEN
+            </h1>
+          </div>
           <div className="contact-figma__image" aria-hidden="true">
             <Image
               src="/images/home_form.jpg"
@@ -76,12 +82,6 @@ export default function KontaktPage() {
             />
           </div>
           <div className="contact-figma__form-wrap">
-            <div className="contact-figma__titles text-block">
-              <h1 className="contact-figma__title">KONTAKT</h1>
-              <h1 className="contact-figma__title contact-figma__title--accent">
-                AUFNEHMEN
-              </h1>
-            </div>
             <form className="contact-figma__form" onSubmit={handleSubmit}>
               <label className="contact-figma__field">
                 <span>Name:</span>

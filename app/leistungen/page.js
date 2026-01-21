@@ -396,7 +396,8 @@ export default function LeistungenPage() {
 
       <section className="leistungen-bento" aria-label="Leistungen Übersicht">
         <div className="container">
-          <div className="leistungen-bento__grid">
+          {/* Desktop Bento Grid */}
+          <div className="leistungen-bento__grid leistungen-bento__grid--desktop">
             {services.map((service) => (
               <TransitionLink
                 key={service.slug}
@@ -431,6 +432,33 @@ export default function LeistungenPage() {
                     Mehr erfahren
                     <span className="bento-card__link-arrow">→</span>
                   </span>
+                </div>
+              </TransitionLink>
+            ))}
+          </div>
+
+          {/* Mobile Cards Grid */}
+          <div className="leistungen-bento__grid leistungen-bento__grid--mobile">
+            {services.map((service) => (
+              <TransitionLink
+                key={`mobile-${service.slug}`}
+                href={`/leistungen/${service.slug}`}
+                className="leistungen-mobile-card"
+                aria-label={service.title}
+              >
+                <div
+                  className="leistungen-mobile-card__image"
+                  style={{ backgroundImage: `url(${service.image})` }}
+                  role="img"
+                  aria-label={service.imageAlt}
+                />
+                <div className="leistungen-mobile-card__bar">
+                  <h3 className="leistungen-mobile-card__title">
+                    {service.title}
+                  </h3>
+                  <p className="leistungen-mobile-card__tagline">
+                    {service.tagline}
+                  </p>
                 </div>
               </TransitionLink>
             ))}
