@@ -43,7 +43,8 @@ export default function FigmaFormSection() {
       } else {
         setStatus({
           type: "error",
-          message: data.error || "Fehler beim Senden. Bitte versuchen Sie es erneut.",
+          message:
+            data.error || "Fehler beim Senden. Bitte versuchen Sie es erneut.",
         });
       }
     } catch (error) {
@@ -70,10 +71,10 @@ export default function FigmaFormSection() {
         </div>
         <div className="contact-figma__form-wrap">
           <div className="contact-figma__titles text-block">
-            <p className="contact-figma__title">KONTAKT</p>
-            <p className="contact-figma__title contact-figma__title--accent">
+            <h1 className="contact-figma__title">KONTAKT</h1>
+            <h1 className="contact-figma__title contact-figma__title--accent">
               AUFNEHMEN
-            </p>
+            </h1>
           </div>
           <form className="contact-figma__form" onSubmit={handleSubmit}>
             <label className="contact-figma__field">
@@ -114,8 +115,8 @@ export default function FigmaFormSection() {
             </label>
             <div className="contact-figma__actions">
               <span className="leistungen-cta__button-wrap">
-                <button 
-                  type="submit" 
+                <button
+                  type="submit"
                   className="leistungen-cta__button"
                   disabled={isLoading}
                 >
@@ -124,7 +125,9 @@ export default function FigmaFormSection() {
               </span>
             </div>
             {status.message && (
-              <p className={`contact-figma__status contact-figma__status--${status.type}`}>
+              <p
+                className={`contact-figma__status contact-figma__status--${status.type}`}
+              >
                 {status.message}
               </p>
             )}

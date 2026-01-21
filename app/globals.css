@@ -1357,7 +1357,7 @@ body:has(.home-page) .header {
     display: block;
     margin-bottom: 14px;
   }
-  
+
   .owl-template .text-block p {
     margin-bottom: 14px;
   }
@@ -1842,7 +1842,13 @@ body:has(.home-page) .header {
 
 /* Mobile Header: versteckt auf Desktop */
 .services-card__header--mobile {
-  display: none;
+  display: none !important;
+}
+
+@media (min-width: 901px) {
+  .services-card__header--mobile {
+    display: none !important;
+  }
 }
 
 .services-card__header {

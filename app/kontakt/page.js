@@ -61,7 +61,10 @@ export default function KontaktPage() {
 
   return (
     <main className="kontakt-page">
-      <section className="contact-figma contact-figma--page" aria-labelledby="contact-heading">
+      <section
+        className="contact-figma contact-figma--page"
+        aria-labelledby="contact-heading"
+      >
         <div className="container contact-figma__inner">
           <div className="contact-figma__image" aria-hidden="true">
             <Image
@@ -74,10 +77,10 @@ export default function KontaktPage() {
           </div>
           <div className="contact-figma__form-wrap">
             <div className="contact-figma__titles text-block">
-              <p className="contact-figma__title">KONTAKT</p>
-              <p className="contact-figma__title contact-figma__title--accent">
+              <h1 className="contact-figma__title">KONTAKT</h1>
+              <h1 className="contact-figma__title contact-figma__title--accent">
                 AUFNEHMEN
-              </p>
+              </h1>
             </div>
             <form className="contact-figma__form" onSubmit={handleSubmit}>
               <label className="contact-figma__field">
