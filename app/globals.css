@@ -1763,6 +1763,11 @@ body:has(.home-page) .header {
   border-bottom: 1px solid var(--black-text-color);
 }
 
+/* Mobile Description: versteckt auf Desktop */
+.services__description-mobile {
+  display: none;
+}
+
 .services-card__header {
   display: flex;
   align-items: center;
@@ -1989,9 +1994,36 @@ body:has(.home-page) .header {
     border-right: 1px solid var(--black-text-color);
   }
 
+  /* Deaktiviere den Link auf Mobile */
+  .services-card__link {
+    pointer-events: none;
+    text-decoration: none;
+  }
+
   .services-card__header {
     padding: 22px 16px;
     gap: 16px;
+    position: relative;
+    cursor: pointer;
+    pointer-events: auto;
+  }
+
+  /* Plus-Zeichen für Mobile */
+  .services-card__header::after {
+    content: "+";
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 32px;
+    font-weight: 300;
+    color: var(--black-text-color);
+    transition: transform 0.3s ease;
+  }
+
+  /* Minus-Zeichen wenn aktiv */
+  .services-card.is-active .services-card__header::after {
+    content: "−";
   }
 
   .services-card__index {
@@ -2000,6 +2032,8 @@ body:has(.home-page) .header {
 
   .services-card__title {
     font-size: 24px;
+    flex: 1;
+    padding-right: 40px;
   }
 
   .services__description-text {
@@ -2007,22 +2041,64 @@ body:has(.home-page) .header {
     line-height: 1.55;
   }
 
+  /* Desktop Description verstecken auf Mobile */
   .services__description {
-    position: static;
-    width: 100%;
-    min-height: 0;
-    pointer-events: auto;
+    display: none;
   }
 
-  .services__description-block {
-    position: static;
+  /* Mobile Description: sichtbar machen */
+  .services__description-mobile {
+    display: block;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: 
+      max-height 0.4s ease,
+      opacity 0.4s ease,
+      margin-top 0.4s ease;
+  }
+
+  .services-card.is-active .services__description-mobile {
+    max-height: 2000px;
     opacity: 1;
-    pointer-events: auto;
-    transform: none;
+    margin-top: 16px;
+  }
+
+  .services__description-block-mobile {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 12px;
-    margin-bottom: 24px;
+    gap: 16px;
+    padding: 0 16px 16px;
+  }
+
+  .services__description-block-img {
+    width: 100%;
+    height: auto;
+  }
+
+  .services__description-text {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .services__description-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: var(--blue-color);
+    color: #fbfbfb;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    align-self: flex-start;
+    transition: transform 0.2s ease;
+  }
+
+  .services__description-link:hover {
+    transform: translateX(4px);
   }
 
   .services__description-block-img {
@@ -2463,6 +2539,19 @@ body:has(.home-page) .header {
   overflow: hidden;
 }
 
+/* Mobile: Leistungen Hero Padding Anpassungen */
+@media screen and (max-width: 1024px) {
+  .leistungen-hero {
+    padding-bottom: 12px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .leistungen-hero {
+    padding-bottom: 8px;
+  }
+}
+
 .leistungen-hero .hero__title {
   border-radius: 8px;
   padding: 40px 48px 48px;
@@ -2472,6 +2561,26 @@ body:has(.home-page) .header {
   gap: 40px;
   align-items: end;
   justify-content: stretch;
+}
+
+/* Mobile: Hero Title kompakter Abstand */
+@media screen and (max-width: 768px) {
+  .leistungen-hero .hero__title {
+    padding: 20px 20px 32px !important;
+    min-height: auto !important;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .leistungen-hero .hero__title {
+    padding: 16px 16px 24px !important;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .leistungen-hero .hero__title {
+    padding: 12px 12px 20px !important;
+  }
 }
 
 .leistungen-hero .hero__title h1 {
@@ -2513,12 +2622,69 @@ body:has(.home-page) .header {
   padding: 80px 48px !important;
 }
 
+/* Mobile: Hero Title Centered Anpassungen */
+@media screen and (max-width: 1024px) {
+  .hero__title--centered {
+    padding: 60px 32px !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero__title--centered {
+    padding: 40px 24px !important;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .hero__title--centered {
+    padding: 32px 20px !important;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .hero__title--centered {
+    padding: 24px 16px !important;
+  }
+}
+
 .hero__title--centered h1 {
   font-size: 100px !important;
   align-self: center !important;
   margin: 0 auto !important;
   max-width: none !important;
   letter-spacing: -0.02em !important;
+}
+
+/* Mobile: Hero-Titel Über uns */
+@media screen and (max-width: 768px) {
+  .leistungen-hero .hero__title h1 {
+    font-size: 48px !important;
+    line-height: 1.1;
+  }
+
+  .hero__title--centered h1 {
+    font-size: 56px !important;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .leistungen-hero .hero__title h1 {
+    font-size: 36px !important;
+  }
+
+  .hero__title--centered h1 {
+    font-size: 42px !important;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .leistungen-hero .hero__title h1 {
+    font-size: 32px !important;
+  }
+
+  .hero__title--centered h1 {
+    font-size: 36px !important;
+  }
 }
 
 .ueber-uns-content {
@@ -2925,6 +3091,61 @@ body:has(.home-page) .header {
   }
 }
 
+/* Mobile: Leistungen Links weitere Optimierungen */
+@media screen and (max-width: 768px) {
+  .leistungen-links {
+    padding: 20px 4px 32px;
+  }
+
+  .leistungen-links__card {
+    gap: 32px;
+    padding: 24px 20px;
+    min-height: 160px;
+  }
+
+  .leistungen-links__label {
+    font-size: 16px;
+  }
+
+  .leistungen-links__text {
+    font-size: 13px;
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .leistungen-links {
+    padding: 16px 4px 24px;
+  }
+
+  .leistungen-links__card {
+    gap: 24px;
+    padding: 20px 16px;
+    min-height: 140px;
+  }
+
+  .leistungen-links__label {
+    font-size: 15px;
+  }
+
+  .leistungen-links__text {
+    font-size: 12px;
+    line-height: 1.3;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .leistungen-links__card {
+    gap: 20px;
+    padding: 16px 12px;
+    min-height: 120px;
+  }
+
+  .leistungen-links__label {
+    font-size: 14px;
+  }
+}
+
 .leistungen-bento .container {
   width: 100%;
   margin: 0 auto;
@@ -2933,13 +3154,13 @@ body:has(.home-page) .header {
 
 .leistungen-bento__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: auto auto auto;
   grid-template-areas:
-    "glastrennwaende glastrennwaende trennwandsysteme"
-    "deckensysteme brandschutz trockenboden"
-    "doppelboeden raumakustik raumakustik";
-  gap: 2px;
+    "glastrennwaende glastrennwaende trennwandsysteme trennwandsysteme"
+    "deckensysteme brandschutz trockenboden trockenboden"
+    "doppelboeden doppelboeden raumakustik raumakustik";
+  gap: 12px;
   width: 100%;
 }
 
@@ -2963,10 +3184,14 @@ body:has(.home-page) .header {
 
 .bento-card[data-slug="trockenboden"] {
   grid-area: trockenboden;
+  aspect-ratio: unset;
+  height: 100%;
 }
 
 .bento-card[data-slug="doppelboeden"] {
   grid-area: doppelboeden;
+  aspect-ratio: unset;
+  height: 100%;
 }
 
 .bento-card[data-slug="raumakustik"] {
@@ -2978,22 +3203,46 @@ body:has(.home-page) .header {
 .bento-card {
   position: relative;
   overflow: hidden;
-  border-radius: 4px;
+  border-radius: 12px;
   cursor: pointer;
   aspect-ratio: 500 / 550;
   width: 100%;
-  background: #0f0f0f;
+  background: #1a1a1a;
   color: #fff;
-  box-shadow: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Orangener Akzent-Balken unten */
+.bento-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #e66a1f;
+  transition: height 0.3s ease;
+  z-index: 10;
+}
+
+/* Hover nur für visuelles Feedback, kein automatisches Aufklappen */
+.bento-card:not(.is-active):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+}
+
+.bento-card:not(.is-active):hover::after {
+  height: 6px;
 }
 
 .bento-card--empty {
   pointer-events: none;
   cursor: default;
-  background: #0f0f0f;
+  background: #1a1a1a;
 }
 
 .bento-card__media {
@@ -3017,8 +3266,8 @@ body:has(.home-page) .header {
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(230, 106, 31, 0.1),
-    rgba(230, 106, 31, 0.3)
+    rgba(0, 0, 0, 0.25),
+    rgba(0, 0, 0, 0.55)
   );
   transition: background 0.5s ease;
   z-index: 1;
@@ -3112,9 +3361,10 @@ body:has(.home-page) .header {
   align-items: center;
   gap: 8px;
   padding: 12px 24px;
-  border-radius: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: #fff;
+  border-radius: 6px;
+  border: 2px solid #fff;
+  background: #fff;
+  color: #000;
   text-decoration: none;
   font-size: 15px;
   font-weight: 500;
@@ -3127,37 +3377,37 @@ body:has(.home-page) .header {
   transition: transform 0.3s ease;
 }
 
-.bento-card:hover .bento-card__overlay,
-.bento-card:focus-within .bento-card__overlay {
+/* Active State statt Hover - funktioniert mit Click/Touch */
+.bento-card.is-active .bento-card__overlay {
   background: linear-gradient(
     to bottom,
-    rgba(230, 106, 31, 0.5),
-    rgba(230, 106, 31, 0.85)
+    rgba(0, 0, 0, 0.65),
+    rgba(0, 0, 0, 0.85)
   );
 }
 
-.bento-card:hover .bento-card__front,
-.bento-card:focus-within .bento-card__front {
+.bento-card.is-active .bento-card__front {
   transform: translateY(-50px);
   opacity: 0;
 }
 
-.bento-card:hover .bento-card__content,
-.bento-card:focus-within .bento-card__content {
+.bento-card.is-active .bento-card__content {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
 }
 
-.bento-card:hover .bento-card__link,
-.bento-card:focus-within .bento-card__link {
+.bento-card__link {
   background: #fff;
   color: #000;
   border-color: #fff;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.bento-card__link:hover .bento-card__link-arrow,
-.bento-card__link:focus-visible .bento-card__link-arrow {
+.bento-card__link:hover .bento-card__link-arrow {
   transform: translateX(4px);
 }
 
@@ -3265,11 +3515,12 @@ body:has(.home-page) .header {
     padding: 120px 0 100px;
   }
 
+  /* Tablet: 2 Spalten mit größerem Gap */
   .leistungen-bento__grid {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
     grid-template-areas: none;
-    gap: 2px;
+    gap: 12px;
   }
 
   .bento-card[data-slug] {
@@ -3309,6 +3560,25 @@ body:has(.home-page) .header {
     padding: 110px 0 90px;
   }
 
+  /* Hero Title Padding optimieren */
+  .leistungen-hero .hero__title {
+    padding: 32px 24px 40px;
+    min-height: 280px;
+    gap: 32px;
+  }
+
+  /* Hero Title Font-Size reduzieren */
+  .leistungen-hero .hero__title h1 {
+    font-size: 48px;
+    line-height: 1.1;
+  }
+
+  /* Hero Intro anpassen */
+  .leistungen-hero__intro {
+    font-size: 16px;
+    gap: 10px;
+  }
+
   .bento-card__front {
     bottom: 24px;
     left: 24px;
@@ -3337,9 +3607,24 @@ body:has(.home-page) .header {
     font-size: 15px;
   }
 
+  /* Touch-Target verbessern */
   .bento-card__link {
     font-size: 14px;
-    padding: 10px 20px;
+    padding: 14px 24px;
+    min-height: 44px;
+  }
+
+  /* Leistungen-Links Text verbessern */
+  .leistungen-links__text {
+    max-width: 100%;
+    font-size: 15px;
+    line-height: 1.4;
+  }
+
+  .leistungen-links__card {
+    gap: 60px;
+    padding: 32px 24px;
+    min-height: 180px;
   }
 }
 
@@ -3348,11 +3633,19 @@ body:has(.home-page) .header {
     padding-bottom: 120px;
   }
 
+  /* Mobile: Nur eine Spalte für bessere Lesbarkeit */
   .leistungen-bento__grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
     grid-template-rows: auto;
     grid-template-areas: none;
-    gap: 2px;
+    gap: 16px;
+  }
+
+  /* Alle Cards auf volle Breite und gleiche Höhe */
+  .bento-card[data-slug] {
+    grid-area: auto !important;
+    aspect-ratio: 16 / 10 !important;
+    height: auto !important;
   }
 
   .bento-card__title {
@@ -3368,6 +3661,216 @@ body:has(.home-page) .header {
   }
 
   .bento-card__description {
+    font-size: 14px;
+  }
+
+  /* Bento Card Content padding anpassen */
+  .bento-card__front {
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+  }
+
+  .bento-card__content {
+    padding: 20px;
+  }
+
+  /* Mobile: Größerer Border-Radius */
+  .bento-card {
+    border-radius: 16px;
+  }
+
+  /* Mobile: Kein Hover-Feedback */
+  .bento-card:not(.is-active):hover {
+    transform: none;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .bento-card:not(.is-active):hover::after {
+    height: 4px;
+  }
+}
+
+/* Mobile: 640px - Smartphones */
+@media (max-width: 640px) {
+  /* Hero weiteres Padding reduzieren */
+  .leistungen-hero .hero__title {
+    padding: 24px 20px 32px;
+    min-height: 240px;
+    gap: 24px;
+  }
+
+  /* Hero Titel weiter reduzieren */
+  .leistungen-hero .hero__title h1 {
+    font-size: 36px;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  /* Hero Intro kompakter */
+  .leistungen-hero__intro {
+    font-size: 15px;
+    line-height: 1.5;
+    gap: 8px;
+  }
+
+  /* Bento Karten kompakter */
+  .bento-card__front {
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+  }
+
+  .bento-card__title {
+    font-size: 20px;
+    margin-bottom: 6px;
+  }
+
+  .bento-card__tagline {
+    font-size: 13px;
+  }
+
+  .bento-card__content {
+    padding: 16px;
+    gap: 8px;
+  }
+
+  .bento-card__paragraph {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* Touch-Target beibehalten */
+  .bento-card__link {
+    font-size: 13px;
+    padding: 14px 20px;
+    min-height: 44px;
+  }
+
+  /* Links kompakter */
+  .leistungen-links__card {
+    gap: 48px;
+    padding: 24px 20px;
+    min-height: 160px;
+  }
+
+  .leistungen-links__label {
+    font-size: 16px;
+  }
+
+  .leistungen-links__text {
+    font-size: 14px;
+  }
+
+  /* CTA optimieren */
+  .leistungen-cta {
+    padding: 80px 0 100px;
+  }
+
+  .leistungen-cta__inner {
+    gap: 28px;
+  }
+
+  .leistungen-cta__text {
+    gap: 16px;
+  }
+
+  .leistungen-cta__text h2 {
+    font-size: clamp(28px, 7vw, 40px);
+    line-height: 1.2;
+  }
+
+  .leistungen-cta__text p {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* CTA Button Touch-Target */
+  .leistungen-cta__button {
+    padding: 16px 32px;
+    font-size: 16px;
+    min-height: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Mobile: 480px - Kleinere Smartphones */
+@media (max-width: 480px) {
+  /* Hero Titel noch weiter reduzieren */
+  .leistungen-hero .hero__title {
+    padding: 20px 16px 28px;
+    min-height: 200px;
+    gap: 20px;
+  }
+
+  .leistungen-hero .hero__title h1 {
+    font-size: 32px;
+    line-height: 1.15;
+  }
+
+  .leistungen-hero__intro {
+    font-size: 14px;
+  }
+
+  /* Bento Grid Spacing etwas reduzieren */
+  .leistungen-bento__grid {
+    gap: 6px;
+  }
+
+  /* CTA kompakter */
+  .leistungen-cta {
+    padding: 60px 0 80px;
+  }
+
+  .leistungen-cta__inner {
+    gap: 24px;
+  }
+
+  .leistungen-cta__button {
+    padding: 14px 28px;
+    font-size: 15px;
+  }
+}
+
+/* Mobile: 375px - Sehr kleine Smartphones (iPhone SE, etc.) */
+@media (max-width: 375px) {
+  .leistungen-hero .hero__title h1 {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  .leistungen-hero__intro {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .bento-card__title {
+    font-size: 18px;
+  }
+
+  .bento-card__tagline {
+    font-size: 12px;
+  }
+
+  .bento-card__paragraph {
+    font-size: 13px;
+  }
+
+  .leistungen-links__label {
+    font-size: 14px;
+  }
+
+  .leistungen-links__text {
+    font-size: 13px;
+  }
+
+  .leistungen-cta__text h2 {
+    font-size: 26px;
+  }
+
+  .leistungen-cta__text p {
     font-size: 14px;
   }
 }
@@ -3755,16 +4258,128 @@ body:has(.home-page) .header {
 
 @media (max-width: 768px) {
   .legal-hero {
-    padding: 120px 20px 32px;
+    padding: 110px 24px 32px;
   }
 
   .legal-content {
-    padding: 48px 20px 120px;
+    padding: 48px 24px 100px;
   }
 
   .legal-backtotop {
     right: 16px;
     bottom: 16px;
+    padding: 14px 20px;
+    font-size: 15px;
+  }
+
+  .legal-article {
+    gap: 40px;
+  }
+
+  .legal-section p {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .legal-heading {
+    font-size: clamp(20px, 5vw, 28px);
+  }
+}
+
+/* Mobile Smartphones - Optimized spacing and typography */
+@media (max-width: 640px) {
+  .legal-hero {
+    padding: 100px 20px 24px;
+  }
+
+  .legal-hero__title {
+    font-size: clamp(32px, 8vw, 48px);
+  }
+
+  .legal-content {
+    padding: 40px 20px 100px;
+  }
+
+  .legal-article {
+    gap: 36px;
+  }
+
+  .legal-heading {
+    font-size: clamp(20px, 5.5vw, 26px);
+    margin-bottom: 4px;
+  }
+
+  .legal-subheading {
+    font-size: clamp(17px, 4.5vw, 22px);
+    margin-top: 12px;
+  }
+
+  .legal-section p {
+    font-size: 16px;
+    line-height: 1.65;
+    margin-top: 14px;
+  }
+
+  .legal-section p:first-of-type {
+    margin-top: 20px;
+  }
+
+  .legal-section > :not(.legal-heading):not(.legal-subheading) {
+    padding-left: 4px;
+  }
+
+  .impressum-company {
+    font-size: clamp(18px, 5vw, 22px);
+  }
+
+  .impressum-address,
+  .impressum-contact p,
+  .impressum-page .legal-section p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .legal-backtotop {
+    right: 12px;
+    bottom: 12px;
+    padding: 12px 18px;
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+/* Extra small mobile devices - Further optimizations */
+@media (max-width: 480px) {
+  .legal-hero {
+    padding: 90px 16px 20px;
+  }
+
+  .legal-hero__title {
+    font-size: clamp(28px, 9vw, 40px);
+  }
+
+  .legal-content {
+    padding: 32px 16px 80px;
+  }
+
+  .legal-article {
+    gap: 32px;
+  }
+
+  .legal-heading {
+    font-size: clamp(19px, 6vw, 24px);
+  }
+
+  .legal-section p {
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  .legal-backtotop {
+    right: 12px;
+    bottom: 12px;
+    padding: 12px 16px;
+    font-size: 14px;
   }
 }
 
@@ -4018,6 +4633,12 @@ body:has(.home-page) .header {
   padding-bottom: 300px;
 }
 
+/* Mobile text-block optimization */
+.text-block p {
+  font-size: clamp(16px, 3.4vw, 26rem);
+  line-height: 1.55;
+}
+
 @media screen and (max-width: 1025px) {
   .owl-template .title {
     font-size: 60px;
@@ -4086,6 +4707,21 @@ body:has(.home-page) .header {
     line-height: 61px;
   }
 
+  .owl-template .title p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* Touch-friendly button */
+  .owl-template .owl-cta-button {
+    padding: 18px 32px;
+    min-height: 48px;
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .owl-template .cluster {
     max-width: 480px;
     height: 436px;
@@ -4141,11 +4777,50 @@ body:has(.home-page) .header {
   }
 }
 
+/* Modern large smartphones optimization (iPhone 14 Pro Max, etc.) */
+@media screen and (max-width: 428px) {
+  .owl-template .title {
+    font-size: 38px;
+    line-height: 1.4;
+  }
+
+  .owl-template .title p {
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  .owl-template .cluster {
+    max-width: 380px;
+    height: 400px;
+    margin: 40px auto;
+  }
+
+  .owl-template .clusterBurrowing {
+    max-width: 380px;
+    height: 480px;
+  }
+
+  /* Better spacing on smaller viewports */
+  .owl-template .owl-cta-wrap {
+    margin-top: 40px;
+  }
+}
+
 @media screen and (max-width: 540px) {
+  .owl-template {
+    padding: 24px 20px;
+  }
+
   .owl-template .title {
     font-size: 34px;
     line-height: 51px;
     padding-left: 0px;
+    margin: 20px auto;
+  }
+
+  .owl-template .title p {
+    font-size: 16px;
+    line-height: 1.65;
   }
 
   .owl-template .clusterPieces {
@@ -4196,6 +4871,54 @@ body:has(.home-page) .header {
   .owl-template .captionBurrowing {
     float: right;
     top: 0;
+  }
+
+  /* Ensure adequate touch targets on smallest devices */
+  .owl-template .owl-cta-button {
+    width: 100%;
+    max-width: 100%;
+    padding: 16px 24px;
+    min-height: 48px;
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .owl-template .owl-cta-wrap {
+    margin-top: 32px;
+    padding: 0;
+  }
+}
+
+/* Extra small phones - 375px and below */
+@media screen and (max-width: 375px) {
+  .owl-template {
+    padding: 20px 16px;
+  }
+
+  .owl-template .title {
+    font-size: 28px;
+    line-height: 1.4;
+    padding-top: 30px;
+    padding-bottom: 20px;
+  }
+
+  .owl-template .title p {
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  .owl-template .title .owl-title-heading {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+
+  .owl-template .cluster {
+    margin: 30px auto;
+  }
+
+  .owl-template .owl-cta-button {
+    padding: 14px 20px;
+    font-size: 15px;
   }
 }
 
@@ -4723,14 +5446,34 @@ body:has(.home-page) .header {
     gap: 12px;
   }
 
+  /* Plus-Zeichen anpassen für kleinere Screens */
+  .services-card__header::after {
+    right: 12px;
+    font-size: 28px;
+  }
+
   .services-card__index,
   .services-card__title {
     font-size: 18px;
   }
 
+  .services-card__title {
+    padding-right: 35px;
+  }
+
   .services__description-text {
     font-size: 16px;
-    padding: 14px;
+    padding: 0;
+  }
+
+  .services__description-block-mobile {
+    padding: 0 12px 12px;
+    gap: 12px;
+  }
+
+  .services__description-link {
+    font-size: 14px;
+    padding: 10px 16px;
   }
 
   /* Stats section mobile */
@@ -4832,26 +5575,24 @@ body:has(.home-page) .header {
   body {
     overflow-x: hidden !important;
     max-width: 100vw;
+    width: 100%;
+    position: relative;
     background: #fbfbfb !important;
     background-color: #fbfbfb !important;
   }
 
-  /* Alle Sections mit weißem Hintergrund */
-  section,
-  .container,
-  main,
-  .scroll-container,
-  .hero,
-  .stats,
-  .ceo,
-  .culture-section,
-  .experience-vision-section,
-  .services,
-  .contact-figma,
-  .figma-form,
-  .site-footer {
-    background: #fbfbfb !important;
-    background-color: #fbfbfb !important;
+  /* Verstecke Page Transitions auf Mobile */
+  .page-transition,
+  .page-transition-second {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+
+  /* Entferne orange Overlays */
+  .experience-block::before {
+    display: none !important;
+    opacity: 0 !important;
   }
 
   /* Disable vertical scrolling on home page for mobile */
@@ -5160,6 +5901,14 @@ body:has(.home-page) .header {
     box-sizing: border-box;
   }
 
+  /* Verhindere Overflow durch Grid/Flex */
+  .stats__grid,
+  .services .container,
+  .hero__grid,
+  .experience__grid {
+    overflow-x: hidden;
+  }
+
   /* Bilder und Medien begrenzen */
   img,
   video,
@@ -5168,6 +5917,12 @@ body:has(.home-page) .header {
   object {
     max-width: 100%;
     height: auto;
+  }
+
+  /* Verhindere horizontales Scrollen durch versteckte Elemente */
+  body > * {
+    max-width: 100vw;
+    overflow-x: hidden;
   }
 }
 
@@ -5210,5 +5965,209 @@ body:has(.home-page) .header {
   .stats__text {
     padding-left: 16px;
     padding-right: 16px;
+  }
+}
+
+/* ========== MOBILE OPTIMIERUNG: ÜBER UNS CONTENT ROWS ========== */
+
+/* Mobile: Wichtig - Sichtbarkeit erzwingen für GSAP Animationen */
+@media screen and (max-width: 768px) {
+  .ueber-uns-content .gs_reveal,
+  .ueber-uns-content .gs_reveal_fromLeft,
+  .ueber-uns-content .gs_reveal_fromRight,
+  .ueber-uns-content .content-row,
+  .ueber-uns-content .content-text,
+  .ueber-uns-content .content-image {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+  }
+
+  /* Padding oben komplett entfernen auf Mobile */
+  .ueber-uns-content {
+    padding-top: 0 !important;
+  }
+
+  .ueber-uns-content .content-row:first-of-type {
+    margin-top: 0 !important;
+  }
+}
+
+/* Tablet: Kleinere Gaps und Padding */
+@media screen and (max-width: 1024px) {
+  .ueber-uns-content {
+    padding: 60px 0 40px !important;
+  }
+
+  .ueber-uns-content .content-row {
+    padding: 32px 24px !important;
+    margin-bottom: 32px !important;
+    gap: 24px !important;
+  }
+
+  .ueber-uns-content .content-text h2 {
+    font-size: 32px !important;
+  }
+
+  .ueber-uns-content .content-text,
+  .ueber-uns-content .content-image {
+    width: 48% !important;
+    flex: 0 0 48% !important;
+  }
+}
+
+/* Mobile: Stack Layout für Content Rows */
+@media screen and (max-width: 768px) {
+  .ueber-uns-content {
+    padding: 0 0 30px !important;
+  }
+
+  .ueber-uns-content .content-row {
+    flex-direction: column !important;
+    padding: 24px 20px !important;
+    margin: 0 auto 24px !important;
+    gap: 20px !important;
+    max-width: calc(100% - 40px) !important;
+    align-items: stretch !important;
+  }
+
+  .ueber-uns-content .content-row:first-of-type {
+    margin-top: 0 !important;
+  }
+
+  .ueber-uns-content .content-text,
+  .ueber-uns-content .content-image {
+    width: 100% !important;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+
+  .ueber-uns-content .content-text {
+    gap: 16px !important;
+  }
+
+  .ueber-uns-content .content-text h2 {
+    font-size: 28px !important;
+    line-height: 1.25 !important;
+  }
+
+  .ueber-uns-content .content-text p,
+  .ueber-uns-content .content-text div {
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+  }
+
+  .ueber-uns-content .content-text div p {
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+  }
+
+  .ueber-uns-content .content-image {
+    aspect-ratio: 16/10 !important;
+    max-height: 280px !important;
+    height: auto !important;
+  }
+
+  .ueber-uns-content .content-image img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+}
+
+/* Small Mobile: Kompakteres Layout */
+@media screen and (max-width: 640px) {
+  .ueber-uns-content {
+    padding: 30px 0 20px !important;
+  }
+
+  .ueber-uns-content .content-row {
+    padding: 20px 16px !important;
+    margin: 0 auto 20px !important;
+    gap: 16px !important;
+    border-bottom-width: 1.5px !important;
+    max-width: calc(100% - 32px) !important;
+  }
+
+  .ueber-uns-content .content-text {
+    gap: 12px !important;
+  }
+
+  .ueber-uns-content .content-text h2 {
+    font-size: 24px !important;
+  }
+
+  .ueber-uns-content .content-text p,
+  .ueber-uns-content .content-text div,
+  .ueber-uns-content .content-text div p {
+    font-size: 15px !important;
+  }
+
+  .ueber-uns-content .content-image {
+    aspect-ratio: 4/3 !important;
+    max-height: 240px !important;
+  }
+}
+
+/* Extra Small Mobile: Minimales Padding */
+@media screen and (max-width: 375px) {
+  .ueber-uns-content .content-row {
+    padding: 16px 12px !important;
+    gap: 12px !important;
+    border-bottom-width: 1px !important;
+    max-width: calc(100% - 24px) !important;
+  }
+
+  .ueber-uns-content .content-text h2 {
+    font-size: 22px !important;
+  }
+
+  .ueber-uns-content .content-text p,
+  .ueber-uns-content .content-text div,
+  .ueber-uns-content .content-text div p {
+    font-size: 14px !important;
+  }
+
+  .ueber-uns-content .content-image {
+    max-height: 200px !important;
+  }
+}
+
+/* ========== MOBILE: Leistungen Hero Intro Anpassungen ========== */
+@media screen and (max-width: 768px) {
+  .leistungen-hero__intro {
+    font-size: 16px;
+    line-height: 1.5;
+    gap: 10px;
+  }
+
+  .leistungen-hero .hero__title {
+    grid-template-columns: 1fr;
+    padding: 24px 20px 32px;
+    min-height: auto;
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .leistungen-hero__intro {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .leistungen-hero .hero__title {
+    padding: 20px 16px 28px;
+    gap: 16px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .leistungen-hero__intro {
+    font-size: 14px;
+  }
+
+  .leistungen-hero .hero__title {
+    padding: 16px 12px 24px;
   }
 }

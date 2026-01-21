@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SplitType from "split-type";
@@ -129,6 +129,8 @@ const services = [
 ];
 
 export default function LeistungenPage() {
+  const [activeCard, setActiveCard] = useState(null);
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -398,12 +400,12 @@ export default function LeistungenPage() {
         <div className="container">
           <div className="leistungen-bento__grid">
             {services.map((service) => (
-              <TransitionLink
+              <div
                 key={service.slug}
-                href={`/leistungen/${service.slug}`}
-                className="bento-card"
+                className={`bento-card ${activeCard === service.slug ? "is-active" : ""}`}
                 aria-label={service.title}
                 data-slug={service.slug}
+                onClick={() => setActiveCard(activeCard === service.slug ? null : service.slug)}
               >
                 <div className="bento-card__media parallax-container">
                   <div
@@ -427,12 +429,16 @@ export default function LeistungenPage() {
                       {paragraph}
                     </p>
                   ))}
-                  <span className="bento-card__link">
+                  <TransitionLink 
+                    href={`/leistungen/${service.slug}`}
+                    className="bento-card__link"
+                    onClick={(e) => e.stopPropagation()}
+                  >
                     Mehr erfahren
                     <span className="bento-card__link-arrow">→</span>
-                  </span>
+                  </TransitionLink>
                 </div>
-              </TransitionLink>
+              </div>
             ))}
           </div>
         </div>

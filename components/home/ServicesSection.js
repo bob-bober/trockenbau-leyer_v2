@@ -277,6 +277,31 @@ export default function ServicesSection() {
                       <h3 className="services-card__title">{service.title}</h3>
                     </div>
                   </TransitionLink>
+
+                  {/* Mobile: Description direkt unter der Karte */}
+                  <div className="services__description-mobile">
+                    <div className="services__description-block-mobile">
+                      <div className="services__description-block-img">
+                        <Image
+                          src={service.image}
+                          alt={service.title}
+                          width={service.imageWidth}
+                          height={service.imageHeight}
+                          sizes="(max-width: 1100px) 100vw, 40vw"
+                          style={{ width: "100%", height: "auto" }}
+                        />
+                      </div>
+                      <div className="services__description-text">
+                        <p>{service.description}</p>
+                        <TransitionLink
+                          href={`/leistungen/${slugifyService(service.title)}`}
+                          className="services__description-link"
+                        >
+                          Mehr erfahren →
+                        </TransitionLink>
+                      </div>
+                    </div>
+                  </div>
                 </li>
               ))}
             </ol>

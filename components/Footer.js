@@ -21,7 +21,7 @@ export default function Footer() {
         </div>
 
         <nav className="site-footer__links" aria-label="Footer Navigation">
-          <a className="site-footer__link" href="/ueber-uns">
+          <a className="site-footer__link" href="/ueber-uns-parallax">
             Über Uns
           </a>
           <a className="site-footer__link" href="/leistungen">
