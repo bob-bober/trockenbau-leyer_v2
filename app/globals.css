@@ -5132,6 +5132,11 @@ body:has(.home-page) .header {
     margin-bottom: 20px;
   }
 
+  .owl-template .title .owl-title-heading {
+    font-size: 60px;
+    line-height: 1.1;
+  }
+
   .owl-template section {
     margin-bottom: 30px;
   }
@@ -5210,6 +5215,11 @@ body:has(.home-page) .header {
     margin-bottom: 16px;
   }
 
+  .owl-template .title .owl-title-heading {
+    font-size: 44px;
+    line-height: 1.1;
+  }
+
   .owl-template .title p {
     font-size: 16px;
     line-height: 1.6;
@@ -5241,6 +5251,7 @@ body:has(.home-page) .header {
   .owl-template .cluster {
     max-width: 480px;
     height: 436px;
+    margin: 48px auto;
   }
 
   .owl-template .dotsBlue {
@@ -5276,6 +5287,7 @@ body:has(.home-page) .header {
   .owl-template .clusterBurrowing {
     max-width: 480px;
     height: 542px;
+    margin: 48px auto;
   }
 
   .owl-template .dotsWhite {
@@ -5309,6 +5321,11 @@ body:has(.home-page) .header {
     padding-top: 40px;
   }
 
+  .owl-template .title .owl-title-heading {
+    font-size: 38px;
+    line-height: 1.1;
+  }
+
   .owl-template .title p {
     font-size: 16px;
     line-height: 1.6;
@@ -5326,7 +5343,7 @@ body:has(.home-page) .header {
   .owl-template .cluster {
     max-width: 380px;
     height: 400px;
-    margin: 40px auto;
+    margin: 44px auto;
   }
 
   .owl-template .owlHorned,
@@ -5343,6 +5360,7 @@ body:has(.home-page) .header {
   .owl-template .clusterBurrowing {
     max-width: 380px;
     height: 480px;
+    margin: 44px auto;
   }
 
   /* Better spacing on smaller viewports */
@@ -5362,6 +5380,11 @@ body:has(.home-page) .header {
     padding-left: 0px;
     padding-top: 40px;
     margin: 16px auto 14px;
+  }
+
+  .owl-template .title .owl-title-heading {
+    font-size: 34px;
+    line-height: 1.1;
   }
 
   .owl-template .title p {
@@ -5385,7 +5408,7 @@ body:has(.home-page) .header {
   .owl-template .cluster {
     max-width: 320px;
     height: 420px;
-    margin: 20px auto;
+    margin: 40px auto;
   }
 
   .owl-template .dotsBlue {
@@ -5415,7 +5438,7 @@ body:has(.home-page) .header {
   .owl-template .clusterBurrowing {
     max-width: 320px;
     height: 240px;
-    margin: 20px auto;
+    margin: 40px auto;
   }
 
   .owl-template .dotsWhite {
@@ -5488,10 +5511,12 @@ body:has(.home-page) .header {
 
   .owl-template .title .owl-title-heading {
     margin: 0 0 48px 0;
+    font-size: 28px;
+    line-height: 1.1;
   }
 
   .owl-template .cluster {
-    margin: 16px auto;
+    margin: 36px auto;
     height: 360px;
   }
 
@@ -6435,7 +6460,6 @@ body:has(.home-page) .header {
   .figma-form__container,
   .figma-form__intro,
   .leistungen-hero__intro,
-  .leistungen-bento,
   .leistung-detail,
   .impressum-content,
   .datenschutz-content,
@@ -6534,7 +6558,6 @@ body:has(.home-page) .header {
   .figma-form__container,
   .figma-form__intro,
   .leistungen-hero__intro,
-  .leistungen-bento,
   .leistung-detail,
   .impressum-content,
   .datenschutz-content,
