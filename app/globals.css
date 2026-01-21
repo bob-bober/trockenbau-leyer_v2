@@ -114,12 +114,19 @@ h6 * {
   width: 100%;
   background: var(--bg-color);
   border-bottom: 0.5px solid var(--border);
-  z-index: 20;
+  z-index: 40;
   transition:
     transform 0.35s ease,
     opacity 0.35s ease;
   opacity: 1;
   pointer-events: auto;
+}
+
+/* Home page: Header über Hero nach der Intro-Animation */
+body:has(.home-page) .header {
+  z-index: 102;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .header-hidden {
@@ -134,11 +141,14 @@ h6 * {
   height: var(--navbar-height);
   padding: 18px 48px;
   position: relative;
+  z-index: 1;
 }
 
 .header__logo {
   display: inline-flex;
   align-items: center;
+  position: relative;
+  z-index: 2;
 }
 
 .header__logo-image {
@@ -159,7 +169,7 @@ h6 * {
   align-items: center;
   width: max-content;
   min-width: max-content;
-  z-index: 1;
+  z-index: 2;
 }
 
 .header__actions {
@@ -167,6 +177,8 @@ h6 * {
   align-items: center;
   gap: 32px;
   margin-left: auto;
+  position: relative;
+  z-index: 2;
 }
 
 .header__phone {
@@ -200,7 +212,6 @@ h6 * {
   position: relative;
   padding-left: 34px;
   transition: color 0.6s cubic-bezier(0.39, 0.52, 0, 1);
-  z-index: 0;
 }
 
 .header__dot {
@@ -458,8 +469,13 @@ h6 * {
   position: relative;
   padding-top: 0;
   overflow: visible;
-  z-index: 101;
+  z-index: 1;
   --hero-line-extend: 20%;
+}
+
+/* Home page: Hero über dem Loader für Intro-Animation */
+.home-page .hero {
+  z-index: 101;
 }
 
 @media (max-width: 1100px) {
@@ -3202,6 +3218,7 @@ h6 * {
   overflow: hidden;
   z-index: 0;
   transition: color 0.25s ease;
+  cursor: pointer;
 }
 
 .leistungen-cta__button::after {
@@ -4547,5 +4564,651 @@ h6 * {
   .ueber-uns-parallax .parallax-unit-2,
   .ueber-uns-parallax .parallax-unit-3 {
     display: none;
+  }
+}
+
+/* ========== MOBILE OPTIMIZATION - HOME PAGE ========== */
+
+/* Mobile phones - 640px and below */
+@media screen and (max-width: 640px) {
+  /* Footer mobile optimization */
+  .site-footer {
+    padding: 40px 0 50px;
+    background: var(--bg-color);
+  }
+
+  .site-footer__inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 0 20px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .site-footer__brand {
+    justify-self: center;
+  }
+
+  .site-footer__brand img {
+    width: 280px;
+    max-width: 100%;
+  }
+
+  .site-footer__contact {
+    justify-self: center;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .site-footer__label {
+    font-size: 16px;
+  }
+
+  .site-footer__value {
+    font-size: 18px;
+  }
+
+  .site-footer__links {
+    justify-self: center;
+    align-items: center;
+    gap: 16px;
+    margin-right: 0;
+    font-size: 14px;
+  }
+
+  /* Contact Figma section mobile */
+  .contact-figma__inner {
+    padding: 60px 16px 80px;
+    gap: 32px;
+  }
+
+  .contact-figma__image {
+    height: 280px;
+    border-radius: 8px;
+  }
+
+  .contact-figma__form-wrap {
+    gap: 32px;
+    padding-right: 0;
+  }
+
+  .contact-figma__title {
+    font-size: 36px;
+  }
+
+  .contact-figma__title--accent,
+  .contact-figma__title:first-child {
+    align-self: flex-start;
+    text-align: left;
+  }
+
+  .contact-figma__form {
+    gap: 24px;
+    padding-left: 0;
+  }
+
+  .contact-figma__field input,
+  .contact-figma__field textarea {
+    font-size: 16px;
+    padding: 14px 16px;
+  }
+
+  .contact-figma__actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  /* Figma Form section mobile */
+  .figma-form {
+    padding: 60px 0 80px;
+  }
+
+  .figma-form__intro h2 {
+    font-size: 28px;
+  }
+
+  .figma-form__grid {
+    gap: 16px;
+  }
+
+  .figma-form__field input,
+  .figma-form__field select,
+  .figma-form__field textarea {
+    font-size: 16px;
+    padding: 14px 16px;
+  }
+
+  .figma-form__submit,
+  .figma-form__reset {
+    font-size: 16px;
+    padding: 14px 20px;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Remove orange background on form button for mobile */
+  .figma-form__submit {
+    background: var(--black-text-color);
+    border-color: var(--black-text-color);
+    box-shadow: none;
+  }
+
+  .figma-form__submit:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Services section mobile width */
+  .services {
+    padding: 80px 16px 100px;
+  }
+
+  .services__header {
+    flex-direction: column;
+    padding: 0;
+    gap: 20px;
+  }
+
+  .services__title {
+    font-size: 36px;
+  }
+
+  .services__descr {
+    font-size: 16px;
+    text-align: left;
+  }
+
+  .services-card__header {
+    padding: 18px 12px;
+    gap: 12px;
+  }
+
+  .services-card__index,
+  .services-card__title {
+    font-size: 18px;
+  }
+
+  .services__description-text {
+    font-size: 16px;
+    padding: 14px;
+  }
+
+  /* Stats section mobile */
+  .stats {
+    padding: 60px 16px;
+  }
+
+  .stats__title h2 {
+    font-size: 36px;
+  }
+
+  .counter {
+    font-size: 42px;
+  }
+
+  .stats__text p,
+  .stats__cell p {
+    font-size: 14px;
+    padding: 0 16px;
+  }
+
+  /* CEO section mobile */
+  .ceo__wrapper {
+    padding: 30px 16px 50px;
+    min-height: auto;
+  }
+
+  /* Experience Vision section mobile */
+  .experience-vision-section {
+    padding: 0 16px;
+  }
+
+  .experience-block {
+    padding: 32px 16px;
+    gap: 20px;
+  }
+
+  .experience-block__title {
+    font-size: 28px;
+  }
+
+  .experience-block__text {
+    font-size: 16px;
+  }
+
+  /* Hero mobile padding */
+  .hero__title {
+    padding: 80px 16px 40px;
+  }
+}
+
+/* Extra small phones - 375px and below */
+@media screen and (max-width: 375px) {
+  .site-footer__inner {
+    padding: 0 16px;
+  }
+
+  .site-footer__brand img {
+    width: 220px;
+  }
+
+  .site-footer__value {
+    font-size: 16px;
+  }
+
+  .contact-figma__inner {
+    padding: 50px 12px 70px;
+  }
+
+  .contact-figma__title {
+    font-size: 28px;
+  }
+
+  .services__title {
+    font-size: 28px;
+  }
+
+  .stats__title h2 {
+    font-size: 28px;
+  }
+
+  .counter {
+    font-size: 36px;
+  }
+
+  .experience-block__title {
+    font-size: 24px;
+  }
+
+  .hero__title {
+    padding: 60px 12px 32px;
+  }
+}
+
+/* ========== MOBILE: Disable scroll & intro animation ========== */
+@media screen and (max-width: 1100px) {
+  /* Prevent horizontal scrolling on mobile */
+  html,
+  body {
+    overflow-x: hidden !important;
+    max-width: 100vw;
+    background: #fbfbfb !important;
+    background-color: #fbfbfb !important;
+  }
+
+  /* Alle Sections mit weißem Hintergrund */
+  section,
+  .container,
+  main,
+  .scroll-container,
+  .hero,
+  .stats,
+  .ceo,
+  .culture-section,
+  .experience-vision-section,
+  .services,
+  .contact-figma,
+  .figma-form,
+  .site-footer {
+    background: #fbfbfb !important;
+    background-color: #fbfbfb !important;
+  }
+
+  /* Disable vertical scrolling on home page for mobile */
+  .is-home body,
+  .is-home .scroll-container {
+    overflow: hidden;
+    overflow-x: hidden !important;
+    height: var(--vh);
+    max-height: var(--vh);
+    background: #fbfbfb !important;
+  }
+
+  .scroll-container {
+    overflow-x: hidden !important;
+    max-width: 100vw;
+    background: #fbfbfb !important;
+  }
+
+  /* Hide intro animation elements on mobile */
+  .intro-overlay,
+  .loader,
+  .loader-count,
+  .loader-count__wrapper,
+  .loader-numbers,
+  .square-loader {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+
+  /* Make home content immediately visible on mobile (no intro animation) */
+  .is-home .header,
+  .is-home .experience,
+  .is-home .footer,
+  .home-page .hero__title {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+
+  /* ========== CEO Section - Static layout for mobile ========== */
+  .ceo__wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: auto;
+    padding: 0 16px 40px;
+  }
+
+  .ceo-text {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    z-index: 3;
+  }
+
+  .ceo-top,
+  .ceo-middle {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 12px;
+    font-size: 28px;
+  }
+
+  .ceo-middle {
+    color: var(--blue-color);
+  }
+
+  .ceo-bottom {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-right: 0;
+    gap: 8px;
+    font-size: 16px;
+    margin-top: 16px;
+  }
+
+  .ceo-left,
+  .ceo-right,
+  .ceo-anim-top,
+  .ceo-anim-middle,
+  .ceo-anim-bottom {
+    /* Remove animation transforms - show static */
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  .ceo-anim-top,
+  .ceo-anim-middle,
+  .ceo-anim-bottom {
+    font-size: 16px;
+  }
+
+  /* Smaller CEO image on mobile */
+  .ceo-img {
+    width: 70vw;
+    max-width: 280px;
+    height: auto;
+  }
+
+  .ceo__wrapper-title {
+    margin-top: 20px;
+  }
+
+  .ceo-title {
+    font-size: 24px;
+  }
+
+  .ceo-subtitle {
+    font-size: 14px;
+  }
+
+  /* ========== Smaller images on mobile ========== */
+  .parallax-image,
+  .experience-block__image {
+    max-height: 200px;
+    object-fit: cover;
+  }
+
+  .contact-figma__image {
+    height: 200px;
+  }
+
+  .experience-block__image-wrapper {
+    max-height: 200px;
+    overflow: hidden;
+  }
+}
+
+/* Extra small phones - CEO adjustments */
+@media screen and (max-width: 375px) {
+  .ceo-top,
+  .ceo-middle {
+    font-size: 22px;
+    gap: 8px;
+  }
+
+  .ceo-img {
+    width: 65vw;
+    max-width: 220px;
+  }
+
+  .ceo-title {
+    font-size: 20px;
+  }
+
+  .contact-figma__image {
+    height: 160px;
+  }
+}
+
+/* ========== MOBILE: Einheitliches Padding & Culture Section ========== */
+@media screen and (max-width: 640px) {
+  /* Einheitliches seitliches Padding (20px) für alle Sections */
+  .culture-section {
+    padding: 60px 20px;
+  }
+
+  .culture-section__heading {
+    font-size: 22px !important;
+    line-height: 1.35;
+    margin-bottom: 6px;
+  }
+
+  .stats {
+    padding: 60px 20px;
+  }
+
+  .experience-vision-section {
+    padding: 0 20px;
+  }
+
+  .services {
+    padding: 80px 20px 100px;
+  }
+
+  .services__header {
+    padding: 0;
+  }
+
+  .contact-figma__inner {
+    padding: 60px 20px 80px;
+  }
+
+  .site-footer__inner {
+    padding: 0 20px;
+  }
+
+  .ceo__wrapper {
+    padding: 0 20px 40px;
+  }
+
+  .hero__title {
+    padding: 80px 20px 40px;
+  }
+
+  .figma-form {
+    padding: 60px 20px 80px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  /* Culture section noch kleiner auf extra kleinen Screens */
+  .culture-section__heading {
+    font-size: 18px !important;
+  }
+
+  /* Einheitliches Padding 16px für extra kleine Screens */
+  .culture-section,
+  .stats,
+  .experience-vision-section,
+  .services,
+  .contact-figma__inner,
+  .site-footer__inner,
+  .ceo__wrapper,
+  .hero__title,
+  .figma-form {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+/* ========== MOBILE: Universelles Text-Padding für alle Seiten ========== */
+@media screen and (max-width: 1100px) {
+  /* Universelles Padding für alle Text-Container und Sections */
+  .container,
+  section,
+  .text-block,
+  .experience__description,
+  .stats__text,
+  .culture-section__content,
+  .contact-figma__form-wrap,
+  .figma-form__container,
+  .figma-form__intro,
+  .leistungen-hero__intro,
+  .leistungen-bento,
+  .leistung-detail,
+  .impressum-content,
+  .datenschutz-content,
+  .agb-content,
+  .kontakt-content,
+  article,
+  main > div,
+  .page-content {
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+    max-width: 100vw;
+  }
+
+  /* Services und Stats: Full-width Container korrigieren */
+  .services .container,
+  .stats__grid {
+    width: 100% !important;
+    max-width: 100vw !important;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Services Header und Content: Padding hinzufügen */
+  .services__header,
+  .services__content,
+  .services-list {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  /* Stats Grid: Padding für Cells */
+  .stats__cell,
+  .stats__title,
+  .stats__count,
+  .stats__text {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  /* Full-width Elemente auf Viewport begrenzen */
+  .stats__grid::before,
+  .stats__grid::after {
+    width: 100% !important;
+    left: 0;
+    transform: none;
+  }
+
+  /* Nested containers sollten kein doppeltes Padding haben */
+  .container .container,
+  section .container,
+  .text-block .text-block,
+  section section {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Alle Elemente auf max-width begrenzen */
+  * {
+    max-width: 100vw;
+    box-sizing: border-box;
+  }
+
+  /* Bilder und Medien begrenzen */
+  img,
+  video,
+  iframe,
+  embed,
+  object {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  /* Etwas kompakteres Padding auf kleineren Screens */
+  .container,
+  section,
+  .text-block,
+  .experience__description,
+  .stats__text,
+  .culture-section__content,
+  .contact-figma__form-wrap,
+  .figma-form__container,
+  .figma-form__intro,
+  .leistungen-hero__intro,
+  .leistungen-bento,
+  .leistung-detail,
+  .impressum-content,
+  .datenschutz-content,
+  .agb-content,
+  .kontakt-content,
+  article,
+  main > div,
+  .page-content {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  /* Services und Stats Content: kleineres Padding */
+  .services__header,
+  .services__content,
+  .services-list {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .stats__cell,
+  .stats__title,
+  .stats__count,
+  .stats__text {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 }

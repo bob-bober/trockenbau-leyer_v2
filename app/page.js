@@ -20,6 +20,10 @@ export default function Home() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
+    // Check if mobile - disable intro animation on mobile
+    const isMobile = window.innerWidth <= 1100;
+    const shouldPlayIntro = playHomeIntro && !isMobile;
+
     let lenis;
     let lenisRaf;
 
@@ -561,6 +565,10 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
+    // Check if mobile - disable intro animation on mobile
+    const isMobile = window.innerWidth <= 1100;
+    const shouldPlayIntro = playHomeIntro && !isMobile;
+
     const squares = document.querySelectorAll(".square-loader");
     const loaderNumbers = document.querySelector(".loader-numbers");
     const loaderCount = document.querySelector(".loader-count");
@@ -572,7 +580,7 @@ export default function Home() {
 
     let tl = null;
 
-    if (playHomeIntro) {
+    if (shouldPlayIntro) {
       tl = gsap.timeline({ defaults: { ease: "power2.out" } });
       gsap.set(".header, .experience, .footer, .hero__title", {
         opacity: 0,
