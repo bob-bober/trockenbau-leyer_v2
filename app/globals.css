@@ -350,7 +350,7 @@ h6 * {
   height: var(--vh);
   z-index: 100;
   pointer-events: none;
-  background: transparent;
+  background: var(--white-bg-color, #fff);
   will-change: opacity;
 }
 
@@ -458,7 +458,7 @@ h6 * {
   position: relative;
   padding-top: 0;
   overflow: visible;
-  z-index: 0;
+  z-index: 101;
   --hero-line-extend: 20%;
 }
 
@@ -4353,4 +4353,199 @@ h6 * {
   opacity: 0;
   visibility: hidden;
   will-change: transform, opacity;
+}
+
+/* =============================================
+   PARALLAX UNITS - Über Uns Parallax Page
+   ============================================= */
+
+.ueber-uns-parallax {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Parallax Trigger Containers */
+.parallax-trigger-1,
+.parallax-trigger-2,
+.parallax-trigger-3 {
+  position: relative;
+}
+
+/* Base Parallax Unit Styles */
+.ueber-uns-parallax .parallax-unit-1,
+.ueber-uns-parallax .parallax-unit-2,
+.ueber-uns-parallax .parallax-unit-3 {
+  position: absolute;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Unit 1: Triangle + dotsWhite - RIGHT side, starts in Hero */
+.ueber-uns-parallax .parallax-unit-1 {
+  top: 80px;
+  right: 40px;
+  left: auto;
+}
+
+.ueber-uns-parallax .parallax-unit-1 .clusterPieces {
+  position: absolute;
+}
+
+.ueber-uns-parallax .parallax-unit-1 .triangle {
+  width: 220px;
+  height: 220px;
+  right: 0;
+  top: 0;
+  z-index: 3;
+  background-color: transparent;
+  transform-origin: center center;
+  position: absolute;
+}
+
+.ueber-uns-parallax .parallax-unit-1 .triangle .window-border {
+  position: absolute;
+  background: var(--blue-color);
+}
+
+.ueber-uns-parallax .parallax-unit-1 .triangle .window-border--top {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+}
+
+.ueber-uns-parallax .parallax-unit-1 .triangle .window-border--right {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 8px;
+}
+
+.ueber-uns-parallax .parallax-unit-1 .triangle .window-border--bottom {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 8px;
+}
+
+.ueber-uns-parallax .parallax-unit-1 .triangle .window-border--left {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 8px;
+}
+
+.ueber-uns-parallax .parallax-unit-1 .dotsWhite {
+  width: 310px;
+  height: auto;
+  z-index: 2;
+  right: 80px;
+  top: 100px;
+  filter: grayscale(1) brightness(0.6);
+  position: absolute;
+}
+
+/* Unit 2: Circle + dotsBlue - LEFT side in Section 2 */
+.ueber-uns-parallax .parallax-unit-2 {
+  top: 40px;
+  left: 40px;
+}
+
+.ueber-uns-parallax .parallax-unit-2 .clusterPieces {
+  position: absolute;
+}
+
+.ueber-uns-parallax .parallax-unit-2 .circle {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background-color: var(--blue-color);
+  left: 0;
+  top: 0;
+  z-index: 1;
+  position: absolute;
+}
+
+.ueber-uns-parallax .parallax-unit-2 .dotsBlue {
+  width: 320px;
+  height: auto;
+  z-index: 3;
+  left: 60px;
+  top: 80px;
+  filter: grayscale(1) brightness(0.75);
+  position: absolute;
+}
+
+/* Unit 3: Triangle + dotsWhite - RIGHT side in Section 3 */
+.ueber-uns-parallax .parallax-unit-3 {
+  top: 40px;
+  right: 40px;
+  left: auto;
+}
+
+.ueber-uns-parallax .parallax-unit-3 .clusterPieces {
+  position: absolute;
+}
+
+.ueber-uns-parallax .parallax-unit-3 .triangle {
+  width: 220px;
+  height: 220px;
+  right: 0;
+  top: 0;
+  z-index: 3;
+  background-color: transparent;
+  transform-origin: center center;
+  position: absolute;
+}
+
+.ueber-uns-parallax .parallax-unit-3 .triangle .window-border {
+  position: absolute;
+  background: var(--blue-color);
+}
+
+.ueber-uns-parallax .parallax-unit-3 .triangle .window-border--top {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+}
+
+.ueber-uns-parallax .parallax-unit-3 .triangle .window-border--right {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 8px;
+}
+
+.ueber-uns-parallax .parallax-unit-3 .triangle .window-border--bottom {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 8px;
+}
+
+.ueber-uns-parallax .parallax-unit-3 .triangle .window-border--left {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 8px;
+}
+
+.ueber-uns-parallax .parallax-unit-3 .dotsWhite {
+  width: 310px;
+  height: auto;
+  z-index: 2;
+  right: 80px;
+  top: 100px;
+  filter: grayscale(1) brightness(0.6);
+  position: absolute;
+}
+
+/* Hide parallax units on mobile/tablet */
+@media screen and (max-width: 1100px) {
+  .ueber-uns-parallax .parallax-unit-1,
+  .ueber-uns-parallax .parallax-unit-2,
+  .ueber-uns-parallax .parallax-unit-3 {
+    display: none;
+  }
 }

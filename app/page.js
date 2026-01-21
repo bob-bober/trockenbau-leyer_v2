@@ -574,7 +574,7 @@ export default function Home() {
 
     if (playHomeIntro) {
       tl = gsap.timeline({ defaults: { ease: "power2.out" } });
-      gsap.set(".header, .experience, .footer", {
+      gsap.set(".header, .experience, .footer, .hero__title", {
         opacity: 0,
         pointerEvents: "none",
       });
@@ -583,6 +583,15 @@ export default function Home() {
         squares[0],
         { top: "0rem", left: "0rem", duration: 1, delay: 0.9 },
         0,
+      );
+
+      // Titel-Container früh sichtbar machen, ohne den Word-Reveal zu beeinflussen
+      tl.set(
+        ".hero__title",
+        {
+          opacity: 1,
+        },
+        0.05,
       );
       tl.to(
         squares[1],
@@ -635,12 +644,21 @@ export default function Home() {
                 duration: 1.2,
               });
 
-              gsap.to(".header, .experience, .footer", {
+              gsap.to(".header, .experience, .footer, .hero__title", {
                 opacity: 1,
                 pointerEvents: "auto",
                 delay: 0.8,
                 ease: "power4.inOut",
                 duration: 0.9,
+              });
+
+              // Fade out und disable intro overlay nach Animation
+              gsap.to(".intro-overlay, .loader", {
+                opacity: 0,
+                pointerEvents: "none",
+                delay: 0.8,
+                duration: 0.9,
+                ease: "power4.inOut",
               });
 
               const gridCells = gsap.utils.toArray(".hero__grid-cell");
@@ -694,7 +712,7 @@ export default function Home() {
       // Анимация слов
       tl.fromTo(
         ".innovative-word",
-        { x: window.innerWidth > 1100 ? "-100%" : "0%" },
+        { x: window.innerWidth > 1100 ? "-90%" : "0%" },
         { x: 0, duration: 1.3, delay: 3.8, ease: "power4.inOut" },
         0,
       );
@@ -738,11 +756,13 @@ export default function Home() {
         0,
       );
     } else {
-      gsap.set(".header, .experience, .footer", {
+      gsap.set(".header, .experience, .footer, .hero__title", {
         opacity: 1,
         pointerEvents: "auto",
       });
-      gsap.set(".loader, .loader-count, .square-loader", { display: "none" });
+      gsap.set(".intro-overlay, .loader, .loader-count, .square-loader", {
+        display: "none",
+      });
 
       const heroSection = document.querySelector(".hero");
       if (heroSection && window.innerWidth > 1100) {
@@ -766,8 +786,22 @@ export default function Home() {
   }, [playHomeIntro]);
 
   return (
-    <div>
-      <div className="loader" aria-hidden="true">
+    <div className="home-page">
+      <noscript>
+        <style>{`
+          .header,
+          .experience,
+          .footer {
+            opacity: 1 !important;
+            pointer-events: auto !important;
+          }
+          .loader {
+            display: none !important;
+          }
+        `}</style>
+      </noscript>
+      <div className="loader" aria-hidden="true" role="presentation">
+        <span className="sr-only">Seite wird geladen...</span>
         <div className="loader-count">
           <span className="square square-loader" />
           <span className="square square-loader" />
