@@ -466,19 +466,16 @@ export default function UeberUnsParallaxPage() {
                 }}
               >
                 <p style={{ margin: "0 0 1em 0" }}>
-                  Angefangen hat alles 1989 – mit einer kleinen Werkstatt in
-                  Köln und dem Anspruch, Räume zu gestalten, die funktionieren
-                  und gut aussehen.
+                  Seit 1990 steht Trockenbau Leyer in <em>Köln und Umgebung</em> für hochwertigen Innenausbau, technische Präzision und zuverlässige Ausführung.
                 </p>
                 <p style={{ margin: "0 0 1em 0" }}>
-                  Damals arbeiteten wir vor allem für Unternehmen und Läden.
-                  Heute entstehen unsere Möbel vor allem für Wohnungen, für
-                  Menschen, für Zuhause.
+                  Als Fachbetrieb für Trockenbau, Glas- und Deckensysteme begleiten wir Bauprojekte von der Planung bis zur Fertigstellung – strukturiert, termintreu und mit handwerklicher Klarheit.
                 </p>
                 <p style={{ margin: "0 0 1em 0" }}>
-                  Wir sind ein kleines, eingespieltes Team. Wir arbeiten eng
-                  zusammen, sprechen viel, entscheiden gemeinsam. Und auch wenn
-                  sich vieles verändert hat – diese Nähe ist geblieben.
+                  Über die Jahre hat sich Trockenbau Leyer als verlässlicher Partner für Architekten, Unternehmen und öffentliche Auftraggeber etabliert.
+                </p>
+                <p style={{ margin: "0 0 1em 0" }}>
+                  Unsere Projekte reichen von Büro- und Verwaltungsgebäuden über Praxis- und Bildungsbauten bis hin zu individuellen Ausbauten im privaten Bereich.
                 </p>
               </div>
             </div>
@@ -598,12 +595,11 @@ export default function UeberUnsParallaxPage() {
                   color: "#262626",
                 }}
               >
+                <p style={{ margin: "0 0 1em 0" }}>
+                  Die Grundlage jeder Zusammenarbeit ist ein systematischer Ansatz: saubere Planung, klare Abläufe und nachvollziehbare Kommunikation.
+                </p>
                 <p style={{ margin: 0 }}>
-                  Unsere Entwürfe entstehen aus der Überzeugung, dass gutes
-                  Design nicht viel braucht. Keine Effekte, keine Trends – nur
-                  gute Proportionen, sorgfältige Details und ein Material, das
-                  für sich spricht. So entstehen Möbel, die sich zurücknehmen –
-                  und gerade dadurch über Jahre hinweg Bestand haben.
+                  Viele unserer Kunden arbeiten seit Jahren, teils Jahrzehnten, mit uns zusammen – weil sie wissen, dass Qualität bei uns kein Zufall ist, sondern Ergebnis konsequenter Arbeit.
                 </p>
               </div>
             </div>
@@ -686,13 +682,13 @@ export default function UeberUnsParallaxPage() {
                 }}
               >
                 <p style={{ margin: "0 0 1em 0" }}>
-                  Handwerk bedeutet für uns: Verantwortung für jeden Schritt.
+                  Jedes Projekt beginnt mit einer genauen Vorstellung davon, was entstehen soll – und endet erst, wenn jedes Detail stimmt. Zwischen diesen Punkten liegt ein klarer Ablauf: Planung, Abstimmung, Ausführung. Diese Struktur ist Grundlage unserer Arbeit und Garant für Beständigkeit.
+                </p>
+                <p style={{ margin: "0 0 1em 0" }}>
+                  Sorgfalt im Prozess bedeutet Sicherheit im Ergebnis. Für Planer, Bauherren und Nutzer entsteht so Verlässlichkeit – in Funktion, Ausführung und Wirkung.
                 </p>
                 <p style={{ margin: 0 }}>
-                  Von der ersten Holzbohle bis zum fertigen Möbelstück begleiten
-                  wir alles in unserer Werkstatt. Wir arbeiten präzise, nehmen
-                  uns Zeit und bauen Möbel nicht nach Zahlen, sondern nach
-                  Anspruch.
+                  Darauf bauen viele unserer Kunden seit Jahren.
                 </p>
               </div>
             </div>
