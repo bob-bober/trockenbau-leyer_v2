@@ -695,11 +695,28 @@ body:has(.home-page) .header {
   }
 
   .hero__title-line--top {
-    align-items: flex-end;
+    align-items: flex-start;
   }
 
   .hero__title-line--bottom {
     align-items: flex-start;
+  }
+
+  /* Individual word alignment on mobile */
+  .innovative-word {
+    align-self: flex-start;
+  }
+
+  .design-word {
+    align-self: flex-end;
+  }
+
+  .timeless-word {
+    align-self: flex-start;
+  }
+
+  .architecture-word {
+    align-self: flex-end;
   }
 
   .hero__word {
@@ -1327,6 +1344,18 @@ body:has(.home-page) .header {
   width: 575rem;
   z-index: 2;
   backdrop-filter: blur(15px);
+}
+
+/* Mobile: Text unter das Bild verschieben */
+@media (max-width: 1100px) {
+  .experience__description {
+    position: static;
+    width: 100%;
+    padding: 32px 15px;
+    background-color: var(--bg-color);
+    backdrop-filter: none;
+    margin-top: 0;
+  }
 }
 
 .text-block .line {
@@ -2346,15 +2375,29 @@ body:has(.home-page) .header {
     grid-template-columns: 1fr;
     gap: 40rem;
     padding: 90rem 24rem 110rem;
+    display: flex;
+    flex-direction: column;
   }
 
+  /* Mobile order: Heading first, then image, then form */
   .contact-figma__image {
     height: 600rem;
+    order: 2;
   }
 
   .contact-figma__form-wrap {
     padding-right: 0;
     gap: 48rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contact-figma__titles {
+    order: -1; /* Show titles first */
+  }
+
+  .contact-figma__form {
+    order: 1; /* Show form last */
   }
 
   .contact-figma__title {
@@ -6219,11 +6262,6 @@ body:has(.home-page) .header {
   .page-content {
     padding-left: 20px;
     padding-right: 20px;
-  }
-
-  /* Experience-Description auf mobile verstecken */
-  .experience__description {
-    display: none;
   }
 
   /* Services und Stats: Full-width Container korrigieren */
