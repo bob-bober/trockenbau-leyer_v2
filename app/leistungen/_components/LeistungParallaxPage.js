@@ -149,6 +149,11 @@ export default function LeistungParallaxPage() {
         lineTriggers.forEach((trigger) => trigger.kill());
         lineTriggers = [];
 
+        // Skip text animations on mobile
+        if (window.innerWidth <= 1100) {
+          return;
+        }
+
         gsap.utils.toArray(".owl-template .text-block").forEach((el) => {
           const lines = el.querySelectorAll(".line-inner");
           if (!lines.length) return;
@@ -163,7 +168,7 @@ export default function LeistungParallaxPage() {
               ease: "power4.out",
               scrollTrigger: {
                 trigger: el,
-                start: window.innerWidth > 1100 ? "top 100%" : "top 70%",
+                start: "top 100%",
                 toggleActions: "play none none reverse",
                 scrub: true,
               },
@@ -174,10 +179,13 @@ export default function LeistungParallaxPage() {
         });
       };
 
-      updateSplit();
-      applyLineAnimations();
-      ScrollTrigger.addEventListener("refresh", updateSplit);
-      ScrollTrigger.addEventListener("refresh", applyLineAnimations);
+      // Only apply text splitting and animations on desktop
+      if (window.innerWidth > 1100) {
+        updateSplit();
+        applyLineAnimations();
+        ScrollTrigger.addEventListener("refresh", updateSplit);
+        ScrollTrigger.addEventListener("refresh", applyLineAnimations);
+      }
 
       return () => {
         ScrollTrigger.removeEventListener("refresh", updateSplit);

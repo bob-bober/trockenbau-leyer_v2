@@ -21,7 +21,10 @@ export default function CeoSection() {
               <TransitionLink className="ceo-anim-top" href="/contact">
                 KONTAKT
               </TransitionLink>
-              <TransitionLink className="ceo-anim-middle" href="/#sectionAbout">
+              <TransitionLink className="ceo-anim-middle ceo-anim-middle--desktop" href="/ueber-uns-parallax">
+                ÜBER UNS
+              </TransitionLink>
+              <TransitionLink className="ceo-anim-middle ceo-anim-middle--mobile" href="/ueber-uns">
                 ÜBER UNS
               </TransitionLink>
               <TransitionLink

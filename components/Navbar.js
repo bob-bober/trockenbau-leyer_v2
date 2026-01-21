@@ -56,7 +56,7 @@ export default function Navbar() {
 
     const burger = document.querySelector(".header-burger-menu");
     const menu = document.querySelector(".header__menu");
-    const expertiseLink = document.querySelector(".expertise-link");
+    const menuLinks = document.querySelectorAll(".header__link");
 
     function closeMenu() {
       menu?.classList.remove("menu-active");
@@ -68,13 +68,17 @@ export default function Navbar() {
       burger?.classList.toggle("burger-active");
     }
 
-    expertiseLink?.addEventListener("click", closeMenu);
+    menuLinks.forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
     burger?.addEventListener("click", toggleMenu);
 
     return () => {
       currentSource.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", handleResize);
-      expertiseLink?.removeEventListener("click", closeMenu);
+      menuLinks.forEach((link) => {
+        link.removeEventListener("click", closeMenu);
+      });
       burger?.removeEventListener("click", toggleMenu);
     };
   }, []);

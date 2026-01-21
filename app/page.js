@@ -119,7 +119,7 @@ export default function Home() {
             ease: "power4.out",
             scrollTrigger: {
               trigger: el,
-              start: window.innerWidth > 1100 ? "top 100%" : "top 70%",
+              start: window.innerWidth > 1100 ? "top 100%" : "top 55%",
               toggleActions: "play none none reverse",
               scrub: true,
               scroller: window.innerWidth < 1100 ? ".scroll-container" : null,

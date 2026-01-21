@@ -90,6 +90,19 @@ export default function ServicesSection() {
   }, [activeIndex]);
 
   const handleActivate = (index) => {
+    // Mobile: Toggle-Verhalten
+    if (typeof window !== "undefined" && window.innerWidth <= 900) {
+      if (activeIndex === index) {
+        // Wenn bereits aktiv, schließen
+        setActiveIndex(null);
+      } else {
+        // Sonst öffnen
+        setActiveIndex(index);
+      }
+      return;
+    }
+
+    // Desktop: Normales Hover-Verhalten
     setActiveIndex(index);
     activeIndexRef.current = index;
 
@@ -256,17 +269,22 @@ export default function ServicesSection() {
                   className={`services-card ${
                     activeIndex === index ? "is-active" : ""
                   } ${index >= visibleCount ? "hidden-services" : ""}`}
-                  onMouseEnter={() => handleActivate(index)}
-                  onFocus={() => handleActivate(index)}
+                  onMouseEnter={() => {
+                    if (window.innerWidth > 900) handleActivate(index);
+                  }}
+                  onFocus={() => {
+                    if (window.innerWidth > 900) handleActivate(index);
+                  }}
                   onClick={() => handleActivate(index)}
                   tabIndex={0}
                   ref={(el) => {
                     itemRefs.current[index] = el;
                   }}
                 >
+                  {/* Desktop: Link um Header */}
                   <TransitionLink
                     href={`/leistungen/${slugifyService(service.title)}`}
-                    className="services-card__link"
+                    className="services-card__link services-card__link--desktop"
                     onFocus={() => handleActivate(index)}
                     aria-label={service.title}
                   >
@@ -277,6 +295,14 @@ export default function ServicesSection() {
                       <h3 className="services-card__title">{service.title}</h3>
                     </div>
                   </TransitionLink>
+
+                  {/* Mobile: Header ohne Link */}
+                  <div className="services-card__header services-card__header--mobile">
+                    <span className="services-card__index">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="services-card__title">{service.title}</h3>
+                  </div>
 
                   {/* Mobile: Description direkt unter der Karte */}
                   <div className="services__description-mobile">

@@ -39,6 +39,7 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning>
       <body
         className={`${montrealBook.variable} ${montrealRegular.variable} ${montrealMedium.variable} antialiased`}
+        suppressHydrationWarning
       >
         <TransitionProvider>
           <Navbar />
