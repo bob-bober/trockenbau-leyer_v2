@@ -61,7 +61,10 @@ export default function KontaktPage() {
 
   return (
     <main className="kontakt-page">
-      <section className="contact-figma contact-figma--page" aria-labelledby="contact-heading">
+      <section
+        className="contact-figma contact-figma--page"
+        aria-labelledby="contact-heading"
+      >
         <div className="container contact-figma__inner">
           <div className="contact-figma__image" aria-hidden="true">
             <Image
