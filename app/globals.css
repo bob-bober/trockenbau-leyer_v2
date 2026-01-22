@@ -3672,11 +3672,7 @@ body:has(.home-page) .header {
 
 .bento-card:hover .bento-card__overlay,
 .bento-card:focus-within .bento-card__overlay {
-  background: linear-gradient(
-    to bottom,
-    rgba(230, 106, 31, 0.5),
-    rgba(230, 106, 31, 0.85)
-  );
+  background: #e66a1f;
 }
 
 .bento-card:hover .bento-card__front,

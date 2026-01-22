@@ -1,16 +1,19 @@
 import Image from "next/image";
+import TransitionLink from "./TransitionLink";
 
 export default function Footer() {
   return (
     <footer className="site-footer" aria-label="Footer">
       <div className="container site-footer__inner">
         <div className="site-footer__brand" aria-hidden="true">
-          <Image
-            src="/images/logo.svg"
-            alt="Trockenbau Dirk Leyer"
-            width={430}
-            height={120}
-          />
+          <TransitionLink href="/" aria-label="Raine Architects">
+            <Image
+              src="/images/logo.svg"
+              alt="Trockenbau Dirk Leyer"
+              width={430}
+              height={120}
+            />
+          </TransitionLink>
         </div>
 
         <div className="site-footer__contact">
@@ -21,7 +24,7 @@ export default function Footer() {
         </div>
 
         <nav className="site-footer__links" aria-label="Footer Navigation">
-          <a className="site-footer__link" href="/ueber-uns-parallax">
+          <a className="site-footer__link" href="/ueber-uns">
             Über Uns
           </a>
           <a className="site-footer__link" href="/leistungen">

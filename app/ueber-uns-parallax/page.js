@@ -508,7 +508,7 @@ export default function UeberUnsParallaxPage() {
       {/* Trigger 2: Section 2 with Unit 2 (Circle LEFT) */}
       <div className="parallax-trigger-2">
         {/* Parallax Unit 2: Circle + dotsBlue - LEFT */}
-        <div className="parallax-unit-2" aria-hidden="true">
+{/*         <div className="parallax-unit-2" aria-hidden="true">
           <div className="circle clusterPieces" />
           <img
             className="dotsBlue clusterPieces"
@@ -516,7 +516,7 @@ export default function UeberUnsParallaxPage() {
             alt=""
             aria-hidden="true"
           />
-        </div>
+        </div> */}
 
         {/* Section 2: Unsere Philosophie - Image left, Text right */}
         <section

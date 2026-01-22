@@ -14,17 +14,23 @@ export default function CeoSection() {
 
             <div className="ceo-middle">
               <p className="ceo-left">SEIT</p>
-              <p className="ceo-right">1996</p>
+              <p className="ceo-right">1990</p>
             </div>
 
             <div className="ceo-bottom">
               <TransitionLink className="ceo-anim-top" href="/contact">
                 KONTAKT
               </TransitionLink>
-              <TransitionLink className="ceo-anim-middle ceo-anim-middle--desktop" href="/ueber-uns-parallax">
+              <TransitionLink
+                className="ceo-anim-middle ceo-anim-middle--desktop"
+                href="/ueber-uns"
+              >
                 ÜBER UNS
               </TransitionLink>
-              <TransitionLink className="ceo-anim-middle ceo-anim-middle--mobile" href="/ueber-uns">
+              <TransitionLink
+                className="ceo-anim-middle ceo-anim-middle--mobile"
+                href="/ueber-uns"
+              >
                 ÜBER UNS
               </TransitionLink>
               <TransitionLink

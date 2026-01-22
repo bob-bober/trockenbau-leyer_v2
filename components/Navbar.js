@@ -106,7 +106,7 @@ export default function Navbar() {
             <li>
               <TransitionLink
                 className="header__link"
-                href="/ueber-uns-parallax"
+                href="/ueber-uns"
               >
                 <span className="header__dot" aria-hidden="true" />
                 <span>Über Uns</span>
