@@ -89,12 +89,12 @@ export default function Navbar() {
         <TransitionLink
           className="header__logo"
           href="/"
-          aria-label="Raine Architects"
+          aria-label="Trockenbau Dirk Leyer"
         >
           <Image
             className="header__logo-image"
             src={logoSrc}
-            alt="Raine Architects"
+            alt="logo"
             width={174}
             height={94}
             priority

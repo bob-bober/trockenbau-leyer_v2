@@ -6,10 +6,10 @@ export default function Footer() {
     <footer className="site-footer" aria-label="Footer">
       <div className="container site-footer__inner">
         <div className="site-footer__brand" aria-hidden="true">
-          <TransitionLink href="/" aria-label="Raine Architects">
+          <TransitionLink href="/" aria-label="Trockenbau Dirk Leyer">
             <Image
               src="/images/logo.svg"
-              alt="Trockenbau Dirk Leyer"
+              alt="logo"
               width={430}
               height={120}
             />
